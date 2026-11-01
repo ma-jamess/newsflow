@@ -136,8 +136,8 @@
   },
   {
     "path": "docs/newsflow-public-progress.md",
-    "bytes": 2718,
-    "sha256": "1d68d72d843dad923f6d7e4b436d0a5a914a73d4c9cb8d109a54cf393812039f"
+    "bytes": 3470,
+    "sha256": "ec9ddf8f68b4dc07d9c5be7b4ca38d54ee3627b7eb1870ec6c9fc2393fbca387"
   },
   {
     "path": "docs/newsflow-public-verification.json",
@@ -161,8 +161,8 @@
   },
   {
     "path": "docs/public-site-guide.md",
-    "bytes": 3132,
-    "sha256": "357f33b79682ec557d17a2f08037a5e16be5ee98ff0732291d007b72b1a19f78"
+    "bytes": 3377,
+    "sha256": "b921ce9c7778019ee5b6e34a1c1cd0bc9dfd33eafef609986c72760ccde95b9d"
   },
   {
     "path": "docs/reference-report.json",
@@ -376,13 +376,13 @@
   },
   {
     "path": "README.md",
-    "bytes": 11377,
-    "sha256": "dcbfe657901fa0e5c0c63153f4bbc0360e828e8b7819c87b2ae63e4daf1de81b"
+    "bytes": 11543,
+    "sha256": "7ba0d16278a5daa51f44a054faaae237fa410cadff24bf04f8efa89e9310c41f"
   },
   {
     "path": "README_EN.md",
-    "bytes": 4490,
-    "sha256": "8ff7a14aa384e0802321e937d8ca903346ea1c3b597c7f791672d7f9ae834f7c"
+    "bytes": 4684,
+    "sha256": "e46e4689777054c9f2065e895823e46fb0e49ae0c49ee3c2f06214c9c9feed0b"
   },
   {
     "path": "requirements-dev.txt",

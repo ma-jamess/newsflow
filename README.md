@@ -6,6 +6,8 @@
 
 [English](README_EN.md) · [使用与演示](docs/newsflow-guide.md) · [MIT 许可证](LICENSE)
 
+> 部署状态：源码已公开，公网发布尚待仓库所有者补充 GitHub CLI 的 workflow 授权。下方网址当前尚未上线；下载版可使用。
+
 **在线使用：[NewsFlow 公网新闻站](https://ma-jamess.github.io/newsflow/)**。公网版可以在其他设备访问，不需要运行本机 Python 服务。新闻由 GitHub Actions 约每 5 分钟抓取并用本地模型分类，调度可能延迟；收藏、纠错和来源显示偏好分别保存在每个浏览器。完整毕设程序仍可按下方步骤下载运行。
 
 公网部署、缓存行为和更新规则见 [公网版说明](docs/public-site-guide.md)。

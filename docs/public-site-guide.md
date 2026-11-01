@@ -1,5 +1,7 @@
 # NewsFlow 公网使用与部署
 
+当前部署状态：源码已保存到新仓库，Pages 的 HTTPS 与 Actions 发布模式已配置。GitHub 拒绝上传工作流（账号缺少 workflow 权限），因此公网尚未上线；授权后继续推送工作流并验证部署。
+
 网址：**https://ma-jamess.github.io/newsflow/**。源码：**https://github.com/ma-jamess/newsflow**。
 
 公网版由 GitHub Pages 提供 HTTPS 网页，关闭本机或 Python 窗口不影响网址。`127.0.0.1:8510` 是下载版的本机地址，只有程序运行时才能访问；它不能用作给别人分享的站点。
