@@ -1,0 +1,22 @@
+{
+  "original_file_count": 108,
+  "current_file_count": 108,
+  "changed_files": 0,
+  "original_unchanged": true,
+  "ordered_test_set_equal": true,
+  "test_count": 4989,
+  "automated_tests_passed": 24,
+  "frontend_tests_passed": 5,
+  "verified_version": "1.1.0",
+  "verified_date": "2026-10-22",
+  "browser_demo_passed": true,
+  "csv_upload_api_passed": true,
+  "csv_export_api_passed": true,
+  "browser_file_chooser_verified": false,
+  "browser_download_completion_verified": false,
+  "version_comparison_accuracy_delta_percentage_points": 0.901978352375219,
+  "clean_zip_setup_passed": true,
+  "clean_zip_verified_version": "1.1.0",
+  "clean_zip_verified_date": "2026-10-22",
+  "docx_pages_visually_checked": 10
+}

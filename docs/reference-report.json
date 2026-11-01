@@ -1,0 +1,507 @@
+{
+  "created_at": "2026-10-21T02:59:51.063475+00:00",
+  "seed": 42,
+  "selection_metric": "validation_macro_f1",
+  "categories": [
+    "体育",
+    "科技",
+    "教育",
+    "财经",
+    "娱乐"
+  ],
+  "environment": {
+    "python": "3.13.5",
+    "scikit-learn": "1.6.1",
+    "jieba": "0.42.1",
+    "numpy": "2.4.4",
+    "pandas": "2.2.3",
+    "streamlit": "1.45.1"
+  },
+  "models": {
+    "nb": {
+      "name": "朴素贝叶斯",
+      "parameter": 0.1,
+      "validation": {
+        "accuracy": 0.9476534296028881,
+        "macro_f1": 0.9476740328633447,
+        "confusion_matrix": [
+          [
+            966,
+            5,
+            2,
+            1,
+            26
+          ],
+          [
+            24,
+            898,
+            13,
+            26,
+            37
+          ],
+          [
+            7,
+            13,
+            954,
+            0,
+            26
+          ],
+          [
+            9,
+            12,
+            12,
+            938,
+            18
+          ],
+          [
+            12,
+            6,
+            9,
+            3,
+            969
+          ]
+        ],
+        "per_class": {
+          "体育": {
+            "precision": 0.9489194499017681,
+            "recall": 0.966,
+            "f1-score": 0.9573835480673935,
+            "support": 1000.0
+          },
+          "科技": {
+            "precision": 0.961456102783726,
+            "recall": 0.8997995991983968,
+            "f1-score": 0.9296066252587992,
+            "support": 998.0
+          },
+          "教育": {
+            "precision": 0.9636363636363636,
+            "recall": 0.954,
+            "f1-score": 0.9587939698492463,
+            "support": 1000.0
+          },
+          "财经": {
+            "precision": 0.96900826446281,
+            "recall": 0.948432760364004,
+            "f1-score": 0.9586101175268268,
+            "support": 989.0
+          },
+          "娱乐": {
+            "precision": 0.9005576208178439,
+            "recall": 0.96996996996997,
+            "f1-score": 0.9339759036144578,
+            "support": 999.0
+          },
+          "accuracy": 0.9476534296028881,
+          "macro avg": {
+            "precision": 0.9487155603205023,
+            "recall": 0.9476404659064741,
+            "f1-score": 0.9476740328633447,
+            "support": 4986.0
+          },
+          "weighted avg": {
+            "precision": 0.9486753391229513,
+            "recall": 0.9476534296028881,
+            "f1-score": 0.9476599004953462,
+            "support": 4986.0
+          }
+        }
+      },
+      "fit_seconds": 0.258,
+      "test_predict_seconds": 0.001,
+      "test": {
+        "accuracy": 0.9490879935858889,
+        "macro_f1": 0.9491606247291401,
+        "confusion_matrix": [
+          [
+            964,
+            5,
+            2,
+            0,
+            29
+          ],
+          [
+            12,
+            903,
+            18,
+            24,
+            43
+          ],
+          [
+            8,
+            9,
+            953,
+            3,
+            24
+          ],
+          [
+            14,
+            14,
+            7,
+            944,
+            13
+          ],
+          [
+            17,
+            7,
+            1,
+            4,
+            971
+          ]
+        ],
+        "per_class": {
+          "体育": {
+            "precision": 0.9497536945812808,
+            "recall": 0.964,
+            "f1-score": 0.9568238213399504,
+            "support": 1000.0
+          },
+          "科技": {
+            "precision": 0.9626865671641791,
+            "recall": 0.903,
+            "f1-score": 0.9318885448916409,
+            "support": 1000.0
+          },
+          "教育": {
+            "precision": 0.9714576962283384,
+            "recall": 0.9558676028084253,
+            "f1-score": 0.9635995955510617,
+            "support": 997.0
+          },
+          "财经": {
+            "precision": 0.9682051282051282,
+            "recall": 0.9516129032258065,
+            "f1-score": 0.9598373157092018,
+            "support": 992.0
+          },
+          "娱乐": {
+            "precision": 0.899074074074074,
+            "recall": 0.971,
+            "f1-score": 0.9336538461538462,
+            "support": 1000.0
+          },
+          "accuracy": 0.9490879935858889,
+          "macro avg": {
+            "precision": 0.9502354320506001,
+            "recall": 0.9490961012068464,
+            "f1-score": 0.9491606247291401,
+            "support": 4989.0
+          },
+          "weighted avg": {
+            "precision": 0.9501938557102976,
+            "recall": 0.9490879935858889,
+            "f1-score": 0.9491348218747995,
+            "support": 4989.0
+          }
+        }
+      }
+    },
+    "lr": {
+      "name": "逻辑回归",
+      "parameter": 4.0,
+      "validation": {
+        "accuracy": 0.9592860008022462,
+        "macro_f1": 0.9593648181600057,
+        "confusion_matrix": [
+          [
+            966,
+            6,
+            1,
+            2,
+            25
+          ],
+          [
+            11,
+            928,
+            8,
+            17,
+            34
+          ],
+          [
+            1,
+            10,
+            975,
+            1,
+            13
+          ],
+          [
+            6,
+            14,
+            8,
+            947,
+            14
+          ],
+          [
+            14,
+            12,
+            5,
+            1,
+            967
+          ]
+        ],
+        "per_class": {
+          "体育": {
+            "precision": 0.9679358717434869,
+            "recall": 0.966,
+            "f1-score": 0.9669669669669669,
+            "support": 1000.0
+          },
+          "科技": {
+            "precision": 0.9567010309278351,
+            "recall": 0.9298597194388778,
+            "f1-score": 0.943089430894309,
+            "support": 998.0
+          },
+          "教育": {
+            "precision": 0.9779338014042126,
+            "recall": 0.975,
+            "f1-score": 0.9764646970455684,
+            "support": 1000.0
+          },
+          "财经": {
+            "precision": 0.9783057851239669,
+            "recall": 0.9575328614762386,
+            "f1-score": 0.9678078691875319,
+            "support": 989.0
+          },
+          "娱乐": {
+            "precision": 0.9183285849952516,
+            "recall": 0.9679679679679679,
+            "f1-score": 0.942495126705653,
+            "support": 999.0
+          },
+          "accuracy": 0.9592860008022462,
+          "macro avg": {
+            "precision": 0.9598410148389507,
+            "recall": 0.9592721097766168,
+            "f1-score": 0.9593648181600057,
+            "support": 4986.0
+          },
+          "weighted avg": {
+            "precision": 0.9598098636003888,
+            "recall": 0.9592860008022462,
+            "f1-score": 0.9593561031388832,
+            "support": 4986.0
+          }
+        }
+      },
+      "fit_seconds": 4.381,
+      "test_predict_seconds": 0.001,
+      "test": {
+        "accuracy": 0.9603126879134095,
+        "macro_f1": 0.9604092329850774,
+        "confusion_matrix": [
+          [
+            967,
+            6,
+            2,
+            2,
+            23
+          ],
+          [
+            4,
+            948,
+            9,
+            11,
+            28
+          ],
+          [
+            7,
+            9,
+            962,
+            5,
+            14
+          ],
+          [
+            5,
+            17,
+            7,
+            957,
+            6
+          ],
+          [
+            17,
+            18,
+            5,
+            3,
+            957
+          ]
+        ],
+        "per_class": {
+          "体育": {
+            "precision": 0.967,
+            "recall": 0.967,
+            "f1-score": 0.967,
+            "support": 1000.0
+          },
+          "科技": {
+            "precision": 0.9498997995991983,
+            "recall": 0.948,
+            "f1-score": 0.948948948948949,
+            "support": 1000.0
+          },
+          "教育": {
+            "precision": 0.9766497461928934,
+            "recall": 0.9648946840521565,
+            "f1-score": 0.970736629667003,
+            "support": 997.0
+          },
+          "财经": {
+            "precision": 0.9785276073619632,
+            "recall": 0.9647177419354839,
+            "f1-score": 0.9715736040609138,
+            "support": 992.0
+          },
+          "娱乐": {
+            "precision": 0.9309338521400778,
+            "recall": 0.957,
+            "f1-score": 0.9437869822485208,
+            "support": 1000.0
+          },
+          "accuracy": 0.9603126879134095,
+          "macro avg": {
+            "precision": 0.9606022010588265,
+            "recall": 0.960322485197528,
+            "f1-score": 0.9604092329850774,
+            "support": 4989.0
+          },
+          "weighted avg": {
+            "precision": 0.9605638074156461,
+            "recall": 0.9603126879134095,
+            "f1-score": 0.9603851205058925,
+            "support": 4989.0
+          }
+        }
+      }
+    }
+  },
+  "candidates": [
+    {
+      "model": "nb",
+      "parameter": 0.1,
+      "validation_accuracy": 0.9476534296028881,
+      "validation_macro_f1": 0.9476740328633447,
+      "fit_seconds": 0.258
+    },
+    {
+      "model": "nb",
+      "parameter": 0.5,
+      "validation_accuracy": 0.9464500601684718,
+      "validation_macro_f1": 0.9464307740276301,
+      "fit_seconds": 0.164
+    },
+    {
+      "model": "nb",
+      "parameter": 1.0,
+      "validation_accuracy": 0.944043321299639,
+      "validation_macro_f1": 0.9439708637519202,
+      "fit_seconds": 0.169
+    },
+    {
+      "model": "lr",
+      "parameter": 1.0,
+      "validation_accuracy": 0.9546730846369835,
+      "validation_macro_f1": 0.9548258915981469,
+      "fit_seconds": 2.88
+    },
+    {
+      "model": "lr",
+      "parameter": 4.0,
+      "validation_accuracy": 0.9592860008022462,
+      "validation_macro_f1": 0.9593648181600057,
+      "fit_seconds": 4.381
+    }
+  ],
+  "split_counts": {
+    "train": 89887,
+    "dev": 4986,
+    "test": 4989
+  },
+  "feature_count": 40000,
+  "feature_seconds": 7.024,
+  "recommended_model": "lr",
+  "total_seconds": 16.179,
+  "majority_baseline_accuracy": 0.20044097013429546,
+  "data_audit": {
+    "raw_rows": {
+      "train": 180000,
+      "dev": 10000,
+      "test": 10000
+    },
+    "selected_rows": 100000,
+    "invalid_titles_removed": 0,
+    "conflicting_titles": 0,
+    "conflicting_rows_removed": 0,
+    "duplicate_rows_removed": 138,
+    "split_counts": {
+      "train": 89887,
+      "dev": 4986,
+      "test": 4989
+    },
+    "class_counts": {
+      "train": {
+        "体育": 18000,
+        "科技": 17979,
+        "教育": 17980,
+        "财经": 17931,
+        "娱乐": 17997
+      },
+      "dev": {
+        "体育": 1000,
+        "科技": 998,
+        "教育": 1000,
+        "财经": 989,
+        "娱乐": 999
+      },
+      "test": {
+        "体育": 1000,
+        "科技": 1000,
+        "教育": 997,
+        "财经": 992,
+        "娱乐": 1000
+      }
+    },
+    "cross_split_overlap": 0
+  },
+  "source": {
+    "repository": "https://github.com/649453932/Chinese-Text-Classification-Pytorch",
+    "commit": "6cb26819af7b646275aff8a4693676f2849e67f6",
+    "downloaded_at": "2026-10-21T02:54:29.275720+00:00",
+    "files": {
+      "class.txt": {
+        "url": "https://raw.githubusercontent.com/649453932/Chinese-Text-Classification-Pytorch/6cb26819af7b646275aff8a4693676f2849e67f6/THUCNews/data/class.txt",
+        "sha256": "005e8813ad639c219e5902dc84889202b4a717b4238497d26c3fbd5e43927a86",
+        "bytes": 82
+      },
+      "train.txt": {
+        "url": "https://raw.githubusercontent.com/649453932/Chinese-Text-Classification-Pytorch/6cb26819af7b646275aff8a4693676f2849e67f6/THUCNews/data/train.txt",
+        "sha256": "ba6fcbbb8fb809a9eb2be443b6b4db533c147861d94ebe0931b8c6092d8abe94",
+        "bytes": 9946122
+      },
+      "dev.txt": {
+        "url": "https://raw.githubusercontent.com/649453932/Chinese-Text-Classification-Pytorch/6cb26819af7b646275aff8a4693676f2849e67f6/THUCNews/data/dev.txt",
+        "sha256": "6ed73aa2c57ee1560c8f76570d48735c4b1c29ae4983fe3523d56e115813e175",
+        "bytes": 551313
+      },
+      "test.txt": {
+        "url": "https://raw.githubusercontent.com/649453932/Chinese-Text-Classification-Pytorch/6cb26819af7b646275aff8a4693676f2849e67f6/THUCNews/data/test.txt",
+        "sha256": "ebecc8c896635ad69730083ca7b81d37c42c9a5779bc05c9d2479d894e34f026",
+        "bytes": 551596
+      },
+      "README.md": {
+        "url": "https://raw.githubusercontent.com/649453932/Chinese-Text-Classification-Pytorch/6cb26819af7b646275aff8a4693676f2849e67f6/README.md",
+        "sha256": "5dd0c7071b71e7fce3582762cf34f63b8347180cb81e47973161f6708d1ca9b7",
+        "bytes": 2996
+      },
+      "LICENSE": {
+        "url": "https://raw.githubusercontent.com/649453932/Chinese-Text-Classification-Pytorch/6cb26819af7b646275aff8a4693676f2849e67f6/LICENSE",
+        "sha256": "c59122f7624279cb08820f671fc5a30fb72d97fbe84fc2f1603ba4df70967ad4",
+        "bytes": 1066
+      }
+    }
+  },
+  "model_hashes": {
+    "nb": "b078fee3b93428124dab97a31a888080c893b5321fe5199649163c94427d8ad4",
+    "lr": "3d54fb306012c3a2e3bbc276afc4444b125a8e9698ce2f76c924fe69da1199c5"
+  }
+}

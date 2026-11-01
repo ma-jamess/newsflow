@@ -1,0 +1,37 @@
+{
+  "repository": "https://github.com/649453932/Chinese-Text-Classification-Pytorch",
+  "commit": "6cb26819af7b646275aff8a4693676f2849e67f6",
+  "downloaded_at": "2026-10-21T02:54:29.275720+00:00",
+  "files": {
+    "class.txt": {
+      "url": "https://raw.githubusercontent.com/649453932/Chinese-Text-Classification-Pytorch/6cb26819af7b646275aff8a4693676f2849e67f6/THUCNews/data/class.txt",
+      "sha256": "005e8813ad639c219e5902dc84889202b4a717b4238497d26c3fbd5e43927a86",
+      "bytes": 82
+    },
+    "train.txt": {
+      "url": "https://raw.githubusercontent.com/649453932/Chinese-Text-Classification-Pytorch/6cb26819af7b646275aff8a4693676f2849e67f6/THUCNews/data/train.txt",
+      "sha256": "ba6fcbbb8fb809a9eb2be443b6b4db533c147861d94ebe0931b8c6092d8abe94",
+      "bytes": 9946122
+    },
+    "dev.txt": {
+      "url": "https://raw.githubusercontent.com/649453932/Chinese-Text-Classification-Pytorch/6cb26819af7b646275aff8a4693676f2849e67f6/THUCNews/data/dev.txt",
+      "sha256": "6ed73aa2c57ee1560c8f76570d48735c4b1c29ae4983fe3523d56e115813e175",
+      "bytes": 551313
+    },
+    "test.txt": {
+      "url": "https://raw.githubusercontent.com/649453932/Chinese-Text-Classification-Pytorch/6cb26819af7b646275aff8a4693676f2849e67f6/THUCNews/data/test.txt",
+      "sha256": "ebecc8c896635ad69730083ca7b81d37c42c9a5779bc05c9d2479d894e34f026",
+      "bytes": 551596
+    },
+    "README.md": {
+      "url": "https://raw.githubusercontent.com/649453932/Chinese-Text-Classification-Pytorch/6cb26819af7b646275aff8a4693676f2849e67f6/README.md",
+      "sha256": "5dd0c7071b71e7fce3582762cf34f63b8347180cb81e47973161f6708d1ca9b7",
+      "bytes": 2996
+    },
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/649453932/Chinese-Text-Classification-Pytorch/6cb26819af7b646275aff8a4693676f2849e67f6/LICENSE",
+      "sha256": "c59122f7624279cb08820f671fc5a30fb72d97fbe84fc2f1603ba4df70967ad4",
+      "bytes": 1066
+    }
+  }
+}

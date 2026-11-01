@@ -1,0 +1,42 @@
+{
+  "count": 4989,
+  "aligned": true,
+  "counts": {
+    "both_correct": 4774,
+    "new_correct_old_wrong": 62,
+    "old_correct_new_wrong": 17,
+    "both_wrong": 136
+  },
+  "per_class": {
+    "体育": {
+      "count": 1000,
+      "old_recall": 0.967,
+      "new_recall": 0.977
+    },
+    "娱乐": {
+      "count": 1000,
+      "old_recall": 0.957,
+      "new_recall": 0.962
+    },
+    "教育": {
+      "count": 997,
+      "old_recall": 0.9648946840521565,
+      "new_recall": 0.9779338014042126
+    },
+    "科技": {
+      "count": 1000,
+      "old_recall": 0.948,
+      "new_recall": 0.962
+    },
+    "财经": {
+      "count": 992,
+      "old_recall": 0.9647177419354839,
+      "new_recall": 0.967741935483871
+    }
+  },
+  "accuracy_delta_percentage_points": 0.9019843656043296,
+  "input_sha256": {
+    "old": "3306c8d5409154da4cc64093359513b643b22af03dfdfde746cf27863b17f8a8",
+    "new": "f692d268eebbc7b9efb5559990f18979a73cdc2f5199c797308b251f638a2bfd"
+  }
+}

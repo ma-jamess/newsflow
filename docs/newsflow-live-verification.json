@@ -1,0 +1,256 @@
+{
+  "app": "NewsFlow",
+  "version": "1.4.0",
+  "verified_at": "2026-10-31T19:00:29.507865+08:00",
+  "sources": [
+    {
+      "id": "ithome",
+      "url": "https://www.ithome.com/rss/",
+      "checked_at": "2026-10-31T10:19:54.062046+00:00",
+      "items": 60,
+      "latest_published_at": "2026-10-31T10:08:46+00:00",
+      "recent_items": 60,
+      "ok": true
+    },
+    {
+      "id": "sspai",
+      "url": "https://sspai.com/feed",
+      "checked_at": "2026-10-31T10:19:54.062820+00:00",
+      "items": 10,
+      "latest_published_at": "2026-10-31T05:29:19+00:00",
+      "recent_items": 10,
+      "ok": true
+    },
+    {
+      "id": "cn-sports",
+      "url": "https://www.chinanews.com.cn/rss/sports.xml",
+      "checked_at": "2026-10-31T10:19:54.063429+00:00",
+      "items": 30,
+      "latest_published_at": "2026-10-31T08:59:25+00:00",
+      "recent_items": 30,
+      "ok": true
+    },
+    {
+      "id": "cn-finance",
+      "url": "https://www.chinanews.com.cn/rss/finance.xml",
+      "checked_at": "2026-10-31T10:19:54.225435+00:00",
+      "items": 30,
+      "latest_published_at": "2026-10-31T10:17:08+00:00",
+      "recent_items": 30,
+      "ok": true
+    },
+    {
+      "id": "cn-education",
+      "url": "https://www.chinanews.com.cn/rss/edu.xml",
+      "checked_at": "2026-10-31T10:19:54.265693+00:00",
+      "items": 15,
+      "latest_published_at": "2026-10-31T09:11:12+00:00",
+      "recent_items": 11,
+      "ok": true
+    }
+  ],
+  "tests": {
+    "python": {
+      "passed": 79,
+      "seconds": 21.4,
+      "warning": "Existing pytz utcfromtimestamp deprecation"
+    },
+    "node": {
+      "passed": 30,
+      "duration_ms": 354.554
+    },
+    "javascript_syntax": "passed",
+    "git_diff_check": "passed",
+    "collection": "pytest.ini restricts collection to official tests/"
+  },
+  "browser": {
+    "engine": "Microsoft Edge",
+    "method": "Playwright CLI using installed msedge",
+    "mutation_database": "independent disposable QA cache; automatic news and manual checks use local models; paid provider disabled",
+    "desktop": {
+      "browser": "Microsoft Edge",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "initialCount": "148 条",
+      "overflow": false,
+      "detail": true,
+      "originalLink": "https://www.ithome.com/1/020/580.htm",
+      "explanationBars": 5,
+      "bookmarkFilter": true,
+      "bookmarkReload": true,
+      "humanCategoryFilter": true,
+      "download": "NewsFlow_新闻列表.csv",
+      "transfer": true,
+      "localClassification": "科技",
+      "batchRows": 3,
+      "experimentModels": 3,
+      "historySaved": true,
+      "method": true,
+      "help": true,
+      "intersectedFilters": 5,
+      "search": true,
+      "category": true,
+      "source": true,
+      "emptySearch": true,
+      "errors": [],
+      "itemId": "0f9e4ea8640834b5750f6a2c06c47f2d",
+      "title": "【20:00~20:15】蹲点速抢京东无门槛红包，80 元超补券先到先得，vivo X Fold6 限量 1 元抢",
+      "transfer_not_auto_submitted": true
+    },
+    "mobile": {
+      "browser": "Microsoft Edge",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "mobileCategory": true,
+      "detailOverlay": true,
+      "detailWidth": 366.3999938964844,
+      "detailClosed": true,
+      "sourceCount": 7,
+      "sourceDisabled": true,
+      "sourceEnabled": true,
+      "privateSourceRejected": true,
+      "publicSourceAdded": true,
+      "sourceDialogOverflow": false,
+      "bookmarkRemovalEmptyState": true,
+      "pageClamp": true,
+      "finalOverflow": false,
+      "expected_http_400": "private custom feed validation"
+    },
+    "post_review_ui_fixes": "desktop and mobile flows passed"
+  },
+  "live_app": {
+    "port": 8510,
+    "current_news_count": 156,
+    "stats": {
+      "total": 156,
+      "saved": 0,
+      "review": 39,
+      "categories": {
+        "体育": 31,
+        "科技": 85,
+        "教育": 16,
+        "财经": 13,
+        "娱乐": 11
+      }
+    },
+    "update": {
+      "refreshing": false,
+      "status": "success",
+      "last_started_at": "2026-10-31T10:59:55.834520+00:00",
+      "last_finished_at": "2026-10-31T10:59:56.173004+00:00",
+      "last_success_at": "2026-10-31T10:59:55.834544+00:00",
+      "new_count": 0,
+      "errors": 0
+    },
+    "screenshot": "images/newsflow-preview.png",
+    "health": {
+      "app": "codex-news-title-classifier",
+      "version": "1.4.0",
+      "ready": true
+    },
+    "final_edge_preview": {
+      "browser": "Microsoft Edge",
+      "url": "http://127.0.0.1:8510/#news",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "newsCount": "156 条",
+      "selectedTitle": "宏碁非凡 Go Air 新增 16+512GB 存储版本：酷睿 Ultra 5 125H 售 6999 元，999g 轻薄设计",
+      "probabilityBars": 5,
+      "originalLink": "https://www.ithome.com/1/020/586.htm",
+      "overflow": false,
+      "errors": []
+    }
+  },
+  "limitations": [
+    "Periodic 120-second feed checks; article arrival depends on publisher updates.",
+    "Historical held-out metrics do not measure current-news classification accuracy.",
+    "Local personal instances; this task does not publish the repository or provide a shared hosted service.",
+    "Older date labels omit the year; complete timestamps remain stored."
+  ],
+  "review": {
+    "status": "complete_with_verified_fixes",
+    "independent_reviewer": "/root/newsflow_final_review",
+    "critical": 0,
+    "important_fixed": 2,
+    "final_gate_http_issue_fixed": true,
+    "unresolved_important": 0,
+    "record": "newsflow-code-review.md",
+    "deferred_minor": "fullTime omits year for older dates"
+  },
+  "archive": {
+    "name": "NewsFlow_1.4_完整源码.zip",
+    "format": "MIT complete source with models/data/notices/tests",
+    "independent_extraction": "passed",
+    "clean_startup": {
+      "verified_at": "2026-10-31T18:58:14.613714+08:00",
+      "clean_venv": true,
+      "own_models_loaded": true,
+      "setup_only_exit_code": 0,
+      "module_path": "C:\\Users\\30909\\bishe\\news-title-classifier-codex\\qa\\newsflow\\clean-extracted\\NewsFlow\\newsroom\\server.py",
+      "server_sha256": "3d09606ef3c88232ac0c3ef1d8a543ead5610b19c9e4e8b97ce1fe6080510f1c",
+      "health": {
+        "app": "codex-news-title-classifier",
+        "version": "1.4.0",
+        "ready": true
+      },
+      "recent_news": 149,
+      "live_refresh_status": "success",
+      "local_title_prediction": "教育",
+      "manual_model": "svm",
+      "current_paid_api_calls": 0,
+      "own_runtime_created": true,
+      "fresh_default_sources": 5,
+      "unauthorized_post_complete_json": true,
+      "source_checks": [
+        {
+          "id": "ithome",
+          "status": "fresh",
+          "last_success_at": "2026-10-31T10:58:02.288257+00:00",
+          "latest_published_at": "2026-10-31T10:50:47+00:00"
+        },
+        {
+          "id": "sspai",
+          "status": "fresh",
+          "last_success_at": "2026-10-31T10:58:02.288257+00:00",
+          "latest_published_at": "2026-10-31T05:29:19+00:00"
+        },
+        {
+          "id": "cn-sports",
+          "status": "fresh",
+          "last_success_at": "2026-10-31T10:58:02.288257+00:00",
+          "latest_published_at": "2026-10-31T10:21:00+00:00"
+        },
+        {
+          "id": "cn-finance",
+          "status": "fresh",
+          "last_success_at": "2026-10-31T10:58:02.288257+00:00",
+          "latest_published_at": "2026-10-31T10:17:08+00:00"
+        },
+        {
+          "id": "cn-education",
+          "status": "fresh",
+          "last_success_at": "2026-10-31T10:58:02.288257+00:00",
+          "latest_published_at": "2026-10-31T10:33:41+00:00"
+        }
+      ]
+    },
+    "edge_clean_ui": {
+      "browser": "Microsoft Edge",
+      "url": "http://127.0.0.1:8512/#news",
+      "title": "NewsFlow · 新闻分类小工具",
+      "count": "149 条",
+      "detail": "宏碁非凡 Go Air 新增 16+512GB 存储版本：酷睿 Ultra 5 125H 售 6999 元，999g 轻薄设计",
+      "probabilityBars": 5,
+      "overflow": false,
+      "errors": []
+    },
+    "final_integrity_report": "dist/NewsFlow_1.4_校验报告.json (distributed separately to avoid self-referential archive hashing)"
+  }
+}

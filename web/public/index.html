@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="按分类浏览持续更新的新闻，搜索、收藏和人工核对。免费的开源新闻小工具。">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+  <title>NewsFlow · 在线新闻分类小工具</title>
+  <link rel="icon" href="icons/newspaper.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="polish.css"><link rel="stylesheet" href="newsflow.css"><link rel="stylesheet" href="public.css">
+  <script src="live-news-ui.js" defer></script><script src="public-backend.js" defer></script><script src="public-app.js" defer></script><script src="live-news.js" defer></script>
+</head>
+<body data-page="news" data-public-site="true">
+<aside class="sidebar">
+  <a href="#news" class="brand"><span class="brand-mark">N<span>↗</span></span><span>NewsFlow<small>在线新闻分类小工具</small></span></a>
+  <div class="nav-label">我的工作台</div>
+  <nav aria-label="功能导航">
+    <button data-page="news" class="nav active"><img class="nav-icon" src="icons/newspaper.svg" alt="">最新新闻<small>LIVE</small></button>
+    <button data-page="evaluation" class="nav"><img class="nav-icon" src="icons/chart-column.svg" alt="">实验报告</button>
+    <a class="nav" href="{{REPO_URL}}/archive/refs/heads/main.zip"><img class="nav-icon" src="icons/layers.svg" alt="">下载毕设完整版</a>
+    <a class="nav" href="{{REPO_URL}}" target="_blank" rel="noopener noreferrer"><img class="nav-icon" src="icons/workflow.svg" alt="">GitHub 源码</a>
+  </nav>
+  <div class="news-side-section"><div class="nav-label">新闻分类</div><div id="news-side-filters"></div></div>
+  <div class="sidebar-note"><span class="live-dot"></span>新闻自动更新<p>自动归类 · 搜索 · 收藏</p><p>收藏和纠错保存在此浏览器</p></div>
+  <div class="sidebar-bottom">季金航 · 毕业设计<small>NEWSFLOW / PUBLIC · MIT</small></div>
+</aside>
+<main class="main"><div class="topbar"><span>NewsFlow / 新闻工作台</span><div><button id="help-open" class="text-button">使用指南</button><span class="local-status">在线运行 <i></i></span></div></div>
+<div class="content"><p id="startup-error" class="error hidden" role="alert"></p>
+{{NEWS_PAGE}}
+<section id="page-evaluation" class="page hidden"><span class="eyebrow">REPRODUCIBLE EXPERIMENT</span><h1>实验报告</h1><p>以下指标来自固定历史测试集，不能代表当前新闻准确率。新闻详情允许人工核对类别。</p><div id="public-report" class="card">正在读取报告…</div><p class="muted">任意标题分类、CSV 批量处理和重新训练，请下载完整项目在本机运行。所有代码、模型、数据、测试和说明均在源码中。</p><a class="primary" href="{{REPO_URL}}/archive/refs/heads/main.zip">下载毕设完整版</a></section>
+<footer class="footer"><span>NewsFlow · 开源新闻分类工具</span><span>新闻权利属于原发布方 · <a href="LICENSE">MIT</a></span></footer>
+</div></main>
+<dialog id="news-sources-dialog"><div class="card-title"><div><span class="eyebrow">NEWS SOURCES</span><h2>选择你的新闻来源</h2></div><button id="news-sources-close" class="icon-button" aria-label="关闭新闻源设置">×</button></div><p class="sources-intro">选择在此浏览器显示哪些来源。自动任务约每 5 分钟检查订阅，调度可能延迟；不影响其他人的设置。</p><div id="news-source-list"></div><p class="error" id="news-source-error" role="alert"></p><form id="news-source-form" hidden><input id="news-source-name"><input id="news-source-url"><button id="news-source-add">添加</button></form></dialog>
+<dialog id="help-dialog"><div class="card-title"><h2>从这里开始</h2><button id="help-close" class="text-button" aria-label="关闭使用指南">×</button></div><ol class="guide-steps"><li><b>浏览与筛选</b><p>按分类、来源和关键词找新闻。自动任务约每 5 分钟抓取和分类；检查更新读取已发布数据。来源发布时间与最近采集时间分别显示。</p></li><li><b>收藏与纠错</b><p>收藏、人工类别和来源偏好只保存在此浏览器。刷新和数据更新会保留；清理站点数据会删除，换设备不会同步。</p></li><li><b>模型与毕设</b><p>新闻自动分类使用已有本地模型，不调用付费 API。概率不保证正确；可在详情中改类。完整程序可下载进行单条、CSV 批量和训练实验。</p></li></ol><p class="muted">本页只展示订阅标题和摘要，请通过“阅读原文”访问发布方。来源失败或断网时显示可用缓存，并提示更新时间。</p></dialog>
+<div id="toast" class="toast hidden" role="status"></div>
+</body></html>

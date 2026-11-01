@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-22",
+  "version": "1.1.0",
+  "csv_upload_rows": 6,
+  "preview_invalid_rows": 1,
+  "batch_labeled_count": 5,
+  "demo_accuracy": 1.0,
+  "export_rows": 6,
+  "export_utf8_bom": true,
+  "full_error_export_counts": {
+    "nb": 242,
+    "lr": 165,
+    "svm": 153
+  }
+}

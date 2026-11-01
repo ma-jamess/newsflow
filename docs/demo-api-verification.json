@@ -1,0 +1,11 @@
+{
+  "version": "1.1.0",
+  "csv_preview_total": 6,
+  "csv_preview_invalid": 1,
+  "csv_batch_rows": 6,
+  "labeled_rows": 5,
+  "demo_accuracy": 1.0,
+  "export_rows": 6,
+  "export_utf8_bom": true,
+  "svm_error_export_rows": 153
+}

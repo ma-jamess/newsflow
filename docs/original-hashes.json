@@ -1,0 +1,434 @@
+[
+  {
+    "Path": "\\.gitignore",
+    "SHA256": "DB5D970427880A3942EACA8EB43AFF3B7CC0EB5B5B111C8F95809A5671C49C1B"
+  },
+  {
+    "Path": "\\启动说明.txt",
+    "SHA256": "453639FF2FA3CDE609D332FF01AF0B4C343B2142FCD4A32A0FD6A074FAFA6F8D"
+  },
+  {
+    "Path": "\\源文件清单.txt",
+    "SHA256": "884A82B0122A46E2C0E08C6531FDF6DC874C11030B7C470B6A4E9D949F6F5874"
+  },
+  {
+    "Path": "\\app.py",
+    "SHA256": "BEFA7F81BD74CE7B7394D73EEE0C7E574F999D9CAF52C7222E347E581BC602F0"
+  },
+  {
+    "Path": "\\pytest.ini",
+    "SHA256": "B160D82F7811555051F8966D8E02750A985227C1D022208C784E606946F2EADA"
+  },
+  {
+    "Path": "\\README.md",
+    "SHA256": "EB0F4C28856F38AE9F30E6D8378BA47E1C9AE20D648E784FBC20E3513A32CF2D"
+  },
+  {
+    "Path": "\\requirements.in",
+    "SHA256": "B4F45E0D8A4AA7A932362D645691604D4F0221AE99EC657099F0921388ACF91D"
+  },
+  {
+    "Path": "\\requirements.txt",
+    "SHA256": "FA2679D7BA56A81A0AF9BAA08BC36FFE2513D4266CAC5C2038C9B546BED49578"
+  },
+  {
+    "Path": "\\run.bat",
+    "SHA256": "154357FFFA8E997585657BED891BD041EDBF3A2F32F051F3A0517532020DF6C7"
+  },
+  {
+    "Path": "\\run.py",
+    "SHA256": "CBF7D2F4F34921A813F8EAFC94528775350A6D41E8AACF98B532C20B8E3275EF"
+  },
+  {
+    "Path": "\\.streamlit\\config.toml",
+    "SHA256": "002224F4468328A87764CB260078E03BA178F9434D3B61A1B9B384EB4D70DD67"
+  },
+  {
+    "Path": "\\artifacts\\lr_errors.csv",
+    "SHA256": "D2020C94E004A0224B7B788CFB8E5B66B030E799BF2A084B5D83D86521F92558"
+  },
+  {
+    "Path": "\\artifacts\\lr_test_predictions.csv",
+    "SHA256": "3306C8D5409154DA4CC64093359513B643B22AF03DFDFDE746CF27863B17F8A8"
+  },
+  {
+    "Path": "\\artifacts\\lr.joblib",
+    "SHA256": "3D54FB306012C3A2E3BBC276AFC4444B125A8E9698CE2F76C924FE69DA1199C5"
+  },
+  {
+    "Path": "\\artifacts\\nb_errors.csv",
+    "SHA256": "AD229AB1382C3AD975EAEBA90E79EB5B06471BFBE14D739D002C10A5FCACC35D"
+  },
+  {
+    "Path": "\\artifacts\\nb_test_predictions.csv",
+    "SHA256": "2FBA9386E8F25C7DDC3175A644C25F1D4CD5652D9A90B064443D5B167DC10C03"
+  },
+  {
+    "Path": "\\artifacts\\nb.joblib",
+    "SHA256": "B078FEE3B93428124DAB97A31A888080C893B5321FE5199649163C94427D8AD4"
+  },
+  {
+    "Path": "\\artifacts\\report.json",
+    "SHA256": "E6C71EB269E68340C3C64B919543DB9A28A5073356CCBFB1C77BC9122B038210"
+  },
+  {
+    "Path": "\\data\\raw\\class.txt",
+    "SHA256": "005E8813AD639C219E5902DC84889202B4A717B4238497D26C3FBD5E43927A86"
+  },
+  {
+    "Path": "\\data\\raw\\dev.txt",
+    "SHA256": "6ED73AA2C57EE1560C8F76570D48735C4B1C29AE4983FE3523D56E115813E175"
+  },
+  {
+    "Path": "\\data\\raw\\LICENSE",
+    "SHA256": "C59122F7624279CB08820F671FC5A30FB72D97FBE84FC2F1603BA4DF70967AD4"
+  },
+  {
+    "Path": "\\data\\raw\\manifest.json",
+    "SHA256": "2DEB417F6CCAC3A50390C934420A583DEB0BD653C7CFC4A337079564269193D5"
+  },
+  {
+    "Path": "\\data\\raw\\README.md",
+    "SHA256": "5DD0C7071B71E7FCE3582762CF34F63B8347180CB81E47973161F6708D1CA9B7"
+  },
+  {
+    "Path": "\\data\\raw\\test.txt",
+    "SHA256": "EBECC8C896635AD69730083CA7B81D37C42C9A5779BC05C9D2479D894E34F026"
+  },
+  {
+    "Path": "\\data\\raw\\train.txt",
+    "SHA256": "BA6FCBBB8FB809A9EB2BE443B6B4DB533C147861D94EBE0931B8C6092D8ABE94"
+  },
+  {
+    "Path": "\\docs\\执行记录.md",
+    "SHA256": "7DD421422FF91219E8947BA30A440BCA3DC2F2E7DF00F108CB8DBA8AD63BFB56"
+  },
+  {
+    "Path": "\\docs\\superpowers\\plans\\2026-10-21-news-title.md",
+    "SHA256": "5C15E668E85835BCE62094A354DD08CF405319A89C720D3939FA2B506CBFAB27"
+  },
+  {
+    "Path": "\\docs\\superpowers\\specs\\2026-10-21-news-title-design.md",
+    "SHA256": "192FAF250CD6033D00FEBAD31AC583361A9EE21E2FAC15197A576C8B52E2FF72"
+  },
+  {
+    "Path": "\\news_classifier\\__init__.py",
+    "SHA256": "D567BB7FA5664D3F47BE8D089444531539E21291F12B699C0A5207118E5400DB"
+  },
+  {
+    "Path": "\\news_classifier\\data.py",
+    "SHA256": "39A8DAB0AF1635FE359BDFC69F0600E545F54498F07DCA2307AFAAC84F0A48CC"
+  },
+  {
+    "Path": "\\news_classifier\\model.py",
+    "SHA256": "48493995703B220D51BCDC97F7DB550E2744BE5B0429BAC06FA85744D059B78A"
+  },
+  {
+    "Path": "\\news_classifier\\predict.py",
+    "SHA256": "4B5A50D194BF12EA29EB6D40AFC500EB95A95DE9969149D5ECDC8A83C3E28590"
+  },
+  {
+    "Path": "\\scripts\\download_data.py",
+    "SHA256": "E509E6802516F6863384E2C8277BC438F777077C2A62E9B09160282B7AC1EFBA"
+  },
+  {
+    "Path": "\\scripts\\make_package.py",
+    "SHA256": "63AB6BE26F3007AE3152D9F65E5F613A2CDDF4D44DA5D49313304BEC2901966C"
+  },
+  {
+    "Path": "\\scripts\\train.py",
+    "SHA256": "3F09F77E1A01E4629E39400AF981E2F3CC15D064E4724738999641B2C17CC140"
+  },
+  {
+    "Path": "\\tests\\test_app.py",
+    "SHA256": "491843B66161CA85DE32CAD1825B5C5DAB51A9F0657D377E233E7A3A7E4DF00F"
+  },
+  {
+    "Path": "\\tests\\test_data.py",
+    "SHA256": "3DFB87154CDBD1FF85608F3750B6F0849ECE1D6A8C5F331C1B158F53A744C9BA"
+  },
+  {
+    "Path": "\\tests\\test_model.py",
+    "SHA256": "857E0EF341148AA7208E4ECD84A449D044AF197648152EB02E644CB75ACA9363"
+  },
+  {
+    "Path": "\\tests\\test_predict.py",
+    "SHA256": "5C621C897A4E5517D0EA547ED39E35C59242DF2A36824D8BD07D18719ECEE55D"
+  },
+  {
+    "Path": "\\thesis\\基于机器学习的中文新闻标题分类系统设计与实现_季金航.docx",
+    "SHA256": "AD1169FB0F29EFAF441808B248189150F117807DA3EF695D65690464D11A1BE8"
+  },
+  {
+    "Path": "\\thesis\\make_figures.py",
+    "SHA256": "35938016A31D6E2B8F65B5D89C022248058D984B83D81BF0995402394CEED0AD"
+  },
+  {
+    "Path": "\\thesis\\build\\build.py",
+    "SHA256": "0492B952A4DD9E174E94AD3FCE1B19F6A8D53BFF8479778E9803AA2D3A39001B"
+  },
+  {
+    "Path": "\\thesis\\build\\docx_helpers.py",
+    "SHA256": "0197EA539E2F11B9294CE5B0CDF372E29F3AA1BB570BBDDC36FBAF08E7C10F2A"
+  },
+  {
+    "Path": "\\thesis\\build\\part_ch1_2.py",
+    "SHA256": "AA878AB6178D2DDCADAECA6B7A20BC8DECDF1668DCDE4AD2041C30B17F9B55CE"
+  },
+  {
+    "Path": "\\thesis\\build\\part_ch3_4.py",
+    "SHA256": "6B921673566A745D0CBFF7A459FEF7F8519A16024653D756D94925C642F514B2"
+  },
+  {
+    "Path": "\\thesis\\build\\part_ch5.py",
+    "SHA256": "C2F64164031AAC0DB39A2DE62C6D88965945F055E30E7B7CC725D2CA11309DC5"
+  },
+  {
+    "Path": "\\thesis\\build\\part_ch6_7.py",
+    "SHA256": "3785FD5517BEAE2D9450973DE4E66F3E645C1913A078CB0DB10F17F289741703"
+  },
+  {
+    "Path": "\\thesis\\build\\part_front.py",
+    "SHA256": "A253603EB5304CC231F8E27F94A3315C4192FD5A66E79E544FF01D8E183FDA08"
+  },
+  {
+    "Path": "\\thesis\\figures\\fig_3_1_function.png",
+    "SHA256": "A2571FCD0E2C9A380232DABBD936537F1E1D1775D7AD19CD4815B14F6F7EC1F2"
+  },
+  {
+    "Path": "\\thesis\\figures\\fig_4_1_architecture.png",
+    "SHA256": "F9B67DFB31AA244A06A18BFE79DCC7B4909AC8FD25B38C6545A780DA3A17E932"
+  },
+  {
+    "Path": "\\thesis\\figures\\fig_5_1_pipeline.png",
+    "SHA256": "0CEBCDE7375DF6684FF73465607CB1D96EA8DC6B7635683F9A39164A5D93D9A3"
+  },
+  {
+    "Path": "\\thesis\\figures\\fig_6_1_model_compare.png",
+    "SHA256": "8F1BF73152EB987664EC4161D22CD2FB8B9BA126BBA262642281DC72990F8520"
+  },
+  {
+    "Path": "\\thesis\\figures\\fig_6_2_confusion_lr.png",
+    "SHA256": "DDC914C604EB72444EBAFA2AB5F0A346D98CE716838F8F5A4CB0D99A928D6511"
+  },
+  {
+    "Path": "\\thesis\\figures\\fig_6_3_confusion_pairs.png",
+    "SHA256": "ADFB51AE3FE74D9213694AE86C0ACAA14F5E9C027790F7FFB4A50334383C9D4F"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\.gitignore",
+    "SHA256": "DB5D970427880A3942EACA8EB43AFF3B7CC0EB5B5B111C8F95809A5671C49C1B"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\启动说明.txt",
+    "SHA256": "453639FF2FA3CDE609D332FF01AF0B4C343B2142FCD4A32A0FD6A074FAFA6F8D"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\源文件清单.txt",
+    "SHA256": "884A82B0122A46E2C0E08C6531FDF6DC874C11030B7C470B6A4E9D949F6F5874"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\app.py",
+    "SHA256": "BEFA7F81BD74CE7B7394D73EEE0C7E574F999D9CAF52C7222E347E581BC602F0"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\pytest.ini",
+    "SHA256": "B160D82F7811555051F8966D8E02750A985227C1D022208C784E606946F2EADA"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\README.md",
+    "SHA256": "EB0F4C28856F38AE9F30E6D8378BA47E1C9AE20D648E784FBC20E3513A32CF2D"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\requirements.in",
+    "SHA256": "B4F45E0D8A4AA7A932362D645691604D4F0221AE99EC657099F0921388ACF91D"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\requirements.txt",
+    "SHA256": "FA2679D7BA56A81A0AF9BAA08BC36FFE2513D4266CAC5C2038C9B546BED49578"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\run.bat",
+    "SHA256": "154357FFFA8E997585657BED891BD041EDBF3A2F32F051F3A0517532020DF6C7"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\run.py",
+    "SHA256": "CBF7D2F4F34921A813F8EAFC94528775350A6D41E8AACF98B532C20B8E3275EF"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\.streamlit\\config.toml",
+    "SHA256": "002224F4468328A87764CB260078E03BA178F9434D3B61A1B9B384EB4D70DD67"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\artifacts\\lr_errors.csv",
+    "SHA256": "D2020C94E004A0224B7B788CFB8E5B66B030E799BF2A084B5D83D86521F92558"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\artifacts\\lr_test_predictions.csv",
+    "SHA256": "3306C8D5409154DA4CC64093359513B643B22AF03DFDFDE746CF27863B17F8A8"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\artifacts\\lr.joblib",
+    "SHA256": "3D54FB306012C3A2E3BBC276AFC4444B125A8E9698CE2F76C924FE69DA1199C5"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\artifacts\\nb_errors.csv",
+    "SHA256": "AD229AB1382C3AD975EAEBA90E79EB5B06471BFBE14D739D002C10A5FCACC35D"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\artifacts\\nb_test_predictions.csv",
+    "SHA256": "2FBA9386E8F25C7DDC3175A644C25F1D4CD5652D9A90B064443D5B167DC10C03"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\artifacts\\nb.joblib",
+    "SHA256": "B078FEE3B93428124DAB97A31A888080C893B5321FE5199649163C94427D8AD4"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\artifacts\\report.json",
+    "SHA256": "E6C71EB269E68340C3C64B919543DB9A28A5073356CCBFB1C77BC9122B038210"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\data\\raw\\class.txt",
+    "SHA256": "005E8813AD639C219E5902DC84889202B4A717B4238497D26C3FBD5E43927A86"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\data\\raw\\dev.txt",
+    "SHA256": "6ED73AA2C57EE1560C8F76570D48735C4B1C29AE4983FE3523D56E115813E175"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\data\\raw\\LICENSE",
+    "SHA256": "C59122F7624279CB08820F671FC5A30FB72D97FBE84FC2F1603BA4DF70967AD4"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\data\\raw\\manifest.json",
+    "SHA256": "2DEB417F6CCAC3A50390C934420A583DEB0BD653C7CFC4A337079564269193D5"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\data\\raw\\README.md",
+    "SHA256": "5DD0C7071B71E7FCE3582762CF34F63B8347180CB81E47973161F6708D1CA9B7"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\data\\raw\\test.txt",
+    "SHA256": "EBECC8C896635AD69730083CA7B81D37C42C9A5779BC05C9D2479D894E34F026"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\data\\raw\\train.txt",
+    "SHA256": "BA6FCBBB8FB809A9EB2BE443B6B4DB533C147861D94EBE0931B8C6092D8ABE94"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\docs\\执行记录.md",
+    "SHA256": "7DD421422FF91219E8947BA30A440BCA3DC2F2E7DF00F108CB8DBA8AD63BFB56"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\docs\\superpowers\\plans\\2026-10-21-news-title.md",
+    "SHA256": "5C15E668E85835BCE62094A354DD08CF405319A89C720D3939FA2B506CBFAB27"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\docs\\superpowers\\specs\\2026-10-21-news-title-design.md",
+    "SHA256": "192FAF250CD6033D00FEBAD31AC583361A9EE21E2FAC15197A576C8B52E2FF72"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\news_classifier\\__init__.py",
+    "SHA256": "D567BB7FA5664D3F47BE8D089444531539E21291F12B699C0A5207118E5400DB"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\news_classifier\\data.py",
+    "SHA256": "39A8DAB0AF1635FE359BDFC69F0600E545F54498F07DCA2307AFAAC84F0A48CC"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\news_classifier\\model.py",
+    "SHA256": "48493995703B220D51BCDC97F7DB550E2744BE5B0429BAC06FA85744D059B78A"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\news_classifier\\predict.py",
+    "SHA256": "4B5A50D194BF12EA29EB6D40AFC500EB95A95DE9969149D5ECDC8A83C3E28590"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\scripts\\download_data.py",
+    "SHA256": "E509E6802516F6863384E2C8277BC438F777077C2A62E9B09160282B7AC1EFBA"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\scripts\\make_package.py",
+    "SHA256": "63AB6BE26F3007AE3152D9F65E5F613A2CDDF4D44DA5D49313304BEC2901966C"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\scripts\\train.py",
+    "SHA256": "3F09F77E1A01E4629E39400AF981E2F3CC15D064E4724738999641B2C17CC140"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\tests\\test_app.py",
+    "SHA256": "491843B66161CA85DE32CAD1825B5C5DAB51A9F0657D377E233E7A3A7E4DF00F"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\tests\\test_data.py",
+    "SHA256": "3DFB87154CDBD1FF85608F3750B6F0849ECE1D6A8C5F331C1B158F53A744C9BA"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\tests\\test_model.py",
+    "SHA256": "857E0EF341148AA7208E4ECD84A449D044AF197648152EB02E644CB75ACA9363"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\tests\\test_predict.py",
+    "SHA256": "5C621C897A4E5517D0EA547ED39E35C59242DF2A36824D8BD07D18719ECEE55D"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\基于机器学习的中文新闻标题分类系统设计与实现_季金航.docx",
+    "SHA256": "AD1169FB0F29EFAF441808B248189150F117807DA3EF695D65690464D11A1BE8"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\make_figures.py",
+    "SHA256": "35938016A31D6E2B8F65B5D89C022248058D984B83D81BF0995402394CEED0AD"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\build\\build.py",
+    "SHA256": "0492B952A4DD9E174E94AD3FCE1B19F6A8D53BFF8479778E9803AA2D3A39001B"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\build\\docx_helpers.py",
+    "SHA256": "0197EA539E2F11B9294CE5B0CDF372E29F3AA1BB570BBDDC36FBAF08E7C10F2A"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\build\\part_ch1_2.py",
+    "SHA256": "AA878AB6178D2DDCADAECA6B7A20BC8DECDF1668DCDE4AD2041C30B17F9B55CE"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\build\\part_ch3_4.py",
+    "SHA256": "6B921673566A745D0CBFF7A459FEF7F8519A16024653D756D94925C642F514B2"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\build\\part_ch5.py",
+    "SHA256": "C2F64164031AAC0DB39A2DE62C6D88965945F055E30E7B7CC725D2CA11309DC5"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\build\\part_ch6_7.py",
+    "SHA256": "3785FD5517BEAE2D9450973DE4E66F3E645C1913A078CB0DB10F17F289741703"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\build\\part_front.py",
+    "SHA256": "A253603EB5304CC231F8E27F94A3315C4192FD5A66E79E544FF01D8E183FDA08"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\figures\\fig_3_1_function.png",
+    "SHA256": "A2571FCD0E2C9A380232DABBD936537F1E1D1775D7AD19CD4815B14F6F7EC1F2"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\figures\\fig_4_1_architecture.png",
+    "SHA256": "F9B67DFB31AA244A06A18BFE79DCC7B4909AC8FD25B38C6545A780DA3A17E932"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\figures\\fig_5_1_pipeline.png",
+    "SHA256": "0CEBCDE7375DF6684FF73465607CB1D96EA8DC6B7635683F9A39164A5D93D9A3"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\figures\\fig_6_1_model_compare.png",
+    "SHA256": "8F1BF73152EB987664EC4161D22CD2FB8B9BA126BBA262642281DC72990F8520"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\figures\\fig_6_2_confusion_lr.png",
+    "SHA256": "DDC914C604EB72444EBAFA2AB5F0A346D98CE716838F8F5A4CB0D99A928D6511"
+  },
+  {
+    "Path": "\\中文新闻标题分类系统_季金航\\thesis\\figures\\fig_6_3_confusion_pairs.png",
+    "SHA256": "ADFB51AE3FE74D9213694AE86C0ACAA14F5E9C027790F7FFB4A50334383C9D4F"
+  }
+]

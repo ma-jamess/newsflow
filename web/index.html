@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NewsFlow · 新闻分类小工具</title>
+  <meta name="description" content="按分类浏览持续更新的新闻，搜索、收藏与人工核对。开源、本地运行的中文新闻小工具。">
+  <link rel="icon" type="image/svg+xml" href="/icons/newspaper.svg">
+  <link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/polish.css"><link rel="stylesheet" href="/newsflow.css">
+  <script src="/ui-data.js" defer></script><script src="/deepseek-ui.js" defer></script><script src="/app.js" defer></script><script src="/improvements.js" defer></script><script src="/workspace.js" defer></script><script src="/live-news-ui.js" defer></script><script src="/live-news.js" defer></script>
+</head>
+<body data-page="news">
+<aside class="sidebar">
+  <a href="#news" class="brand"><span class="brand-mark">N<span>↗</span></span><span>NewsFlow<small>新闻分类小工具</small></span></a>
+  <div class="nav-label">我的工作台</div>
+  <nav aria-label="功能导航">
+    <button data-page="news" class="nav active"><img class="nav-icon" src="/icons/newspaper.svg" alt="">最新新闻<small>LIVE</small></button>
+    <button data-page="classify" class="nav"><img class="nav-icon" src="/icons/workflow.svg" alt="">快速分类</button>
+    <button data-page="batch" class="nav"><img class="nav-icon" src="/icons/layers.svg" alt="">批量处理<small>02</small></button>
+    <button data-page="evaluation" class="nav"><img class="nav-icon" src="/icons/chart-column.svg" alt="">实验评估<small>03</small></button>
+    <button data-page="history" class="nav"><img class="nav-icon" src="/icons/history.svg" alt="">历史与纠错<small>04</small></button>
+    <button data-page="method" class="nav"><img class="nav-icon" src="/icons/workflow.svg" alt="">设计与原理<small>05</small></button>
+  </nav>
+  <div class="news-side-categories"><div class="nav-label">新闻分类</div><div id="news-side-filters"></div></div>
+  <div class="side-note"><span class="live-dot"></span>每 2 分钟检查新闻<p>自动归类 · 搜索 · 收藏</p><p>本地模型处理新闻标题</p></div>
+  <div class="side-footer">季金航 · 毕业设计<small>NEWSFLOW / 1.4 · OPEN SOURCE</small></div>
+</aside>
+<main>
+  <header class="topbar"><span>NewsFlow <span class="topbar-slash">/</span> 新闻工作台</span><div class="topbar-actions"><button id="help-open" class="text-button">使用指南</button><span class="tag">本地运行 <i></i></span></div></header>
+  <div class="content">
+    <div id="startup-error" class="alert hidden" role="alert"></div>
+    <section id="page-news" class="page">
+      <div class="news-heading"><div><div class="eyebrow">YOUR DAILY NEWS, ORGANIZED</div><h1>让新闻，<span>各归其位。</span></h1><p>最近 72 小时的新闻，自动更新、按类整理。</p></div><button id="news-refresh" class="primary news-refresh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6 7a7 7 0 0 1 12-1l2 3M4 15l2 3a7 7 0 0 0 12-1"/></svg><span id="news-refresh-label">检查更新</span></button></div>
+      <div class="news-controls"><div class="news-modes" role="group" aria-label="新闻视图"><button data-news-mode="all" class="active" aria-pressed="true">全部新闻 <span id="news-count-all">—</span></button><button data-news-mode="review" aria-pressed="false">待核对 <span id="news-count-review">—</span></button><button data-news-mode="saved" aria-pressed="false">我的收藏 <span id="news-count-saved">—</span></button></div><button id="news-sources-open" class="text-button">管理新闻源 <span aria-hidden="true">↗</span></button></div>
+      <div id="news-mobile-filters" class="news-mobile-filters" role="group" aria-label="选择新闻分类"></div>
+      <div class="news-toolbar"><div class="news-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input id="news-search" type="search" maxlength="200" placeholder="搜索感兴趣的新闻…" aria-label="搜索新闻标题和摘要"></div><select id="news-source-filter" aria-label="按新闻来源筛选"><option value="">所有来源</option></select><button id="news-export" class="secondary">导出 CSV ↓</button></div>
+      <div class="news-status-line" aria-live="polite"><span id="news-status"><span class="live-dot"></span>正在连接新闻订阅…</span><span id="news-latest"></span></div>
+      <p id="news-error" class="error" role="alert"></p>
+      <div class="news-layout"><div class="news-feed"><div class="news-list-heading"><h2 id="news-list-title">全部新闻</h2><span id="news-list-count">正在加载</span></div><div id="news-list" aria-label="新闻列表"></div><div class="news-pagination"><button id="news-prev" class="secondary" disabled>上一页</button><span id="news-pager"></span><button id="news-next" class="secondary" disabled>下一页</button></div><p class="news-footnote">自动分类基于标题。遇到跨领域内容或新词，可在详情中核对类别。</p></div><aside id="news-detail" class="news-detail" aria-label="新闻详情"><div class="news-detail-empty"><span class="detail-decoration" aria-hidden="true">N↗</span><h2>挑一条新闻，<br>看看来龙去脉。</h2><p>查看订阅摘要、原始来源，<br>以及本地模型的分类依据。</p><div class="detail-empty-note"><span class="live-dot"></span>新闻持续更新，收藏留在本机</div></div></aside></div>
+      <button id="news-detail-backdrop" class="news-detail-backdrop" aria-label="关闭新闻详情" tabindex="-1"></button>
+    </section>
+    <section id="page-classify" class="page hidden">
+      <div class="page-heading"><div><div class="eyebrow">01 / CLASSIFY</div><h1>新闻归类，<span>让判断更清楚。</span></h1><p>输入标题，查看分类依据；遇到不确定的判断，留给人工核对。</p></div><span class="edition">NEWSFLOW / 1.4<br><b>三种本地算法 + DeepSeek</b></span></div>
+      <div class="metric-grid" id="overview"></div>
+      <div class="workspace">
+        <div class="card input-card"><div class="card-title"><h2>输入一条新闻标题</h2><span class="label-muted">支持中文 / 最多200字</span></div>
+          <form id="classify-form"><label class="sr-only" for="title-input">新闻标题</label><textarea id="title-input" placeholder="例如：国产人工智能芯片发布，算力性能再获突破" maxlength="200" rows="5" required></textarea><div class="input-footer"><span>仅分析标题，不判断新闻真伪</span><span id="char-count">0 / 200</span></div>
+          <div class="form-row"><div><label for="model">分类模型</label><select id="model"></select></div><div><label for="threshold">人工核对阈值 <b id="threshold-value">0.65</b></label><input id="threshold" type="range" min="0.20" max="0.95" step="0.05" value="0.65"></div></div>
+          <p id="deepseek-note" class="muted" aria-live="polite"></p>
+          <button class="primary full" type="submit" id="classify-submit">开始分类 <span>→</span></button><button class="secondary full compare-button" type="button" id="compare-submit">同一标题对照三种算法</button><p id="classify-error" class="error" role="alert"></p></form>
+          <div class="examples"><span>试一条示例</span><div id="example-buttons"></div></div>
+        </div>
+        <div id="result" class="card result-card" aria-live="polite"><div class="card-title"><h2>分类结果</h2><span class="label-muted">实时推断</span></div><div class="empty-state"><div class="empty-symbol">◎</div><h3>每个标题，都有线索</h3><p>输入标题或选择示例，查看预测类别、<br>概率分布与影响分类的文字特征。</p><div class="empty-categories">体育 · 科技 · 教育 · 财经 · 娱乐</div></div></div>
+      </div>
+      <div id="comparison-output" class="card hidden" aria-live="polite"></div>
+      <div class="info-strip"><span>◇</span><p><strong>结果可解释，也可以被纠正。</strong> 每次单条分类都会保存在本机；如果判断有误，可以到「历史与纠错」标注正确类别。</p><button data-page="history" class="text-button">查看历史 →</button></div>
+    </section>
+    <section id="page-batch" class="page hidden">
+      <div class="page-heading"><div><div class="eyebrow">02 / BATCH</div><h1>一批标题，<span>有序归类。</span></h1><p>上传 CSV 或粘贴多行标题，逐条核对并导出。</p></div></div>
+      <div class="card"><div class="card-title"><h2>批量输入</h2><button id="download-template" class="text-button">下载 CSV 示例 ↓</button></div>
+        <div class="batch-inputs"><div class="upload-zone"><div class="upload-icon">↑</div><h3>选择 CSV 文件</h3><p>title 或 标题列 · UTF-8 / GB18030<br>最多5000行，文件不超过5 MB</p><label class="secondary file-button" for="csv-file">选择文件<input id="csv-file" type="file" accept=".csv,text/csv"></label><small id="file-name">尚未选择文件</small><p class="muted">可选 label / 真实类别列，用于本批效果评估。</p></div><div><label for="batch-text">或粘贴标题，每行一条</label><textarea id="batch-text" rows="7" placeholder="足球队夺得联赛冠军&#10;人工智能技术推动芯片创新&#10;高校公布今年招生计划"></textarea><p class="muted">文件已选择时优先处理文件；空标题保留错误状态。</p></div></div>
+        <div class="batch-settings"><div><label for="batch-threshold">本批人工核对阈值 <b id="batch-threshold-value">0.65</b></label><input id="batch-threshold" type="range" min="0.20" max="0.95" step="0.05" value="0.65"></div><p class="muted">分数偏低或候选接近时提示核对。此设置独立于单条分类。</p></div><div class="batch-controls"><select id="batch-model" aria-label="批量分类算法"></select><button id="batch-preview" class="secondary">先预览输入</button><button id="batch-submit" class="primary">批量分类 →</button><button id="clear-file" class="text-button">清除文件</button></div><p id="batch-error" class="error" role="alert"></p><div id="preview-output" class="hidden" aria-live="polite"></div>
+      </div>
+      <div id="batch-output" class="hidden"><div class="metric-grid" id="batch-summary"></div><div id="batch-insights" class="card"></div><div class="card"><div class="card-title"><h2>分类明细 <span id="batch-count" class="label-muted"></span></h2><div class="action-group"><button id="batch-review-export" class="secondary">导出待核对</button><button id="batch-export" class="secondary">导出全部结果 ↓</button></div></div><div id="batch-evaluation"></div><div class="table-tools"><input id="batch-search" placeholder="搜索标题" aria-label="搜索批量结果"><select id="batch-category" aria-label="按类别筛选"><option value="">所有类别</option><option>体育</option><option>科技</option><option>教育</option><option>财经</option><option>娱乐</option></select><select id="batch-filter" aria-label="按状态筛选"><option value="">所有状态</option><option value="ok">分类完成</option><option value="review">需人工核对</option><option value="invalid">输入无效</option><option value="unknown">未识别特征</option></select></div><div id="batch-table" class="table-wrap"></div><div class="pager"><button id="batch-prev" class="secondary">上一页</button><span id="batch-pager"></span><button id="batch-next" class="secondary">下一页</button></div></div></div>
+    </section>
+    <section id="page-evaluation" class="page hidden"><div class="page-heading"><div><div class="eyebrow">03 / EXPERIMENT</div><h1>效果，<span>用实验说话。</span></h1><p>真实测试集指标，参数选择与概率校准使用不同的验证样本。</p></div><button id="report-export" class="secondary">下载实验记录 ↓</button></div><div id="evaluation-content"></div></section>
+    <section id="page-history" class="page hidden"><div class="page-heading"><div><div class="eyebrow">04 / REVIEW</div><h1>保留判断，<span>修正偏差。</span></h1><p>人工标注独立保存，不会自动改变模型或测试数据。</p></div><button id="history-export" class="secondary">导出历史与纠错 ↓</button></div><div class="metric-grid" id="history-summary"></div><div class="card"><div class="card-title"><h2>本机分类记录</h2><button id="history-refresh" class="text-button">刷新 ↺</button></div><div class="table-tools"><input id="history-search" placeholder="搜索历史标题" aria-label="搜索历史"><select id="history-filter" aria-label="筛选纠错记录"><option value="">全部记录</option><option value="pending">待核对未标注</option><option value="corrected">已人工标注</option><option value="review">需人工核对</option></select><select id="history-sort" aria-label="历史排序"><option value="recent">最近记录优先</option><option value="uncertain">低概率优先</option></select></div><p class="muted queue-note">先查看未标注的不确定结果；低概率提示核对优先级，不代表一定分错。</p><div id="history-table" class="table-wrap"></div></div></section>
+    <section id="page-method" class="page hidden"><div class="page-heading"><div><div class="eyebrow">05 / HOW IT WORKS</div><h1>从文字，<span>到可复现的判断。</span></h1><p>为毕业设计演示、代码阅读与答辩准备。</p></div></div>
+      <div class="card"><h2>一条实时新闻如何进入工作台</h2><div class="pipeline"><div><b>01</b><h3>检查公开订阅</h3><p>每两分钟读取 RSS / Atom<br>保留来源原始发布时间</p></div><span>→</span><div><b>02</b><h3>清洗与去重</h3><p>摘要转换为安全文本<br>按文章链接排除重复</p></div><span>→</span><div><b>03</b><h3>本地自动分类</h3><p>推荐模型判断五类标题<br>不确定结果提示核对</p></div><span>→</span><div><b>04</b><h3>缓存与阅读</h3><p>SQLite 保存新闻与收藏<br>按类搜索、阅读与纠错</p></div></div><p class="muted">新闻读取与本机分类历史分别存储。来源连接失败时保留缓存；收藏和人工类别不被后续刷新覆盖。当前新闻准确率需要另外采样标注与评估，不能使用下方历史测试集指标替代。</p></div>
+      <div class="card"><h2>本地算法的分类路径</h2><div class="pipeline"><div><b>01</b><h3>清洗标题</h3><p>统一全角、HTML、空格<br>检查空标题与长度</p></div><span>→</span><div><b>02</b><h3>提取特征</h3><p>分词 + TF-IDF<br>补充2至4字的字符片段</p></div><span>→</span><div><b>03</b><h3>模型推断</h3><p>朴素贝叶斯 / 逻辑回归<br>线性 SVM</p></div><span>→</span><div><b>04</b><h3>校准与核对</h3><p>Sigmoid 概率校准<br>低分和相近类别提醒</p></div></div><p class="muted">DeepSeek 走独立路径：检查标题 → 发送至官方 API → 思考模式语义分类 → 返回类别与理由。密钥留在本机服务，结果不参与下方本地算法实验报告。</p></div>
+      <div class="method-grid"><article class="card"><span class="eyebrow">DATA</span><h2>先划清数据边界</h2><p>公开 THUCNews 新闻标题子集。先清洗、排除标签冲突，跨训练 / 验证 / 测试集去重。特征词表和 IDF 只由训练集学习。</p><p>验证集按类别分层切分：一半选择参数与推荐算法，另一半校准概率。测试集在这些决定完成后才用于最终评估。</p><p>固定数据提交、随机种子42、文件哈希和完整训练源码随项目提供。</p></article><article class="card"><span class="eyebrow">EXPLANATION</span><h2>解释从真实特征计算</h2><p>显示本标题 TF-IDF 特征值乘以预测类别与第二候选类别的线性权重差。片段或词语越有区分力，贡献越大。</p><p>这些数值说明原始分类得分受到哪些特征影响；它们不是因果解释，也不是概率增量。</p><p>训练脚本同时保留校准前后指标，用于评估校准的实际影响。</p></article><article class="card"><span class="eyebrow">IMPLEMENTATION</span><h2>完整本地实现</h2><p>Python 标准库 HTTP 服务，原生 HTML / CSS / JavaScript 页面，scikit-learn 模型，SQLite 历史数据库。</p><div class="code-box">python run.py<br>python run.py --retrain<br>python -m pytest -q</div><p>默认 Edge，服务只监听127.0.0.1。源码和训练资源都在独立项目目录。</p></article><article class="card"><span class="eyebrow">LIMITATIONS</span><h2>认识结果的边界</h2><p>模型只学过五类新闻；医学、政治、军事等内容仍可能被分到最接近的类别。高概率也不能保证正确，校准不是五类外检测。</p><p>数据年代较早，当前新词与热点存在分布差异。正式应用前应增加新数据和独立评估。</p><p>人工纠错仅供标注留档；未来再训练应另外划分数据，不能把测试错误直接用于训练后继续报告原测试指标。</p></article></div>
+    </section>
+    <footer class="footer"><span>NewsFlow · 基于机器学习的中文新闻分类工具</span><span>季金航 · 开源代码 / MIT</span></footer>
+  </div>
+</main>
+<dialog id="news-sources-dialog"><div class="card-title"><div><span class="eyebrow">NEWS SOURCES</span><h2>选择你的新闻来源</h2></div><button id="news-sources-close" class="icon-button" aria-label="关闭新闻源设置">×</button></div><p class="sources-intro">订阅公开 RSS / Atom。检查频率为 2 分钟，新闻到达时间取决于来源更新。</p><div id="news-source-list"></div><form id="news-source-form"><h3>添加一个订阅</h3><div class="source-form-fields"><div><label for="news-source-name">来源名称</label><input id="news-source-name" maxlength="40" required placeholder="例如：我的科技订阅"></div><div><label for="news-source-url">RSS / Atom 地址</label><input id="news-source-url" type="url" maxlength="2048" required placeholder="https://example.com/feed.xml"></div></div><div class="source-form-footer"><p>使用公开 HTTPS 地址；关闭来源会保留已缓存新闻。</p><button id="news-source-add" class="primary" type="submit">添加订阅</button></div><p id="news-source-error" class="error" role="alert"></p></form></dialog>
+<dialog id="help-dialog"><div class="card-title"><h2>从这里开始</h2><button id="help-close" class="text-button" aria-label="关闭使用指南">×</button></div><ol class="guide-steps"><li><b>浏览新闻</b><p>按分类和来源筛选，搜索标题与摘要。每 2 分钟检查订阅，也可以手动检查；发布时间来自原始新闻源。</p></li><li><b>收藏与核对</b><p>点击标题查看详情、打开原文或收藏。可人工修改类别；收藏与标注保存在本机，刷新后保留。</p></li><li><b>分类与实验</b><p>快速分类、CSV 批量处理、历史与实验评估保留在工作台。人工标注只留档，独立测试指标保持独立。</p></li></ol><p class="muted">新闻自动分类使用本地模型。快速分类支持 Ctrl+Enter；选择 DeepSeek 后，手动提交的标题发送至官方 API 并按量计费。五类之外的新闻需人工核对。</p></dialog><dialog id="feedback-dialog"><form id="feedback-form"><div class="card-title"><h2>人工核对</h2><button id="dialog-close" type="button" class="text-button" aria-label="关闭">×</button></div><p id="feedback-title"></p><label for="correction">正确类别</label><select id="correction"></select><label for="feedback-note">备注（选填）</label><textarea id="feedback-note" maxlength="500" rows="3" placeholder="例如：标题中的发布会实际是电影首映"></textarea><p class="muted">本次标注只保存在本机，不会自动更改模型。</p><p id="feedback-error" class="error" role="alert"></p><button type="submit" class="primary full">保存人工标注</button></form></dialog>
+<div id="toast" class="toast hidden" role="status"></div>
+</body>
+</html>

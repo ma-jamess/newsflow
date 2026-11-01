@@ -1,0 +1,24 @@
+{
+  "version": "1.2.0",
+  "date": "2026-10-22",
+  "python_tests": 24,
+  "frontend_tests": 9,
+  "original_checked": 108,
+  "original_changed": 0,
+  "model_and_data_unchanged": {
+    "artifacts/models.joblib": "8cc042251a6693a04f8dcafa93ac0f1998c36f39d9c33bc0ba4c12aa3d0f343e",
+    "artifacts/report.json": "366f0104182bbe92c7c3c67a6deda78c91cb8be0324eed77405a1be83377c412",
+    "data/raw/train.txt": "ba6fcbbb8fb809a9eb2be443b6b4db533c147861d94ebe0931b8c6092d8abe94",
+    "data/raw/dev.txt": "6ed73aa2c57ee1560c8f76570d48735c4b1c29ae4983fe3523d56e115813e175",
+    "data/raw/test.txt": "ebecc8c896635ad69730083ca7b81d37c42c9a5779bc05c9d2479d894e34f026",
+    "newsroom/ml.py": "25138da66c59bc612497800690d31101d7de75751aaee75f08fab632fc4c5a16"
+  },
+  "browser_classification_copy_shortcut": true,
+  "browser_batch_filters_distribution": true,
+  "browser_history_queue": true,
+  "mobile_width": 390,
+  "mobile_document_width": 375,
+  "independent_review": "no functional blockers; keyboard focus fixed and verified",
+  "new_static_resources_served": true,
+  "browser_file_download_completion_verified": false
+}

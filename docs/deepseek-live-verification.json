@@ -1,0 +1,80 @@
+{
+  "scope": "handwritten smoke examples, not independent accuracy evaluation",
+  "model": "deepseek-flash",
+  "matched": 9,
+  "total": 9,
+  "rows": [
+    {
+      "title": "足球队夺得联赛冠军",
+      "expected": "体育",
+      "actual": "体育",
+      "matched": true,
+      "reason": "标题主要事件是足球队夺得联赛冠军，属于体育赛事。",
+      "elapsed_ms": 886.6
+    },
+    {
+      "title": "国产人工智能芯片发布",
+      "expected": "科技",
+      "actual": "科技",
+      "matched": true,
+      "reason": "主要事件是人工智能芯片产品发布，属于科技领域的数码产品与人工智能技术。",
+      "elapsed_ms": 1021.6
+    },
+    {
+      "title": "高校公布今年招生计划",
+      "expected": "教育",
+      "actual": "教育",
+      "matched": true,
+      "reason": "主要事件是高校公布招生计划，属于教育领域的招生事务。",
+      "elapsed_ms": 1252.74
+    },
+    {
+      "title": "央行调整存款利率，银行股集体上涨",
+      "expected": "财经",
+      "actual": "财经",
+      "matched": true,
+      "reason": "主要事件是央行调整存款利率并引发银行股上涨，属于经济政策与金融市场，归为财经。",
+      "elapsed_ms": 1300.38
+    },
+    {
+      "title": "新电影举办首映礼，导演与演员亮相",
+      "expected": "娱乐",
+      "actual": "娱乐",
+      "matched": true,
+      "reason": "主要事件是新电影首映礼及导演演员亮相，属于影视文娱活动。",
+      "elapsed_ms": 1026.88
+    },
+    {
+      "title": "明日部分地区将有强降雨",
+      "expected": "其他",
+      "actual": "其他",
+      "matched": true,
+      "reason": "标题主要事件是强降雨天气预报，属于天气类，不在体育、科技、教育、财经、娱乐五类中。",
+      "elapsed_ms": 1658.53
+    },
+    {
+      "title": "今天发生了一件事",
+      "expected": "信息不足",
+      "actual": "信息不足",
+      "matched": true,
+      "reason": "标题仅笼统说发生了一件事，缺少具体主题或事件信息，无法判断所属类别。",
+      "elapsed_ms": 1087.98
+    },
+    {
+      "title": "科技公司发布第三季度财报，净利润增长",
+      "expected": "财经",
+      "actual": "财经",
+      "matched": true,
+      "reason": "主要事件是科技公司发布第三季度财报并披露净利润增长，属于企业经营业绩，归为财经。",
+      "elapsed_ms": 1294.58
+    },
+    {
+      "title": "足球运动员参演新电影，在首映礼分享拍摄经历",
+      "expected": "娱乐",
+      "actual": "娱乐",
+      "matched": true,
+      "reason": "主要事件是足球运动员参演新电影并在首映礼分享拍摄经历，主题属于影视演艺活动，因此归为娱乐。",
+      "elapsed_ms": 2152.43
+    }
+  ]
+}
