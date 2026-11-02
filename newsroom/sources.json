@@ -288,12 +288,12 @@
     "enabled": true
   },
   {
-    "id": "feed-092751e04c5e",
-    "name": "新华网",
-    "url": "https://www.xinhuanet.com/politics/news_politics.xml",
-    "site_url": "https://www.xinhuanet.com",
-    "description": "综合 · 免费公开订阅",
-    "group": "综合",
+    "id": "feed-2bb87874a945",
+    "name": "联合国中文新闻",
+    "url": "https://news.un.org/feed/subscribe/zh/news/all/rss.xml",
+    "site_url": "https://news.un.org",
+    "description": "国际中文 · 免费公开订阅",
+    "group": "国际中文",
     "enabled": true
   },
   {

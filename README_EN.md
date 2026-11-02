@@ -39,10 +39,12 @@ no account system or shared hosted backend.
 
 The validated catalogue contains 43 free Chinese RSS/Atom channels, including
 IT Home, SSPAI, China News, technology and gaming publishers, BBC Chinese,
-DW, RFI, Yonhap Chinese, and ten Google Chinese News aggregation channels.
+DW, RFI, Yonhap Chinese, UN Chinese, and ten Google Chinese News aggregation channels.
 A GitHub-network audit on 2026-11-02 checked 91 candidates, found 46 readable
 feeds, merged two duplicate alternatives, and excluded a confirmed 2008 Sina
-finance archive. Feeds without publication dates
+finance archive. A final cloud audit also excluded Xinhua archival entries and
+connected the now-readable UN Chinese feed; all 43 channels passed this audit.
+Feeds without publication dates
 remain explicitly undated. See the [source catalogue and audit](docs/free-news-sources.md).
 
 Edit `newsroom/sources.json` to update built-ins while keeping source IDs stable.

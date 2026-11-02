@@ -16,11 +16,24 @@
       "url": "https://rss.sina.com.cn/finance/rollnews.xml",
       "reason": "confirmed historical archive",
       "evidence": "37 local published candidates had /20080612/ article URLs and no RSS publication date; original audit sample title also contains 20080612"
+    },
+    {
+      "url": "https://www.xinhuanet.com/politics/news_politics.xml",
+      "reason": "final audit identified old date folders on all 80 undated articles; archival, not current news"
     }
   ],
   "unknown_publication_time": [
-    "36氪",
-    "新华网"
+    "36氪"
   ],
-  "publication_dates_inferred_from_urls": false
+  "publication_dates_inferred_from_urls": false,
+  "final_audit": "source-audit-final-2026-11-02.json",
+  "final_audit_run": "https://github.com/ma-jamess/newsflow/actions/runs/41413021242",
+  "final_available_feeds": 45,
+  "all_connected_feeds_passed_final_audit": true,
+  "newly_available_at_final_audit": {
+    "name": "联合国中文新闻",
+    "url": "https://news.un.org/feed/subscribe/zh/news/all/rss.xml",
+    "status": "current",
+    "recent_dated_items": 30
+  }
 }

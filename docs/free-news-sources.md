@@ -1,10 +1,12 @@
 # 免费新闻来源与可用性记录
 
-2026-11-02 在 GitHub Actions 的实际采集网络检查了 91 个公开候选：43 个返回近期中文条目，3 个返回中文条目但未标注发布时间，45 个未通过读取或时效检查。这只是读取检查：随后复核确认新浪财经的无日期订阅实际是 2008 年存档，将其排除；再合并 cnBeta 的重复地址和 BBC 的简繁体重复频道，最终启用 43 个频道。
+2026-11-02 在 GitHub Actions 的实际采集网络检查了 91 个公开候选：43 个返回近期中文条目，3 个返回中文条目但未标注发布时间，45 个未通过读取或时效检查。这只是读取检查：随后复核确认新浪财经的无日期订阅实际是 2008 年存档，将其排除；再合并 cnBeta 的重复地址和 BBC 的简繁体重复频道。最终云端复查还排除了新华网的旧存档，并接入已恢复可读的联合国中文 RSS，仍为 43 个频道；这 43 个均通过最终检查。
 
 按直接发布方合并后是 25 个发布方，另有 Google 中文新闻聚合；43 是订阅频道数，不是媒体家数。这份清单涵盖本轮检查可用的免费来源，后续可继续扩充。
 
-云端执行记录：[来源检查 #41405334588](https://github.com/ma-jamess/newsflow/actions/runs/41405334588)。原始检查结果见 [JSON 报告](source-audit-2026-11-02.json)，候选输入见 [候选目录](free-source-candidates.json)。本机与云端网络可能不同，因此没有仅凭本机超时排除国际中文来源。
+最终复查：[检查 #41413021242](https://github.com/ma-jamess/newsflow/actions/runs/41413021242)，[最终 JSON 报告](source-audit-final-2026-11-02.json)，45 个候选可用，合并两组重复订阅后为 43 个。
+
+初次云端执行记录：[来源检查 #41405334588](https://github.com/ma-jamess/newsflow/actions/runs/41405334588)。原始检查结果见 [JSON 报告](source-audit-2026-11-02.json)，候选输入见 [候选目录](free-source-candidates.json)。本机与云端网络可能不同，因此没有仅凭本机超时排除国际中文来源。
 
 订阅候选参考了 GitHub 的 [awesome_rss_chinese](https://github.com/midmirror/awesome_rss_chinese)，实际启用以本次读取和时效校验为准。
 
@@ -44,7 +46,7 @@
 | 公视新闻网 | 综合 | [RSS/Atom](https://news.pts.org.tw/xml/newsfeed.xml) | 近期中文条目 |
 | 自由时报 · 即时 | 综合 | [RSS/Atom](https://news.ltn.com.tw/rss/all.xml) | 近期中文条目 |
 | 中新网 · 文化 | 文化 | [RSS/Atom](https://www.chinanews.com.cn/rss/culture.xml) | 近期中文条目 |
-| 新华网 | 综合 | [RSS/Atom](https://www.xinhuanet.com/politics/news_politics.xml) | 时间未标注 |
+| 联合国中文新闻 | 国际中文 | [RSS/Atom](https://news.un.org/feed/subscribe/zh/news/all/rss.xml) | 近期中文条目 |
 | Google新闻 · 综合 | 综合 | [RSS/Atom](https://news.google.com/rss?hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans) | 近期中文条目 |
 | Google新闻 · 国际 | 国际中文 | [RSS/Atom](https://news.google.com/rss/headlines/section/topic/WORLD?hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans) | 近期中文条目 |
 | Google新闻 · 国内 | 国内 | [RSS/Atom](https://news.google.com/rss/headlines/section/topic/NATION?hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans) | 近期中文条目 |
@@ -56,7 +58,7 @@
 | Google新闻 · 健康 | 健康 | [RSS/Atom](https://news.google.com/rss/headlines/section/topic/HEALTH?hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans) | 近期中文条目 |
 | Google新闻 · 教育 | 科教 | [RSS/Atom](https://news.google.com/rss/search?q=%E6%95%99%E8%82%B2&hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans) | 近期中文条目 |
 
-36氪和新华网在这次检查中未提供可解析的文章发布时间。仍可读取，但页面显示“时间未标注”，不把抓取时间当成发布时间。阮一峰科技周刊按来源实际日期排序，较旧内容可能不在默认 72 小时视图内。
+最终接入的来源中，36氪未提供可解析的文章发布时间。仍可读取，但页面显示“时间未标注”，不把抓取时间当成发布时间。阮一峰科技周刊按来源实际日期排序，较旧内容可能不在默认 72 小时视图内。
 
 ## 合并的重复订阅
 
@@ -65,7 +67,7 @@
 
 ## 未接入候选
 
-新浪财经的 `rollnews.xml` 返回 2008-06-12 存档，已从内置目录排除。初始 JSON 报告中的 `unknown_time` 只说明当时没有解析到日期；最终选择见 [来源选择记录](source-selection-2026-11-02.json)。回归检查会排除无发布时间但原文路径含明确旧日期目录的文章，保持 `published_at` 为空。
+新浪财经的 `rollnews.xml` 返回 2008-06-12 存档；新华网的 `news_politics.xml` 在最终检查中返回 80 条路径含旧日期的无日期存档。两个订阅都已从内置目录排除。初始 JSON 报告中的 `unknown_time` 只说明当时没有解析到日期；最终选择见 [来源选择记录](source-selection-2026-11-02.json)。回归检查会排除无发布时间但原文路径含明确旧日期目录的文章，保持 `published_at` 为空。
 
 
 这些地址是候选路径，当前未通过检查；失败不等于发布方没有新闻。没有使用需要登录、付费密钥或绕过访问限制的接口。
@@ -73,6 +75,7 @@
 | 候选 | 检查结果 | 候选地址 |
 | --- | --- | --- |
 | 新浪财经 | 2008-06-12 存档，复核后排除 | [候选](https://rss.sina.com.cn/finance/rollnews.xml) |
+| 新华网 | 80 条旧日期存档，最终复查后排除 | [候选](https://www.xinhuanet.com/politics/news_politics.xml) |
 | 中新网 · 娱乐 | 没有有效条目 | [候选](https://www.chinanews.com.cn/rss/ent.xml) |
 | 中新网 · 文化 | 连接、容量或 RSS 格式检查失败 | [候选](https://www.chinanews.com.cn/rss/cul.xml) |
 | 中新网 · 港澳 | 没有有效条目 | [候选](https://www.chinanews.com.cn/rss/gangao.xml) |
@@ -92,7 +95,6 @@
 | 新浪教育 | 连接、容量或 RSS 格式检查失败 | [候选](https://rss.sina.com.cn/edu/rollnews.xml) |
 | 新浪体育 | 连接、容量或 RSS 格式检查失败 | [候选](https://rss.sina.com.cn/sports/global.xml) |
 | 新浪娱乐 | 连接、容量或 RSS 格式检查失败 | [候选](https://rss.sina.com.cn/ent/rollnews.xml) |
-| 联合国中文新闻 | 连接、容量或 RSS 格式检查失败 | [候选](https://news.un.org/feed/subscribe/zh/news/all/rss.xml) |
 | NHK中文新闻 | 连接、容量或 RSS 格式检查失败 | [候选](https://www3.nhk.or.jp/nhkworld/zh/news/rss.xml) |
 | 香港电台 · 本地 | 连接、容量或 RSS 格式检查失败 | [候选](https://rthk.hk/rthk/news/rss/c_expressnews_clocal.xml) |
 | 香港电台 · 国际 | 连接、容量或 RSS 格式检查失败 | [候选](https://rthk.hk/rthk/news/rss/c_expressnews_cinternational.xml) |
