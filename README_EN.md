@@ -8,7 +8,9 @@ included in the same application.
 
 [中文说明](README.md) · [License](LICENSE) · [User guide](docs/newsflow-guide.md)
 
-**Use online: [NewsFlow](https://ma-jamess.github.io/newsflow/).** GitHub Pages serves the public news reader independently of any local process. GitHub Actions attempts a feed refresh every five minutes; schedules may be delayed. Bookmarks, corrections and source display preferences belong to each browser. The downloadable Python application retains training, arbitrary-title/CSV classification and complete experiments. See [public deployment guide](docs/public-site-guide.md).
+**Use online: [NewsFlow fixed site](https://47.115.130.110/newsflow/).** The Alibaba Cloud ECS instance serves the reader independently of your computer, with trusted HTTPS, automatic certificate renewal and an enabled boot-time news timer. It checks feeds about two minutes after each completed collection round; collection and source publication add to the actual interval. Bookmarks, corrections and source display preferences belong to each browser. The downloadable Python application retains training, arbitrary-title/CSV classification and complete experiments. See the [ECS deployment guide](docs/ecs-site-guide.md).
+
+The [GitHub Pages alternative](https://ma-jamess.github.io/newsflow/) remains available, with GitHub Actions attempting a refresh every five minutes; schedules may be delayed. Browser preferences are separate for the two origins. See [Pages deployment details](docs/public-site-guide.md).
 
 ## Run
 

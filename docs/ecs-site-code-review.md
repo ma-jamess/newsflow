@@ -8,4 +8,4 @@
 
 修复后完整检查：Windows Python 121 项通过、一项 POSIX 权限测试跳过；Node.js 46 项通过；Ubuntu ECS 的 15 项发布器测试全部通过，包含真实文件可读权限检查。ECS 测试最大 RSS 为 292,852 KiB，未使用 swap；期间 ThinkFlow 健康检查为 HTTP 200。
 
-复核没有代替实际部署验收。真实 RSS 更新、定时器启用、公网访问、HTTPS 和 Edge 交互的最终证据记录在 `ecs-site-verification.json`。按执行计划完成这一次修复与回归，不重复派遣复核。
+复核没有代替实际部署验收。后续已完成两轮真实 RSS 更新、定时器启用、公网访问、可信 IP HTTPS、完整续期演练与 Edge 交互，证据记录在 `ecs-site-verification.json`。HTTPS 单元和 server 模板由实际安装的 systemd/Nginx 验证，并经过真实 CA 挑战与 deploy hook 检查。按执行计划完成这一次修复与回归，不重复派遣复核。

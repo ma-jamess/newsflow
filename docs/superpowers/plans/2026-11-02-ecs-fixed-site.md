@@ -48,8 +48,8 @@
 **Interfaces:** Consume Task 1's CLI and units; initialize with the clean seed, run `/opt/newsflow/.venv/bin/python scripts/update_ecs_site.py`, and serve the site with the new Nginx include. All network actions use the existing verified server connection.
 
 - [x] One fresh final review of implementation/config changes; fix material findings with regressions in one pass.
-- [ ] Upload only clean source, models and public seed; create a dedicated user/venv, initialize the site, and validate installed systemd units.
-- [ ] Back up the exact live Nginx config; add only the NewsFlow include; run `nginx -t` before reload, restoring the backup if validation fails.
-- [ ] Enable the NewsFlow timer, complete a real update, and verify root/news/assets/data responses plus ThinkFlow health. Verify resource use and enabled state, without rebooting ECS.
-- [ ] Exercise desktop/mobile browsing, source selection, bookmark and correction persistence, export and normal refresh in Edge.
+- [x] Upload only clean source, models and public seed; create a dedicated user/venv, initialize the site, and validate installed systemd units.
+- [x] Back up the exact live Nginx config; add only the NewsFlow include; run `nginx -t` before reload, restoring the backup if validation fails.
+- [x] Enable the NewsFlow timer, complete a real update, and verify root/news/assets/data responses plus ThinkFlow health. Verify resource use and enabled state, without rebooting ECS.
+- [x] Exercise desktop/mobile browsing, source selection, bookmark and correction persistence, export and normal refresh in Edge.
 - [ ] Save true deployment evidence, update public docs/package, integrate and push authorized delivery to GitHub; confirm remote HEAD and exact archive.

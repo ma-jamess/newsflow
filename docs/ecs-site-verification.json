@@ -1,0 +1,460 @@
+{
+  "recorded_at": "2026-11-02T11:05:47.711141+00:00",
+  "site": "https://47.115.130.110/newsflow/",
+  "repository": "https://github.com/ma-jamess/newsflow",
+  "implementation_base": "68248f0bc8f271742f55232bd2550878f74b50dc",
+  "reviewed_revision": "be9b3d0135d8481e32729faf686e560819d85889",
+  "core_fix_revision": "4362037",
+  "tests": {
+    "windows_python": {
+      "passed": 121,
+      "skipped": 1,
+      "skip_reason": "POSIX public-file permission contract",
+      "existing_warning": "upstream pytz utcfromtimestamp deprecation"
+    },
+    "node": {
+      "passed": 46
+    },
+    "ecs_linux_publisher": {
+      "passed": 15,
+      "peak_rss_kib": 292852,
+      "swaps": 0
+    },
+    "regressions": {
+      "malformed_cache_cases": 7,
+      "observed_red_then_green": true,
+      "public_json_mode": "0644"
+    }
+  },
+  "independent_review": {
+    "critical": 0,
+    "important": 1,
+    "important_fixed": 1,
+    "minor": 0,
+    "repeat_review": false
+  },
+  "host": {
+    "checked_at": "2026-11-02T10:59:31.429390+00:00",
+    "os": "Ubuntu 24.04.5 LTS",
+    "python": "Python 3.12.3",
+    "source_hashes": {
+      "newsroom/ecs_site.py": "7ce378ba70e6411a82eda862b51219284291f790a2793593d79713e93e15ce97",
+      "newsroom/public_site.py": "8aa8005575da79878b9c29594f555032eeb850c44eaa1eb15cdfd3ec1e640567",
+      "scripts/update_ecs_site.py": "1dbcd30b69986bd2922253f71f35a7365f679ce909ff46a72fb2616b26767922",
+      "web/public-backend.js": "28425c950b46e3ac1e35d501e01f275a3e2d97eacf0bd8c612c8580f4f7f9765",
+      "web/live-news-ui.js": "37f7fe976e7a98c6656974156229f8bf0a3ddaea95021097ced0c7d687d339a0",
+      "web/live-news.js": "b635f936c0f5c8c8f095e7b064ba3ba39039c5bf407467fad2c990ddc07d66ee",
+      "web/public/index.html": "59b69b383c49cb17742dffd82e54168001a37d5dbcb10c9efbe5cbb712767d8c",
+      "deploy/ecs/newsflow-update.service": "43210d85c8cb7d1cbd3bbba86cf538d9c194b5d41ed8cb7b585978743693d98c",
+      "deploy/ecs/newsflow-update.timer": "a27a88f7221b02508918775a4f6d7b6de8466784dce43f1bbbc7198c7cf83fcf",
+      "deploy/ecs/nginx-newsflow-location.conf": "d16be2020cee2affa4dd5ffd2dee21c6f32b058373eeebc3fbebe77bcb4be21f",
+      "deploy/ecs/nginx-newsflow-https.conf": "6ed125a68a0097f088f66fda22c75859186573481aff47b1235b811b84d693c6",
+      "deploy/ecs/newsflow-cert-renew.service": "59fb0c8b00239b0d4361252627a169e791bec09219855176b93c17d13824dac0",
+      "deploy/ecs/newsflow-cert-renew.timer": "bb965d06b5f2d26924b5df1c53c9d99f7f6b7f366c4c7a11de67ba83d4711399",
+      "deploy/ecs/newsflow-reload-nginx": "b5a7f31fd872911a109cf29c15ade753b44c11557adb0f481ef78056d851ddd6"
+    },
+    "nginx_test_exit": 0,
+    "thinkflow_http_config_only_added_newsflow_include": true,
+    "original_nginx_sha256": "9fec20563eb0920f1f4e9beedb9c99569f1a548e9e84e0079edf250706c03035",
+    "thinkflow_health": 200,
+    "thinkflow_service": {
+      "ExecMainStartTimestamp": "Sat 2026-10-24 06:38:25 CST",
+      "ActiveState": "active"
+    },
+    "news_service": {
+      "TimeoutStartUSec": "5min",
+      "Result": "success",
+      "ExecMainStartTimestamp": "Mon 2026-11-02 18:53:50 CST",
+      "ExecMainExitTimestamp": "Mon 2026-11-02 18:57:44 CST",
+      "ExecMainCode": "1",
+      "ExecMainStatus": "0",
+      "MemoryPeak": "[not set]",
+      "MemorySwapPeak": "[not set]",
+      "CPUUsageNSec": "171301677000",
+      "CPUQuotaPerSecUSec": "1s",
+      "MemoryMax": "734003200",
+      "User": "newsflow",
+      "ActiveState": "inactive",
+      "SubState": "dead"
+    },
+    "certificate_service": {
+      "Result": "success",
+      "ExecMainExitTimestamp": "Mon 2026-11-02 18:50:48 CST",
+      "ExecMainStatus": "0"
+    },
+    "enabled": {
+      "newsflow-update.timer": "enabled",
+      "newsflow-cert-renew.timer": "enabled"
+    },
+    "timers": "NEXT                        LEFT LAST                          PASSED UNIT                      ACTIVATES\nMon 2026-11-02 18:59:44 CST  12s Mon 2026-11-02 18:53:50 CST 5min ago newsflow-update.timer     newsflow-update.service\nTue 2026-11-03 03:16:02 CST   8h -                                  - newsflow-cert-renew.timer newsflow-cert-renew.service\n\n2 timers listed.",
+    "completed_news_runs": [
+      {
+        "output": "/var/lib/newsflow/site",
+        "news": 1000,
+        "sources": 43,
+        "status": "partial",
+        "generated_at": "2026-11-02T10:47:55.870165+00:00",
+        "interval_seconds": 120
+      },
+      {
+        "output": "/var/lib/newsflow/site",
+        "news": 1000,
+        "sources": 43,
+        "status": "partial",
+        "generated_at": "2026-11-02T10:53:53.306266+00:00",
+        "interval_seconds": 120
+      }
+    ],
+    "news_generated_at": "2026-11-02T10:53:53.306266+00:00",
+    "news_update": {
+      "refreshing": false,
+      "status": "partial",
+      "last_started_at": "2026-11-02T10:53:53.306266+00:00",
+      "last_finished_at": "2026-11-02T10:53:53.306266+00:00",
+      "last_success_at": "2026-11-02T10:53:53.306266+00:00",
+      "new_count": 310,
+      "errors": 15
+    },
+    "public_news_mode": "0o644",
+    "public_news_bytes": 2500974,
+    "certbot": "certbot 5.9.0",
+    "public_certificate": "issuer=C = US, O = Let's Encrypt, CN = YE1\nnotBefore=Nov  2 09:51:04 2026 GMT\nnotAfter=Nov  9 01:51:03 2026 GMT\nX509v3 Subject Alternative Name: critical\n    IP Address:47.115.130.110\nsha256 Fingerprint=71:67:8E:19:75:32:AA:AB:A5:A6:65:14:B8:61:02:1D:94:D8:A8:E5:D4:97:DF:48:35:F9:30:80:2C:1F:D4:1C",
+    "certificate_private_file_mode": "0o600",
+    "rebooted_for_verification": false,
+    "source_hashes_lf": {
+      "newsroom/ecs_site.py": "7ce378ba70e6411a82eda862b51219284291f790a2793593d79713e93e15ce97",
+      "newsroom/public_site.py": "9d023277c51677124424a617891e40376478f1f115984366d7308a60f1de5c5c",
+      "scripts/update_ecs_site.py": "1dbcd30b69986bd2922253f71f35a7365f679ce909ff46a72fb2616b26767922",
+      "web/public-backend.js": "2d60c152580921b25d47ccb1841bdfaf68a54b24e4874cc7a6009f3be075e426",
+      "web/live-news-ui.js": "37f7fe976e7a98c6656974156229f8bf0a3ddaea95021097ced0c7d687d339a0",
+      "web/live-news.js": "cb6758a32c63cd648e0ff20084ae9568842783cf00c0fa95b958cf36f16d6817",
+      "web/public/index.html": "59b69b383c49cb17742dffd82e54168001a37d5dbcb10c9efbe5cbb712767d8c",
+      "deploy/ecs/newsflow-update.service": "43210d85c8cb7d1cbd3bbba86cf538d9c194b5d41ed8cb7b585978743693d98c",
+      "deploy/ecs/newsflow-update.timer": "a27a88f7221b02508918775a4f6d7b6de8466784dce43f1bbbc7198c7cf83fcf",
+      "deploy/ecs/nginx-newsflow-location.conf": "d16be2020cee2affa4dd5ffd2dee21c6f32b058373eeebc3fbebe77bcb4be21f",
+      "deploy/ecs/nginx-newsflow-https.conf": "6ed125a68a0097f088f66fda22c75859186573481aff47b1235b811b84d693c6",
+      "deploy/ecs/newsflow-cert-renew.service": "59fb0c8b00239b0d4361252627a169e791bec09219855176b93c17d13824dac0",
+      "deploy/ecs/newsflow-cert-renew.timer": "bb965d06b5f2d26924b5df1c53c9d99f7f6b7f366c4c7a11de67ba83d4711399",
+      "deploy/ecs/newsflow-reload-nginx": "b5a7f31fd872911a109cf29c15ade753b44c11557adb0f481ef78056d851ddd6"
+    }
+  },
+  "http": {
+    "checked_at": "2026-11-02T10:59:28.775802+00:00",
+    "site": "https://47.115.130.110/newsflow/",
+    "ordinary_tls_validation": true,
+    "home": {
+      "url": "https://47.115.130.110/newsflow/",
+      "method": "GET",
+      "status": 200,
+      "bytes": 8252,
+      "Content-Type": "text/html",
+      "Cache-Control": "no-cache",
+      "X-Content-Type-Options": "nosniff"
+    },
+    "assets": [
+      {
+        "url": "https://47.115.130.110/newsflow/icons/chart-column.svg",
+        "method": "GET",
+        "status": 200,
+        "bytes": 320,
+        "Content-Type": "image/svg+xml",
+        "Cache-Control": "no-cache",
+        "X-Content-Type-Options": "nosniff"
+      },
+      {
+        "url": "https://47.115.130.110/newsflow/icons/layers.svg",
+        "method": "GET",
+        "status": 200,
+        "bytes": 510,
+        "Content-Type": "image/svg+xml",
+        "Cache-Control": "no-cache",
+        "X-Content-Type-Options": "nosniff"
+      },
+      {
+        "url": "https://47.115.130.110/newsflow/icons/newspaper.svg",
+        "method": "GET",
+        "status": 200,
+        "bytes": 416,
+        "Content-Type": "image/svg+xml",
+        "Cache-Control": "no-cache",
+        "X-Content-Type-Options": "nosniff"
+      },
+      {
+        "url": "https://47.115.130.110/newsflow/icons/workflow.svg",
+        "method": "GET",
+        "status": 200,
+        "bytes": 351,
+        "Content-Type": "image/svg+xml",
+        "Cache-Control": "no-cache",
+        "X-Content-Type-Options": "nosniff"
+      },
+      {
+        "url": "https://47.115.130.110/newsflow/live-news-ui.js",
+        "method": "GET",
+        "status": 200,
+        "bytes": 5114,
+        "Content-Type": "application/javascript",
+        "Cache-Control": "no-cache",
+        "X-Content-Type-Options": "nosniff"
+      },
+      {
+        "url": "https://47.115.130.110/newsflow/live-news.js",
+        "method": "GET",
+        "status": 200,
+        "bytes": 24006,
+        "Content-Type": "application/javascript",
+        "Cache-Control": "no-cache",
+        "X-Content-Type-Options": "nosniff"
+      },
+      {
+        "url": "https://47.115.130.110/newsflow/newsflow.css",
+        "method": "GET",
+        "status": 200,
+        "bytes": 19585,
+        "Content-Type": "text/css",
+        "Cache-Control": "no-cache",
+        "X-Content-Type-Options": "nosniff"
+      },
+      {
+        "url": "https://47.115.130.110/newsflow/polish.css",
+        "method": "GET",
+        "status": 200,
+        "bytes": 13024,
+        "Content-Type": "text/css",
+        "Cache-Control": "no-cache",
+        "X-Content-Type-Options": "nosniff"
+      },
+      {
+        "url": "https://47.115.130.110/newsflow/public-app.js",
+        "method": "GET",
+        "status": 200,
+        "bytes": 3333,
+        "Content-Type": "application/javascript",
+        "Cache-Control": "no-cache",
+        "X-Content-Type-Options": "nosniff"
+      },
+      {
+        "url": "https://47.115.130.110/newsflow/public-backend.js",
+        "method": "GET",
+        "status": 200,
+        "bytes": 9355,
+        "Content-Type": "application/javascript",
+        "Cache-Control": "no-cache",
+        "X-Content-Type-Options": "nosniff"
+      },
+      {
+        "url": "https://47.115.130.110/newsflow/public.css",
+        "method": "GET",
+        "status": 200,
+        "bytes": 941,
+        "Content-Type": "text/css",
+        "Cache-Control": "no-cache",
+        "X-Content-Type-Options": "nosniff"
+      },
+      {
+        "url": "https://47.115.130.110/newsflow/style.css",
+        "method": "GET",
+        "status": 200,
+        "bytes": 14828,
+        "Content-Type": "text/css",
+        "Cache-Control": "no-cache",
+        "X-Content-Type-Options": "nosniff"
+      }
+    ],
+    "news_response": {
+      "url": "https://47.115.130.110/newsflow/data/news.json",
+      "method": "GET",
+      "status": 200,
+      "bytes": 2500974,
+      "Content-Type": "application/json",
+      "Cache-Control": "no-cache",
+      "X-Content-Type-Options": "nosniff"
+    },
+    "news_sha256": "92cec1a713a031041172499ebd62cfb221f8467611b849b3a4afac4638b596e9",
+    "report": {
+      "url": "https://47.115.130.110/newsflow/data/report.json",
+      "method": "GET",
+      "status": 200,
+      "bytes": 78768,
+      "Content-Type": "application/json",
+      "Cache-Control": "no-cache",
+      "X-Content-Type-Options": "nosniff"
+    },
+    "slash_redirect": {
+      "url": "https://47.115.130.110/newsflow",
+      "method": "GET",
+      "status": 308,
+      "bytes": 180,
+      "Content-Type": "text/html",
+      "Location": "https://47.115.130.110/newsflow/"
+    },
+    "https_root": {
+      "url": "https://47.115.130.110/",
+      "method": "GET",
+      "status": 308,
+      "bytes": 180,
+      "Content-Type": "text/html",
+      "Location": "https://47.115.130.110/newsflow/"
+    },
+    "missing": {
+      "url": "https://47.115.130.110/newsflow/missing-newsflow-acceptance-file.txt",
+      "method": "GET",
+      "status": 404,
+      "bytes": 162,
+      "Content-Type": "text/html",
+      "Cache-Control": "no-cache",
+      "X-Content-Type-Options": "nosniff"
+    },
+    "public_write_denied": {
+      "url": "https://47.115.130.110/newsflow/",
+      "method": "POST",
+      "status": 403,
+      "bytes": 162,
+      "Content-Type": "text/html",
+      "Cache-Control": "no-cache",
+      "X-Content-Type-Options": "nosniff"
+    },
+    "http_home": {
+      "url": "http://47.115.130.110/newsflow/",
+      "method": "GET",
+      "status": 200,
+      "bytes": 8252,
+      "Content-Type": "text/html",
+      "Cache-Control": "no-cache",
+      "X-Content-Type-Options": "nosniff"
+    },
+    "thinkflow_health": {
+      "url": "http://47.115.130.110/health",
+      "method": "GET",
+      "status": 200,
+      "bytes": 15,
+      "Content-Type": "application/json"
+    },
+    "thinkflow_root": {
+      "url": "http://47.115.130.110/",
+      "method": "GET",
+      "status": 302,
+      "bytes": 0,
+      "Location": "/gate?next=/"
+    },
+    "generated_at": "2026-11-02T10:53:53.306266+00:00",
+    "seed_generated_at": "2026-11-02T09:22:29.455607+00:00",
+    "sources": 43,
+    "news": 1000,
+    "deployment": "ecs",
+    "interval_seconds": 120,
+    "update": {
+      "refreshing": false,
+      "status": "partial",
+      "last_started_at": "2026-11-02T10:53:53.306266+00:00",
+      "last_finished_at": "2026-11-02T10:53:53.306266+00:00",
+      "last_success_at": "2026-11-02T10:53:53.306266+00:00",
+      "new_count": 310,
+      "errors": 15
+    },
+    "source_states": {
+      "fresh": 25,
+      "unknown": 1,
+      "stale": 2,
+      "error": 15
+    },
+    "categories": {
+      "科技": 487,
+      "体育": 162,
+      "娱乐": 125,
+      "财经": 120,
+      "教育": 106
+    },
+    "personal_flags_present": false
+  },
+  "browser_before": {
+    "browser": "Microsoft Edge",
+    "url": "https://47.115.130.110/newsflow/#news",
+    "deployment": "ecs",
+    "interval_seconds": 120,
+    "sources": 43,
+    "news": 1000,
+    "generated_at": "2026-11-02T10:47:55.870165+00:00",
+    "categoryFiltered": 50,
+    "sourceFiltered": 10,
+    "expandedSource": "机核",
+    "search": true,
+    "probabilities": 5,
+    "bookmark": true,
+    "correction": true,
+    "export": "NewsFlow_新闻列表.csv",
+    "desktopOverflow": false,
+    "dialogOverflow": false,
+    "mobileOverflow": false,
+    "errors": [],
+    "checkpoint": {
+      "id": "12c6c0b4a00685a656bc97b780ff6648",
+      "title": "高测股份：实控人提议公司1.5亿元—3亿元回购股份",
+      "correction": "教育",
+      "hiddenSource": "ithome",
+      "generated_at": "2026-11-02T10:47:55.870165+00:00"
+    }
+  },
+  "browser_after": {
+    "browser": "Microsoft Edge",
+    "url": "https://47.115.130.110/newsflow/#news",
+    "previousGeneratedAt": "2026-11-02T10:47:55.870165+00:00",
+    "generatedAt": "2026-11-02T10:53:53.306266+00:00",
+    "sources": 43,
+    "news": 1000,
+    "bookmarkSurvived": true,
+    "correctionSurvived": true,
+    "sourcePreferenceSurvived": true,
+    "manualRefresh": true,
+    "reportModels": 3,
+    "export": "NewsFlow_新闻列表.csv",
+    "errors": [],
+    "testPreferencesCleared": true
+  },
+  "csv_exports": [
+    {
+      "file": "newsflow-ecs-saved.csv",
+      "rows": 1,
+      "sha256": "e4f9418b03d017af07bbf1bc4768fa15524e8ef50a40012a05fe8f2c7f8ba355"
+    },
+    {
+      "file": "newsflow-ecs-after-update.csv",
+      "rows": 1,
+      "sha256": "e4f9418b03d017af07bbf1bc4768fa15524e8ef50a40012a05fe8f2c7f8ba355"
+    }
+  ],
+  "deployed_source_hashes_match": true,
+  "certificate": {
+    "authority": "Let's Encrypt",
+    "profile": "shortlived",
+    "ip_san": "47.115.130.110",
+    "not_before_utc": "2026-11-02T09:51:04+00:00",
+    "not_after_utc": "2026-11-09T01:51:03+00:00",
+    "staging_issuance_passed": true,
+    "production_issued": true,
+    "renewal_dry_run_passed": true,
+    "deploy_hook_exercised": true,
+    "automatic_checks_per_day": 2,
+    "ordinary_tls_validation": true,
+    "official_availability": "https://letsencrypt.org/2026/01/15/6day-and-ip-general-availability",
+    "client_release": "https://github.com/certbot/certbot/releases/tag/v5.9.0"
+  },
+  "limits": {
+    "news": 1000,
+    "sources": 128,
+    "enabled_channels": 43,
+    "cache_days": 7,
+    "interval_after_run_seconds": 120,
+    "cpu_limit_cores": 1,
+    "memory_max_bytes": 734003200
+  },
+  "notes": [
+    "Two completed news publications were observed from the enabled systemd timer.",
+    "Source availability is a point-in-time observation; fifteen channels failed in both observed ECS rounds, while other channels updated.",
+    "The first real round completed in approximately 236 seconds; the 120-second interval starts after a round finishes.",
+    "Browser preferences were tested in a dedicated Edge profile and removed after verification.",
+    "The ECS was not rebooted; boot enablement and actual unit execution were verified.",
+    "The HTTPS configuration and certificate client were verified on the installed Nginx/systemd and with full ACME staging renewal.",
+    "Deployed source bytes match the checked working files. LF-normalized hashes are also recorded for comparison with Git text blobs."
+  ]
+}

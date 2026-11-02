@@ -6,9 +6,9 @@
 
 [English](README_EN.md) · [使用与演示](docs/newsflow-guide.md) · [MIT 许可证](LICENSE)
 
-**在线使用：[NewsFlow 公网新闻站](https://ma-jamess.github.io/newsflow/)**。公网版可以在其他设备访问，不需要运行本机 Python 服务。新闻由 GitHub Actions 约每 5 分钟抓取并用本地模型分类，调度可能延迟；收藏、纠错和来源显示偏好分别保存在每个浏览器。完整毕设程序仍可按下方步骤下载运行。
+**在线使用：[NewsFlow 固定新闻站](https://47.115.130.110/newsflow/)**。站点部署在阿里云 ECS，关闭自己的电脑也能访问。服务器用本地模型分类，每轮采集结束后约两分钟再次检查；采集本身需要时间，新闻到达还取决于来源发布。已配置开机启动、可信 HTTPS 和自动证书续期。收藏、纠错和来源显示偏好保存在各自浏览器，完整毕设程序可按下方步骤下载运行。
 
-公网部署、缓存行为和更新规则见 [公网版说明](docs/public-site-guide.md)。
+日常只需打开网址并收藏。部署与维护见 [ECS 固定站点说明](docs/ecs-site-guide.md)。[GitHub Pages 备用入口](https://ma-jamess.github.io/newsflow/)继续由 GitHub Actions 约每五分钟检查，调度可能延迟；两个入口的浏览器收藏分别保存。备用部署和缓存规则见 [公网版说明](docs/public-site-guide.md)。
 
 ![NewsFlow 新闻工作台](docs/images/newsflow-preview.png)
 
@@ -101,6 +101,8 @@ scripts/compare_versions.py 严格对齐两版已有预测，生成逐条差异
 scripts/make_figures.py 从本项目真实报告生成三幅论文配图
 scripts/package.py      独立交付包与源码清单
 scripts/check_news_sources.py 免费来源的手动可用性检查
+scripts/update_ecs_site.py ECS 公开新闻的原子发布与初始化
+deploy/ecs/              Nginx、新闻定时任务和 HTTPS 自动续期模板
 tests/                  数据、模型、新闻源、API、并发与前端回归
 data/raw/               公开数据、上游 README 和 LICENSE
 artifacts/              自己训练的模型、报告、测试预测明细
@@ -144,4 +146,4 @@ node --test (Get-ChildItem tests -Filter '*.test.cjs' | Select-Object -ExpandPro
 
 新闻页借鉴 [NewsNow](https://github.com/newsnext/newsnow) 的阅读组织与 [Horizon](https://github.com/Thysrael/Horizon) 的订阅工作流，延续 ThinkFlow 的工作台形式；没有复制这些项目代码。具体取舍和验证记录见 `docs/newsflow-guide.md` 与 `docs/newsflow-live-verification.json`。
 
-最终代码复核与已知小问题见 [复核记录](docs/newsflow-code-review.md)。发行包的独立校验报告随 ZIP 单独提供。
+界面复核与已知小问题见 [复核记录](docs/newsflow-code-review.md)，固定站点的修复与验收见 [ECS 复核记录](docs/ecs-site-code-review.md) 和 [部署验收](docs/ecs-site-verification.json)。发行包的独立校验报告随 ZIP 单独提供。

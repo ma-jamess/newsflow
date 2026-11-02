@@ -1,0 +1,12 @@
+[Unit]
+Description=Renew the short-lived NewsFlow public-IP HTTPS certificate
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/newsflow-acme/.venv/bin/certbot renew --quiet --no-random-sleep-on-renew --config-dir /etc/newsflow-acme --work-dir /var/lib/newsflow-acme --logs-dir /var/log/newsflow-acme --deploy-hook /usr/local/sbin/newsflow-reload-nginx
+TimeoutStartSec=300
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
