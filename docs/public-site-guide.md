@@ -1,6 +1,6 @@
 # NewsFlow 公网使用与部署
 
-当前部署状态：GitHub 授权已完成，正在进行首次公网部署和验证。Pages 使用 Actions 发布并强制 HTTPS。
+公网已于 2026-11-02 部署成功，并通过真实 HTTPS、Edge 桌面与手机布局、收藏与纠错持久化、CSV 导出和断网缓存验证。Pages 使用 Actions 发布并强制 HTTPS。
 
 网址：**https://ma-jamess.github.io/newsflow/**。源码：**https://github.com/ma-jamess/newsflow**。
 
@@ -25,6 +25,8 @@
 ## 在自己的仓库部署
 
 Fork 本项目或创建自己的公开仓库。在 Settings → Pages 选择 GitHub Actions。`.github/workflows/pages.yml` 支持 main 推送、手动运行和五分钟调度。工作流从 GitHub Pages 配置读取正确的站点子路径，构建器从 `GITHUB_REPOSITORY` 生成源码与下载链接。
+
+Fork 后在 Actions 页面启用工作流，再运行一次 Publish NewsFlow。GitHub 的定时任务可能排队；公开仓库连续 60 天没有活动时，平台可能停用定时任务，可在 Actions 页面重新启用。已经发布的静态网页仍能访问，页面会提示更新延迟。
 
 工作流只安装固定的 `requirements.txt`，加载已有本地模型，使用临时 SQLite。构建只需要 contents/read 和 pages/read，部署仅 pages/write 与 id-token/write；第三方 Actions 固定到 commit SHA。免费方案不需要部署密钥、新闻 API 密钥或个人 Python 后台进程。
 

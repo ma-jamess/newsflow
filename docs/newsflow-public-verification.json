@@ -1,15 +1,87 @@
 {
   "date": "2026-11-02",
-  "delivery_status": "deploying",
+  "delivery_status": "live",
   "repository": "https://github.com/ma-jamess/newsflow",
-  "planned_site": "https://ma-jamess.github.io/newsflow/",
-  "python_tests": {"passed": 91, "failed": 0, "warning": "existing pytz deprecation"},
-  "node_tests": {"passed": 39, "failed": 0},
+  "python_tests": {
+    "passed": 91,
+    "failed": 0,
+    "warning": "existing pytz deprecation"
+  },
+  "node_tests": {
+    "passed": 39,
+    "failed": 0
+  },
   "javascript_syntax": "passed",
   "diff_whitespace": "passed",
-  "edge_desktop": {"passed": true, "search": true, "bookmark_reload": true, "correction_reload": true, "csv_export": true, "report_models": 3, "local_api_requests": false, "page_errors": []},
-  "edge_mobile": {"passed": true, "viewport": "390x844", "detail_overlay": true, "source_toggles": true, "horizontal_overflow": false},
-  "source_export": {"fresh_history": true, "credential_pattern_hits": 0, "copy_hashes_verified": true, "excluded": ["runtime", ".env", ".venv", ".git", "site", "qa", "output", "databases", "logs", "node_modules"]},
-  "independent_final_review": {"completed": true, "material_findings": 3, "fixed": 3, "regressions_failed_before_fix": true},
-  "public_https_verified": false
+  "edge_desktop": {
+    "browser": "Microsoft Edge",
+    "url": "https://ma-jamess.github.io/newsflow/#news",
+    "count": "273 条",
+    "title": "币安遭黑客盗取 63 亿美元资产后恢复线上服务，平台现大额提现潮",
+    "bookmarkReload": true,
+    "correctionReload": true,
+    "export": "NewsFlow_新闻列表.csv",
+    "emptySearch": true,
+    "modelRows": 3,
+    "refresh": true,
+    "overflow": false,
+    "localAPI": false,
+    "errors": []
+  },
+  "edge_mobile": {
+    "browser": "Microsoft Edge",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "detailOverlay": true,
+    "sourceToggles": true,
+    "overflow": false,
+    "dialogOverflow": false
+  },
+  "source_export": {
+    "fresh_history": true,
+    "credential_pattern_hits": 0,
+    "copy_hashes_verified": true,
+    "excluded": [
+      "runtime",
+      ".env",
+      ".venv",
+      ".git",
+      "site",
+      "qa",
+      "output",
+      "databases",
+      "logs",
+      "node_modules"
+    ]
+  },
+  "independent_final_review": {
+    "completed": true,
+    "material_findings": 3,
+    "fixed": 3,
+    "regressions_failed_before_fix": true
+  },
+  "public_https_verified": true,
+  "site": "https://ma-jamess.github.io/newsflow/",
+  "implementation_commit": "3cc4df2a665e5eb490cad4c87f91d4a921cd452c",
+  "deployment_run": "https://github.com/ma-jamess/newsflow/actions/runs/41400301372",
+  "deployment_conclusion": "success",
+  "https_status": {
+    "html": 200,
+    "news_data": 200
+  },
+  "public_snapshot": {
+    "generated_at": "2026-11-02T06:30:38.709263+00:00",
+    "articles": 284,
+    "sources": 5,
+    "source_errors": 0,
+    "personal_flags": 0
+  },
+  "edge_offline": {
+    "url": "https://ma-jamess.github.io/newsflow/",
+    "cachedNewsCount": "273 条",
+    "offlineCacheRetained": true,
+    "firstTimeOfflineRetryEnabled": true
+  }
 }
