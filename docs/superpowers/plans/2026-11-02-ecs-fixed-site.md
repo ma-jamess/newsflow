@@ -52,4 +52,4 @@
 - [x] Back up the exact live Nginx config; add only the NewsFlow include; run `nginx -t` before reload, restoring the backup if validation fails.
 - [x] Enable the NewsFlow timer, complete a real update, and verify root/news/assets/data responses plus ThinkFlow health. Verify resource use and enabled state, without rebooting ECS.
 - [x] Exercise desktop/mobile browsing, source selection, bookmark and correction persistence, export and normal refresh in Edge.
-- [ ] Save true deployment evidence, update public docs/package, integrate and push authorized delivery to GitHub; confirm remote HEAD and exact archive.
+- [x] Save true deployment evidence, update public docs/package, integrate and push authorized delivery to GitHub; confirm remote HEAD and exact archive.

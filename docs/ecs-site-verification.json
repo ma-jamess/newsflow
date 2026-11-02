@@ -84,7 +84,8 @@
     },
     "enabled": {
       "newsflow-update.timer": "enabled",
-      "newsflow-cert-renew.timer": "enabled"
+      "newsflow-cert-renew.timer": "enabled",
+      "nginx": "enabled"
     },
     "timers": "NEXT                        LEFT LAST                          PASSED UNIT                      ACTIVATES\nMon 2026-11-02 18:59:44 CST  12s Mon 2026-11-02 18:53:50 CST 5min ago newsflow-update.timer     newsflow-update.service\nTue 2026-11-03 03:16:02 CST   8h -                                  - newsflow-cert-renew.timer newsflow-cert-renew.service\n\n2 timers listed.",
     "completed_news_runs": [
@@ -456,5 +457,18 @@
     "The ECS was not rebooted; boot enablement and actual unit execution were verified.",
     "The HTTPS configuration and certificate client were verified on the installed Nginx/systemd and with full ACME staging renewal.",
     "Deployed source bytes match the checked working files. LF-normalized hashes are also recorded for comparison with Git text blobs."
-  ]
+  ],
+  "delivery": {
+    "checked_at": "2026-11-02T11:13:43.649347+00:00",
+    "code_revision": "4363bb158f78dc217c17718779b13ddcb5db1505",
+    "verified_remote_code_revision": "4363bb158f78dc217c17718779b13ddcb5db1505",
+    "repository_homepage": "https://47.115.130.110/newsflow/",
+    "archive": "dist/NewsFlow_1.4_完整源码.zip",
+    "archive_files": 171,
+    "inventory_hashes_verified": true,
+    "credential_pattern_hits": 0,
+    "contains_workflow": true,
+    "archive_hash_report": "dist/NewsFlow_1.4_公网版校验报告.json",
+    "note": "Final archive checksum stays in the separate dist report to avoid a self-referential ZIP hash; final records and inventory are rebuilt after this update."
+  }
 }
