@@ -116,13 +116,18 @@
   },
   {
     "path": "docs/free-source-code-review.md",
-    "bytes": 1744,
-    "sha256": "34b7aef52bc47a9d613dc0a52a99ecd475cc6248290fde316ee473bb0b140ecc"
+    "bytes": 2242,
+    "sha256": "88026ba2a4ed9d10f998f0125d7fe9f1c3f9d2b3e96c2a9683f7894e806aa598"
   },
   {
     "path": "docs/free-source-progress.md",
-    "bytes": 6207,
-    "sha256": "13e7314355b7f401c05e7e70aa8e7d74986193fef87a9b1043c7b06cb6fda484"
+    "bytes": 8380,
+    "sha256": "ec2f3f55bfe5039063875eae11f054dc39977c7f6a9c37c69ac0a96dd213a8b2"
+  },
+  {
+    "path": "docs/free-source-verification.json",
+    "bytes": 2426,
+    "sha256": "57a3cf2b25aaec84e62dddd1dfca50d6124cf463e68d7589bd0354573cbc070b"
   },
   {
     "path": "docs/GitHub参考与改进.md",
@@ -287,7 +292,7 @@
   {
     "path": "docs/superpowers/plans/2026-11-02-free-news-sources.md",
     "bytes": 3682,
-    "sha256": "3abc6f5103daa338c5950a57c800b344e655e4c234342889e216acb6c0721d0d"
+    "sha256": "e599fe1df39667f9fac3da8f496000ed7f476dbf561f329db21dbf19121a8cac"
   },
   {
     "path": "docs/superpowers/specs/2026-10-22-workspace-polish-design.md",
@@ -426,8 +431,8 @@
   },
   {
     "path": "public_data/news-seed.json",
-    "bytes": 746209,
-    "sha256": "83d1f3405db95087502aa1479b5cf3608832d50212d730c351584a08b992fa86"
+    "bytes": 2510069,
+    "sha256": "78ee0ca8f895a0f5442aaedbe8438afbbd995ad8cadd9b0f19bf370f3093921b"
   },
   {
     "path": "pytest.ini",

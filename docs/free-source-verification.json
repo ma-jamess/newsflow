@@ -1,0 +1,74 @@
+{
+  "recorded_at": "2026-11-02T09:33:52.095928+00:00",
+  "site_url": "https://ma-jamess.github.io/newsflow/",
+  "repository_url": "https://github.com/ma-jamess/newsflow",
+  "implementation_commit": "48d405d01cc833f263e735d5d427501abf4a2b17",
+  "deployment": {
+    "url": "https://github.com/ma-jamess/newsflow/actions/runs/41420028419",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "final_source_audit": {
+    "url": "https://github.com/ma-jamess/newsflow/actions/runs/41413021242",
+    "selected_channels": 43,
+    "selected_available": 43
+  },
+  "public_snapshot": {
+    "url": "https://ma-jamess.github.io/newsflow/data/news.json",
+    "http_status": 200,
+    "generated_at": "2026-11-02T09:22:29.455607+00:00",
+    "sources": 43,
+    "articles": 1000,
+    "bytes": 2510069,
+    "sha256": "78ee0ca8f895a0f5442aaedbe8438afbbd995ad8cadd9b0f19bf370f3093921b",
+    "update_status": "success",
+    "source_article_time_states": {
+      "fresh": 39,
+      "unknown": 1,
+      "stale": 3
+    },
+    "un_chinese_articles": 10,
+    "personal_state_present": false,
+    "sina_xinhua_catalogue_entries_present": false,
+    "archive_2008_06_12_rows_present": false,
+    "http_probe_matches_browser_verified_snapshot": true
+  },
+  "tests": {
+    "python_passed": 107,
+    "node_passed": 41,
+    "final_catalogue_checks_passed": 13,
+    "evidence": "free-source-progress.md"
+  },
+  "edge": {
+    "continuity": {
+      "browser": "Microsoft Edge",
+      "url": "https://ma-jamess.github.io/newsflow/#news",
+      "previousSources": 5,
+      "sources": 43,
+      "articles": 1000,
+      "generated_at": "2026-11-02T09:22:29.455607+00:00",
+      "bookmarkSurvived": true,
+      "correctionSurvived": true,
+      "sourcePreferenceSurvived": true,
+      "export": "NewsFlow_新闻列表.csv"
+    },
+    "layout": {
+      "browser": "Microsoft Edge",
+      "url": "https://ma-jamess.github.io/newsflow/#news",
+      "sources": 43,
+      "articles": 1000,
+      "lateSource": "联合国中文新闻",
+      "filtered": 10,
+      "desktopOverflow": false,
+      "mobileOverflow": false,
+      "dialogOverflow": false,
+      "errors": []
+    }
+  },
+  "schedule": {
+    "configured_interval_minutes": 5,
+    "best_effort": true,
+    "schedule_trigger_observed": false
+  },
+  "release_inspection_report": "../dist/NewsFlow_1.4_公网版校验报告.json"
+}

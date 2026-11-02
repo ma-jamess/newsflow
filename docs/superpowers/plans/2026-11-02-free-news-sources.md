@@ -39,5 +39,5 @@
 ### Task 3: Review and publication
 
 - [x] One fresh independent final review, material fixes with regressions and green suite.
-- [ ] Restore publication workflow, publish the verified catalogue, wait for successful Pages deployment and verify public source count, current data and persistent personal state.
-- [ ] Record connected feeds, publishers, failed candidates and dates; refresh source package and local documentation.
+- [x] Restore publication workflow, publish the verified catalogue, wait for successful Pages deployment and verify public source count, current data and persistent personal state.
+- [x] Record connected feeds, publishers, failed candidates and dates; refresh source package and local documentation.
