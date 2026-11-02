@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- Fixed initial URL `http://47.115.130.110/newsflow/`; no new domain or certificate has been supplied.
+- Fixed initial URL `http://47.115.130.110/newsflow/`; prefer trusted `https://47.115.130.110/newsflow/` once the officially supported shortlived IP certificate is issued and automated renewal is enabled. No domain is required for this certificate.
 - Code `/opt/newsflow`; public assets `/var/lib/newsflow/site`; only public data enters deployment and GitHub.
 - Reuse existing verified SSH host key and locally retained connection settings; never copy credentials into this repository.
 - Preserve ThinkFlow, its root URL, accounts, data, services and tunnel. Back up Nginx and validate before graceful reload.
@@ -47,7 +47,7 @@
 
 **Interfaces:** Consume Task 1's CLI and units; initialize with the clean seed, run `/opt/newsflow/.venv/bin/python scripts/update_ecs_site.py`, and serve the site with the new Nginx include. All network actions use the existing verified server connection.
 
-- [ ] One fresh final review of implementation/config changes; fix material findings with regressions in one pass.
+- [x] One fresh final review of implementation/config changes; fix material findings with regressions in one pass.
 - [ ] Upload only clean source, models and public seed; create a dedicated user/venv, initialize the site, and validate installed systemd units.
 - [ ] Back up the exact live Nginx config; add only the NewsFlow include; run `nginx -t` before reload, restoring the backup if validation fails.
 - [ ] Enable the NewsFlow timer, complete a real update, and verify root/news/assets/data responses plus ThinkFlow health. Verify resource use and enabled state, without rebooting ECS.

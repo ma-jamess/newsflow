@@ -1,13 +1,16 @@
 """Initialize a public ECS site, then atomically publish only its news JSON."""
 import copy
 import json
+import math
 import os
+import re
 import tempfile
 from pathlib import Path
 
+from newsroom.data import CATEGORIES
 from newsroom.feed_catalog import MAX_SOURCES
 from newsroom.feeds import fetch_feed
-from newsroom.public_site import ROOT, build_snapshot, public_payload, write_site
+from newsroom.public_site import ROOT, article_link, build_snapshot, public_payload, timestamp, write_site
 
 MAX_SNAPSHOT_BYTES = 8 * 1024 * 1024
 DEFAULT_SEED = ROOT / 'public_data/news-seed.json'
@@ -21,10 +24,34 @@ def read_public_snapshot(path):
             return None
         data = json.loads(raw)
         if (not isinstance(data, dict) or data.get('schema_version') != 1
-                or not isinstance(data.get('rows'), list) or len(data['rows']) > 1000
-                or not isinstance(data.get('sources'), list) or len(data['sources']) > MAX_SOURCES
-                or not isinstance(data.get('update'), dict)):
+                or not isinstance(data.get('rows'), list) or not 1 <= len(data['rows']) <= 1000
+                or not isinstance(data.get('sources'), list) or not 1 <= len(data['sources']) <= MAX_SOURCES
+                or not isinstance(data.get('update'), dict) or timestamp(data.get('generated_at')) is None):
             return None
+        source_ids = set()
+        source_states = ('fresh', 'stale', 'empty', 'error', 'disabled', 'pending', 'unknown')
+        for source in data['sources']:
+            if (not isinstance(source, dict) or not isinstance(source.get('id'), str)
+                    or not re.fullmatch(r'[A-Za-z0-9-]{1,80}', source['id'])
+                    or source['id'] in source_ids or not isinstance(source.get('name'), str)
+                    or not article_link(source.get('url')) or source.get('status') not in source_states):
+                return None
+            source_ids.add(source['id'])
+        for row in data['rows']:
+            if (not isinstance(row, dict) or not isinstance(row.get('id'), str)
+                    or not re.fullmatch(r'[a-f0-9]{32}', row['id'])
+                    or not isinstance(row.get('source_id'), str) or row['source_id'] not in source_ids
+                    or not isinstance(row.get('title'), str) or not 1 <= len(row['title']) <= 500
+                    or not article_link(row.get('url')) or not isinstance(row.get('result'), dict)):
+                return None
+            result = row['result']
+            probabilities = result.get('probabilities', {})
+            if (not isinstance(result.get('prediction'), str)
+                    or result['prediction'] not in ['', *CATEGORIES] or not isinstance(probabilities, dict)):
+                return None
+            if any(not isinstance(value, (int, float)) or isinstance(value, bool)
+                   or not 0 <= value <= 1 or not math.isfinite(value) for value in probabilities.values()):
+                return None
         return data
     except (OSError, ValueError, UnicodeError):
         return None

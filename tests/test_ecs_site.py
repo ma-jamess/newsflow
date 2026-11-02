@@ -123,3 +123,44 @@ def test_refreshed_json_is_readable_by_the_separate_nginx_user(tmp_path, classif
     refresh_site(site, classifier, seed_path=seed, repository='ma-jamess/newsflow',
                  fetcher=lambda url: RSS, now=NOW)
     assert stat.S_IMODE((site / 'data/news.json').stat().st_mode) & stat.S_IROTH
+
+
+@pytest.mark.parametrize('target,value', [('row', []), ('row', {}), ('source', []), ('source', {})],
+                         ids=['row-list-id', 'row-dict-id', 'source-list-id', 'source-dict-id'])
+def test_malformed_cached_ids_recover_from_seed_and_still_check_sources(tmp_path, classifier, snapshot, target, value):
+    from newsroom.ecs_site import refresh_site
+    site, seed = seeded_site(tmp_path, classifier, snapshot)
+    corrupt = copy.deepcopy(snapshot)
+    if target == 'row':
+        corrupt['rows'][0]['source_id'] = value
+    else:
+        corrupt['sources'][0]['id'] = value
+    (site / 'data/news.json').write_text(json.dumps(corrupt), encoding='utf-8')
+    attempts = []
+    def offline(url):
+        attempts.append(url)
+        raise OSError('offline')
+    result = refresh_site(site, classifier, seed_path=seed, fetcher=offline, now=NOW)
+    assert attempts
+    assert len(result['rows']) == 1 and result['rows'][0]['url'] == 'https://example.org/sport'
+    assert result['rows'][0]['result']['prediction'] == '体育'
+    assert all(isinstance(s['id'], str) for s in result['sources'])
+
+
+@pytest.mark.parametrize('target', ['result', 'probabilities', 'source-name'])
+def test_bootstrap_uses_clean_seed_when_cached_reader_fields_are_malformed(tmp_path, classifier, snapshot, target):
+    from newsroom.ecs_site import bootstrap_site
+    site, seed = seeded_site(tmp_path, classifier, snapshot)
+    corrupt = copy.deepcopy(snapshot)
+    if target == 'result':
+        corrupt['rows'][0]['result'] = []
+    elif target == 'probabilities':
+        corrupt['rows'][0]['result']['probabilities'] = {'体育': None}
+    else:
+        corrupt['sources'][0]['name'] = []
+    (site / 'data/news.json').write_text(json.dumps(corrupt), encoding='utf-8')
+    bootstrap_site(site, classifier, seed_path=seed)
+    public = json.loads((site / 'data/news.json').read_text(encoding='utf-8'))
+    assert public['rows'][0]['result']['prediction'] == '体育'
+    assert public['rows'][0]['result']['probabilities']['体育'] > .5
+    assert all(isinstance(s['name'], str) for s in public['sources'])
