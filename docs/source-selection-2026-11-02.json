@@ -1,0 +1,26 @@
+{
+  "initial_audit": "source-audit-2026-11-02.json",
+  "checked_candidates": 91,
+  "initial_readable_feeds": 46,
+  "connected_channels": 43,
+  "excluded_after_readability_check": [
+    {
+      "url": "https://www.cnbeta.com.tw/backend.php",
+      "reason": "duplicate; use https://rss.cnbeta.com.tw/"
+    },
+    {
+      "url": "https://feeds.bbci.co.uk/zhongwen/trad/rss.xml",
+      "reason": "duplicate language variant; simplified Chinese is the default"
+    },
+    {
+      "url": "https://rss.sina.com.cn/finance/rollnews.xml",
+      "reason": "confirmed historical archive",
+      "evidence": "37 local published candidates had /20080612/ article URLs and no RSS publication date; original audit sample title also contains 20080612"
+    }
+  ],
+  "unknown_publication_time": [
+    "36氪",
+    "新华网"
+  ],
+  "publication_dates_inferred_from_urls": false
+}

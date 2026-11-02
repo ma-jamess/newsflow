@@ -77,3 +77,22 @@ test('RSS titles up to 500 characters do not reject the whole deployment',async(
   const title='人工智能芯片'.repeat(40),app=backend(snapshot([article(id,title,'科技')]));
   assert.equal((await app.request('news')).rows[0].title,title);
 });
+test('expanded source catalogue loads and preserves a previous browser visibility choice',async()=>{
+  const storage=new Storage(),first=backend(snapshot(),storage);
+  await first.request('news');
+  await first.request('news/save',{id,saved:true});
+  await first.request('news/sources',{id:'ithome',enabled:false});
+  const expanded=snapshot();
+  for(let i=0;i<40;i++)expanded.sources.push({id:'extra-'+i,name:'来源 '+i,url:'https://example.org/feed/'+i,status:'fresh',enabled:true});
+  expanded.rows.push({...article('c'.repeat(32),'新来源足球新闻','体育'),source_id:'extra-39'});
+  const next=backend(expanded,storage),data=await next.request('news');
+  assert.equal(data.total,1);assert.equal(data.rows[0].source_id,'extra-39');
+  assert.equal((await next.request('news?saved=1')).total,1);
+  const sources=await next.request('news/sources');
+  assert.equal(sources.sources.length,41);assert.equal(sources.sources[0].enabled,false);
+});
+test('public source data remains bounded with an oversized catalogue rejected',async()=>{
+  const expanded=snapshot();
+  for(let i=0;i<128;i++)expanded.sources.push({id:'extra-'+i,name:'source',url:'https://example.org/feed/'+i,status:'fresh',enabled:true});
+  await assert.rejects(backend(expanded).request('news'),/数据/);
+});

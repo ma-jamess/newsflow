@@ -42,7 +42,9 @@ python run.py --no-install       # 使用就绪环境，缺少依赖直接提示
 
 **最新新闻**是默认首页：分类、来源、搜索、收藏和待核对筛选取交集，点击标题查看文本摘要和分类依据，打开原文或人工修改类别。默认显示近 72 小时新闻，收藏可保留更早条目；当前筛选结果可导出 CSV，最多 5000 条。
 
-默认接入 IT之家、少数派、中新网体育、财经和教育 RSS，另有可开启的中新网即时订阅。新闻源管理支持启停与添加公开 HTTPS RSS/Atom，显示最近读取、最新发布时间与连接状态。默认来源已在 2026-10-31 实测。
+默认接入 **43 个免费中文 RSS/Atom 频道**，涵盖 IT之家、少数派、中新网、爱范儿、36氪、BBC 中文、德国之声、RFI、韩联社，以及 Google 中文新闻的十个聚合频道。2026-11-02 在 GitHub 执行网络检查了 91 个候选，46 个可读取；合并两组重复订阅并排除新浪财经的 2008 年存档后，启用 43 个。日期缺失的来源保留“时间未标注”。完整清单与未接入原因见 [免费新闻来源](docs/free-news-sources.md)。
+
+新闻源管理支持启停与添加公开 HTTPS RSS/Atom，显示最近读取、最新发布时间与连接状态。公网版的开关控制当前浏览器的显示；下载版可添加自己的订阅。内置目录为 `newsroom/sources.json`，来源 ID 保持稳定，更新目录不会重置已有显示偏好。
 
 服务每 **120 秒检查更新**，页面每 20 秒读取缓存，手动检查冷却 30 秒。新闻到达时间仍取决于来源发布；“最近检查”与“新闻发布时间”分别显示。旧订阅不会因为返回成功就显示成新新闻。来源失败时保留缓存，其余来源继续更新；刷新保留收藏和人工类别。
 
@@ -84,6 +86,8 @@ newsroom/data.py        归一化、去重、数据校验
 newsroom/csvio.py       CSV 严格解析、安全导出
 newsroom/ml.py          特征、训练、校准、评估与解释
 newsroom/feeds.py       RSS/Atom 读取、日期解析与公网地址检查
+newsroom/feed_catalog.py 内置订阅目录校验，不依赖联网启动
+newsroom/sources.json   经过检查的免费中文来源与国际中文订阅
 newsroom/news_store.py  独立新闻缓存、来源、收藏与人工类别
 newsroom/live_news.py   后台更新协调、本地分类与更新状态
 newsroom/store.py       SQLite 历史和人工标注
@@ -96,6 +100,7 @@ scripts/build_docs.py   从实际实验生成论文初稿与对比说明
 scripts/compare_versions.py 严格对齐两版已有预测，生成逐条差异
 scripts/make_figures.py 从本项目真实报告生成三幅论文配图
 scripts/package.py      独立交付包与源码清单
+scripts/check_news_sources.py 免费来源的手动可用性检查
 tests/                  数据、模型、新闻源、API、并发与前端回归
 data/raw/               公开数据、上游 README 和 LICENSE
 artifacts/              自己训练的模型、报告、测试预测明细

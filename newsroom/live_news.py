@@ -1,9 +1,8 @@
 """One refresh coordinator owns the application's periodic public feed jobs."""
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import timedelta
 
-from newsroom.feeds import fetch_feed, parse_feed
+from newsroom.feeds import fetch_feed, is_recent_article, parse_feed
 from newsroom.news_store import utcnow
 
 REFRESH_SECONDS = 120
@@ -63,9 +62,7 @@ class LiveNewsService:
     def _fetch_source(self, source, now):
         rows = parse_feed(self.fetcher(source['url']), source['url'], now)
         latest = max((row['published_at'] for row in rows if row['published_at']), default=None)
-        cutoff = now - timedelta(days=7)
-        recent = [row for row in rows if not row['published_at'] or
-                  cutoff.isoformat() <= row['published_at'] <= (now + timedelta(minutes=15)).isoformat()]
+        recent = [row for row in rows if is_recent_article(row, now)]
         return recent, latest, len(rows)
 
     def _perform_refresh(self):

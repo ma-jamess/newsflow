@@ -37,9 +37,17 @@ no account system or shared hosted backend.
 
 ## Continuously updated feeds
 
-Built-in subscriptions: IT Home, SSPAI, and China News sports, finance, and
-education RSS. An additional general China News feed can be enabled. Add
-other public HTTPS RSS/Atom URLs in the source settings.
+The validated catalogue contains 43 free Chinese RSS/Atom channels, including
+IT Home, SSPAI, China News, technology and gaming publishers, BBC Chinese,
+DW, RFI, Yonhap Chinese, and ten Google Chinese News aggregation channels.
+A GitHub-network audit on 2026-11-02 checked 91 candidates, found 46 readable
+feeds, merged two duplicate alternatives, and excluded a confirmed 2008 Sina
+finance archive. Feeds without publication dates
+remain explicitly undated. See the [source catalogue and audit](docs/free-news-sources.md).
+
+Edit `newsroom/sources.json` to update built-ins while keeping source IDs stable.
+Public source preferences apply per browser; the downloadable application
+also accepts custom public HTTPS RSS/Atom URLs in its source settings.
 
 The server checks feeds every 120 seconds. The browser reads the local cache
 every 20 seconds and a manual check has a 30-second cooldown. This is periodic

@@ -6,7 +6,7 @@
   const validDate=value=>typeof value==='string'&&Number.isFinite(Date.parse(value));
   function safeURL(value){try{const url=new URL(value);return typeof value==='string'&&!/[\x00-\x20\x7f]/.test(value)&&['http:','https:'].includes(url.protocol)&&!url.username&&!url.password;}catch{return false;}}
   function validate(data){
-    if(!data||data.schema_version!==1||!validDate(data.generated_at)||!Array.isArray(data.rows)||data.rows.length>1000||!Array.isArray(data.sources)||data.sources.length>20||!data.update)throw new Error('新闻数据格式错误');
+    if(!data||data.schema_version!==1||!validDate(data.generated_at)||!Array.isArray(data.rows)||data.rows.length>1000||!Array.isArray(data.sources)||data.sources.length>128||!data.update)throw new Error('新闻数据格式错误');
     const ids=new Set(data.sources.map(source=>source.id));
     for(const source of data.sources){if(!/^[a-zA-Z0-9-]{1,80}$/.test(source.id)||typeof source.name!=='string'||!safeURL(source.url)||!['fresh','stale','empty','error','disabled','pending','unknown'].includes(source.status))throw new Error('新闻来源数据错误');}
     for(const row of data.rows){

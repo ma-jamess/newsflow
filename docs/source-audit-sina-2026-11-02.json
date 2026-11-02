@@ -1,0 +1,23 @@
+{
+  "checked_at": "2026-11-02T08:17:29.448930+00:00",
+  "checked_count": 1,
+  "available_count": 0,
+  "sources": [
+    {
+      "id": "feed-82467d5d4b5f",
+      "name": "新浪财经",
+      "url": "https://rss.sina.com.cn/finance/rollnews.xml",
+      "available": false,
+      "status": "old",
+      "latest_published_at": null,
+      "parsed_items": 40,
+      "recent_items": 0,
+      "undated_items": 40,
+      "archival_items": 40,
+      "chinese_items": 40,
+      "bytes": 23454,
+      "sample_title": "湘财祈年：白糖收盘评论20080612",
+      "seconds": 0.32
+    }
+  ]
+}

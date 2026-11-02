@@ -3,7 +3,7 @@ import ipaddress
 import re
 import socket
 from http.client import HTTPSConnection
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from html import unescape
 from html.parser import HTMLParser
@@ -12,23 +12,12 @@ from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 from urllib.request import HTTPRedirectHandler, HTTPSHandler, ProxyHandler, Request, build_opener
 from xml.etree import ElementTree
 
+from newsroom.feed_catalog import load_catalog
+
 MAX_FEED_BYTES = 1024 * 1024
 FETCH_TIMEOUT = 10
 MAX_FEED_ITEMS = 80
-BUILTIN_SOURCES = [
-    {'id': 'ithome', 'name': 'IT之家', 'url': 'https://www.ithome.com/rss/',
-     'site_url': 'https://www.ithome.com', 'description': '科技与数码', 'enabled': True},
-    {'id': 'sspai', 'name': '少数派', 'url': 'https://sspai.com/feed',
-     'site_url': 'https://sspai.com', 'description': '数字生活与文化', 'enabled': True},
-    {'id': 'cn-sports', 'name': '中新网 · 体育', 'url': 'https://www.chinanews.com.cn/rss/sports.xml',
-     'site_url': 'https://www.chinanews.com.cn', 'description': '体育赛事', 'enabled': True},
-    {'id': 'cn-finance', 'name': '中新网 · 财经', 'url': 'https://www.chinanews.com.cn/rss/finance.xml',
-     'site_url': 'https://www.chinanews.com.cn', 'description': '财经与产业', 'enabled': True},
-    {'id': 'cn-education', 'name': '中新网 · 教育', 'url': 'https://www.chinanews.com.cn/rss/edu.xml',
-     'site_url': 'https://www.chinanews.com.cn', 'description': '学校与教育', 'enabled': True},
-    {'id': 'cn-latest', 'name': '中新网 · 即时', 'url': 'https://www.chinanews.com.cn/rss/scroll-news.xml',
-     'site_url': 'https://www.chinanews.com.cn', 'description': '综合资讯，五类外内容需核对', 'enabled': False},
-]
+BUILTIN_SOURCES = load_catalog()
 
 
 class _Text(HTMLParser):
@@ -171,9 +160,29 @@ def _date(value):
         except (ValueError, TypeError, OverflowError):
             return None
     if parsed.tzinfo is None:
-        from datetime import timedelta
         parsed = parsed.replace(tzinfo=timezone(timedelta(hours=8)))
     return parsed.astimezone(timezone.utc).isoformat()
+
+
+def is_recent_article(item, now):
+    cutoff = now - timedelta(days=7)
+    if item.get('published_at'):
+        try:
+            published = datetime.fromisoformat(item['published_at'])
+            return published.tzinfo is not None and cutoff <= published <= now + timedelta(minutes=15)
+        except (ValueError, TypeError):
+            return False
+    # An old date folder is evidence of an archive, not a publication timestamp.
+    # Do not populate published_at from a URL or from the collection clock.
+    path = urlsplit(item['url']).path
+    for match in re.finditer(r'/(19\d{2}|20\d{2})[-/]?(\d{2})[-/]?(\d{2})/', path):
+        try:
+            hint = datetime(*map(int, match.groups()), tzinfo=timezone.utc)
+        except ValueError:
+            continue
+        if hint.date() < cutoff.date():
+            return False
+    return True
 
 
 def _child(node, names):

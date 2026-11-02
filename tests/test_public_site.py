@@ -25,7 +25,7 @@ def test_public_snapshot_uses_real_local_model_and_no_personal_state(classifier)
     assert row['category'] == '体育' and row['result']['probabilities']['体育'] > .5
     assert row['explanation']['evidence']
     assert not row['saved'] and not row['correction']
-    assert len(data['sources']) == 5
+    assert len(data['sources']) >= 26
 
 
 def test_failed_public_refresh_preserves_previous_news_and_success_time(classifier):
@@ -124,6 +124,55 @@ def test_prior_snapshot_cannot_import_personal_flags_or_unknown_sources(classifi
     assert len(data['rows']) == 1
     assert data['rows'][0]['category'] == '体育'
     assert not data['rows'][0]['saved'] and not data['rows'][0]['correction']
+
+
+def test_late_source_cache_keeps_its_success_time_after_a_failed_refresh(classifier, monkeypatch):
+    from newsroom import news_store
+    from newsroom.public_site import build_snapshot
+    sources = [{'id':'source-' + str(i),'name':'Source ' + str(i),'url':'https://example.org/feed/' + str(i),
+                'site_url':'https://example.org','description':'test','enabled':True} for i in range(32)]
+    monkeypatch.setattr(news_store, 'BUILTIN_SOURCES', sources)
+    previous = build_snapshot(classifier, fetcher=lambda url: RSS, now=NOW)
+    def fail(url):
+        raise OSError('offline')
+    data = build_snapshot(classifier, fetcher=fail, previous=previous, now=NOW)
+    assert data['sources'][-1]['last_success_at'] == previous['sources'][-1]['last_success_at']
+    assert data['sources'][-1]['last_error']
+
+
+def test_large_feeds_do_not_push_a_quiet_recent_source_out_of_public_snapshot(classifier, monkeypatch):
+    from newsroom import news_store
+    from newsroom.public_site import build_snapshot
+    sources = [{'id':'hot-' + str(i),'name':'Source ' + str(i),'url':'https://example.org/feed/' + str(i),
+                'site_url':'https://example.org','description':'test','enabled':True} for i in range(16)]
+    monkeypatch.setattr(news_store, 'BUILTIN_SOURCES', sources)
+    def fetch(url):
+        index = int(url.rsplit('/',1)[1])
+        if index == 15:
+            return RSS.replace(b'/sport',b'/quiet').replace(b'07:00:00',b'06:00:00')
+        entries = ''.join(f'<item><title>人工智能芯片新闻 {index}-{i}</title><link>https://example.org/hot/{index}/{i}</link><pubDate>Sun, 01 Nov 2026 07:00:00 GMT</pubDate></item>' for i in range(80))
+        return ('<rss><channel>'+entries+'</channel></rss>').encode()
+    data = build_snapshot(classifier, fetcher=fetch, now=NOW)
+    assert len(data['rows']) == 1000
+    assert any(row['source_id'] == 'hot-15' for row in data['rows'])
+
+
+def test_undated_archival_articles_cannot_create_a_current_publication(classifier):
+    from newsroom.public_site import build_snapshot
+    archive = RSS.replace(b'<pubDate>Sun, 01 Nov 2026 07:00:00 GMT</pubDate>', b'').replace(
+        b'https://example.org/sport', b'http://finance.sina.com.cn/money/future/20080612/16344975099.shtml')
+    with pytest.raises(ValueError, match='没有可发布'):
+        build_snapshot(classifier, fetcher=lambda url: archive, now=NOW)
+
+
+def test_public_refresh_discards_cached_archive_and_excludes_historical_sina_subscription(classifier):
+    from newsroom.public_site import build_snapshot
+    old_url = 'http://finance.sina.com.cn/money/future/20080612/16344975099.shtml'
+    prior = {'schema_version':1, 'rows':[{'source_id':'ithome','title':'2008 年白糖收盘评论',
+             'url':old_url,'published_at':None,'first_seen_at':NOW.isoformat()}]}
+    data = build_snapshot(classifier, fetcher=lambda url: RSS, previous=prior, now=NOW)
+    assert all(row['url'] != old_url for row in data['rows'])
+    assert all(source['url'] != 'https://rss.sina.com.cn/finance/rollnews.xml' for source in data['sources'])
 
 
 def test_static_artifact_is_relative_and_contains_only_public_files(classifier, tmp_path):

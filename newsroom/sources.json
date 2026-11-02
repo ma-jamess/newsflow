@@ -1,0 +1,389 @@
+[
+  {
+    "id": "ithome",
+    "name": "IT之家",
+    "url": "https://www.ithome.com/rss/",
+    "site_url": "https://www.ithome.com",
+    "description": "科技与数码",
+    "enabled": true,
+    "group": "现有来源"
+  },
+  {
+    "id": "sspai",
+    "name": "少数派",
+    "url": "https://sspai.com/feed",
+    "site_url": "https://sspai.com",
+    "description": "数字生活与文化",
+    "enabled": true,
+    "group": "现有来源"
+  },
+  {
+    "id": "cn-sports",
+    "name": "中新网 · 体育",
+    "url": "https://www.chinanews.com.cn/rss/sports.xml",
+    "site_url": "https://www.chinanews.com.cn",
+    "description": "体育赛事",
+    "enabled": true,
+    "group": "现有来源"
+  },
+  {
+    "id": "cn-finance",
+    "name": "中新网 · 财经",
+    "url": "https://www.chinanews.com.cn/rss/finance.xml",
+    "site_url": "https://www.chinanews.com.cn",
+    "description": "财经与产业",
+    "enabled": true,
+    "group": "现有来源"
+  },
+  {
+    "id": "cn-education",
+    "name": "中新网 · 教育",
+    "url": "https://www.chinanews.com.cn/rss/edu.xml",
+    "site_url": "https://www.chinanews.com.cn",
+    "description": "学校与教育",
+    "enabled": true,
+    "group": "现有来源"
+  },
+  {
+    "id": "cn-latest",
+    "name": "中新网 · 即时",
+    "url": "https://www.chinanews.com.cn/rss/scroll-news.xml",
+    "site_url": "https://www.chinanews.com.cn",
+    "description": "综合资讯，五类外内容需核对",
+    "enabled": true,
+    "group": "现有来源"
+  },
+  {
+    "id": "feed-33c168e0d16f",
+    "name": "中新网 · 国内",
+    "url": "https://www.chinanews.com.cn/rss/china.xml",
+    "site_url": "https://www.chinanews.com.cn",
+    "description": "综合 · 免费公开订阅",
+    "group": "综合",
+    "enabled": true
+  },
+  {
+    "id": "feed-f8d33751df3c",
+    "name": "中新网 · 国际",
+    "url": "https://www.chinanews.com.cn/rss/world.xml",
+    "site_url": "https://www.chinanews.com.cn",
+    "description": "国际中文 · 免费公开订阅",
+    "group": "国际中文",
+    "enabled": true
+  },
+  {
+    "id": "feed-00faf82ffbb3",
+    "name": "中新网 · 社会",
+    "url": "https://www.chinanews.com.cn/rss/society.xml",
+    "site_url": "https://www.chinanews.com.cn",
+    "description": "综合 · 免费公开订阅",
+    "group": "综合",
+    "enabled": true
+  },
+  {
+    "id": "feed-7fd514d6ac4f",
+    "name": "中新网 · 健康",
+    "url": "https://www.chinanews.com.cn/rss/health.xml",
+    "site_url": "https://www.chinanews.com.cn",
+    "description": "健康 · 免费公开订阅",
+    "group": "健康",
+    "enabled": true
+  },
+  {
+    "id": "feed-63e96afb5f7a",
+    "name": "爱范儿",
+    "url": "https://www.ifanr.com/feed",
+    "site_url": "https://www.ifanr.com",
+    "description": "科技 · 免费公开订阅",
+    "group": "科技",
+    "enabled": true
+  },
+  {
+    "id": "feed-9ca1837e94d8",
+    "name": "极客公园",
+    "url": "https://www.geekpark.net/rss",
+    "site_url": "https://www.geekpark.net",
+    "description": "科技 · 免费公开订阅",
+    "group": "科技",
+    "enabled": true
+  },
+  {
+    "id": "feed-597b3e93ce00",
+    "name": "36氪",
+    "url": "https://www.36kr.com/feed",
+    "site_url": "https://www.36kr.com",
+    "description": "财经 · 免费公开订阅",
+    "group": "财经",
+    "enabled": true
+  },
+  {
+    "id": "feed-45cdcadadfdd",
+    "name": "钛媒体",
+    "url": "https://www.tmtpost.com/rss.xml",
+    "site_url": "https://www.tmtpost.com",
+    "description": "财经 · 免费公开订阅",
+    "group": "财经",
+    "enabled": true
+  },
+  {
+    "id": "feed-5050a76be037",
+    "name": "雷峰网",
+    "url": "https://www.leiphone.com/feed",
+    "site_url": "https://www.leiphone.com",
+    "description": "科技 · 免费公开订阅",
+    "group": "科技",
+    "enabled": true
+  },
+  {
+    "id": "feed-cf502ba146e7",
+    "name": "Solidot",
+    "url": "https://www.solidot.org/index.rss",
+    "site_url": "https://www.solidot.org",
+    "description": "科技 · 免费公开订阅",
+    "group": "科技",
+    "enabled": true
+  },
+  {
+    "id": "feed-a0d4b7d6b04a",
+    "name": "cnBeta",
+    "url": "https://rss.cnbeta.com.tw/",
+    "site_url": "https://www.cnbeta.com.tw",
+    "description": "科技 · 免费公开订阅",
+    "group": "科技",
+    "enabled": true
+  },
+  {
+    "id": "feed-cca3cdc87be8",
+    "name": "小众软件",
+    "url": "https://www.appinn.com/feed",
+    "site_url": "https://www.appinn.com",
+    "description": "科技 · 免费公开订阅",
+    "group": "科技",
+    "enabled": true
+  },
+  {
+    "id": "feed-5c83e2c9d106",
+    "name": "异次元软件",
+    "url": "https://www.iplaysoft.com/feed",
+    "site_url": "https://www.iplaysoft.com",
+    "description": "科技 · 免费公开订阅",
+    "group": "科技",
+    "enabled": true
+  },
+  {
+    "id": "feed-836ccfdca641",
+    "name": "阮一峰科技周刊",
+    "url": "https://www.ruanyifeng.com/blog/atom.xml",
+    "site_url": "https://www.ruanyifeng.com",
+    "description": "科技 · 免费公开订阅",
+    "group": "科技",
+    "enabled": true
+  },
+  {
+    "id": "feed-8d6d839d0957",
+    "name": "机核",
+    "url": "https://www.gcores.com/rss",
+    "site_url": "https://www.gcores.com",
+    "description": "娱乐 · 免费公开订阅",
+    "group": "娱乐",
+    "enabled": true
+  },
+  {
+    "id": "feed-243802528f27",
+    "name": "游研社",
+    "url": "https://www.yystv.cn/rss/feed",
+    "site_url": "https://www.yystv.cn",
+    "description": "娱乐 · 免费公开订阅",
+    "group": "娱乐",
+    "enabled": true
+  },
+  {
+    "id": "feed-ca6338470e33",
+    "name": "触乐",
+    "url": "https://www.chuapp.com/feed",
+    "site_url": "https://www.chuapp.com",
+    "description": "娱乐 · 免费公开订阅",
+    "group": "娱乐",
+    "enabled": true
+  },
+  {
+    "id": "feed-9f1bc622e48e",
+    "name": "泛科学",
+    "url": "https://pansci.asia/feed",
+    "site_url": "https://pansci.asia",
+    "description": "科教 · 免费公开订阅",
+    "group": "科教",
+    "enabled": true
+  },
+  {
+    "id": "feed-4f219b460798",
+    "name": "BBC中文简体",
+    "url": "https://feeds.bbci.co.uk/zhongwen/simp/rss.xml",
+    "site_url": "https://feeds.bbci.co.uk",
+    "description": "国际中文 · 免费公开订阅",
+    "group": "国际中文",
+    "enabled": true
+  },
+  {
+    "id": "feed-f20da2d1ae01",
+    "name": "德国之声中文",
+    "url": "https://rss.dw.com/rdf/rss-chi-all",
+    "site_url": "https://rss.dw.com",
+    "description": "国际中文 · 免费公开订阅",
+    "group": "国际中文",
+    "enabled": true
+  },
+  {
+    "id": "feed-1ae006e08e33",
+    "name": "法国国际广播中文",
+    "url": "https://www.rfi.fr/cn/rss",
+    "site_url": "https://www.rfi.fr",
+    "description": "国际中文 · 免费公开订阅",
+    "group": "国际中文",
+    "enabled": true
+  },
+  {
+    "id": "feed-46da4556dbf3",
+    "name": "韩联社中文",
+    "url": "https://cn.yna.co.kr/RSS/news.xml",
+    "site_url": "https://cn.yna.co.kr",
+    "description": "国际中文 · 免费公开订阅",
+    "group": "国际中文",
+    "enabled": true
+  },
+  {
+    "id": "feed-0f47239a682c",
+    "name": "俄罗斯卫星通讯社中文",
+    "url": "https://sputniknews.cn/export/rss2/archive/index.xml",
+    "site_url": "https://sputniknews.cn",
+    "description": "国际中文 · 免费公开订阅",
+    "group": "国际中文",
+    "enabled": true
+  },
+  {
+    "id": "feed-2fcfc32dff7b",
+    "name": "公视新闻网",
+    "url": "https://news.pts.org.tw/xml/newsfeed.xml",
+    "site_url": "https://news.pts.org.tw",
+    "description": "综合 · 免费公开订阅",
+    "group": "综合",
+    "enabled": true
+  },
+  {
+    "id": "feed-2a20763d52ea",
+    "name": "自由时报 · 即时",
+    "url": "https://news.ltn.com.tw/rss/all.xml",
+    "site_url": "https://news.ltn.com.tw",
+    "description": "综合 · 免费公开订阅",
+    "group": "综合",
+    "enabled": true
+  },
+  {
+    "id": "feed-f3803383915c",
+    "name": "中新网 · 文化",
+    "url": "https://www.chinanews.com.cn/rss/culture.xml",
+    "site_url": "https://www.chinanews.com.cn",
+    "description": "文化 · 免费公开订阅",
+    "group": "文化",
+    "enabled": true
+  },
+  {
+    "id": "feed-092751e04c5e",
+    "name": "新华网",
+    "url": "https://www.xinhuanet.com/politics/news_politics.xml",
+    "site_url": "https://www.xinhuanet.com",
+    "description": "综合 · 免费公开订阅",
+    "group": "综合",
+    "enabled": true
+  },
+  {
+    "id": "feed-04ca63316d85",
+    "name": "Google新闻 · 综合",
+    "url": "https://news.google.com/rss?hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+    "site_url": "https://news.google.com",
+    "description": "综合 · 免费公开订阅",
+    "group": "综合",
+    "enabled": true
+  },
+  {
+    "id": "feed-f070c0ec97d4",
+    "name": "Google新闻 · 国际",
+    "url": "https://news.google.com/rss/headlines/section/topic/WORLD?hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+    "site_url": "https://news.google.com",
+    "description": "国际中文 · 免费公开订阅",
+    "group": "国际中文",
+    "enabled": true
+  },
+  {
+    "id": "feed-0f5a8b1e7b21",
+    "name": "Google新闻 · 国内",
+    "url": "https://news.google.com/rss/headlines/section/topic/NATION?hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+    "site_url": "https://news.google.com",
+    "description": "国内 · 免费公开订阅",
+    "group": "国内",
+    "enabled": true
+  },
+  {
+    "id": "feed-840b6fdcae28",
+    "name": "Google新闻 · 科技",
+    "url": "https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+    "site_url": "https://news.google.com",
+    "description": "科技 · 免费公开订阅",
+    "group": "科技",
+    "enabled": true
+  },
+  {
+    "id": "feed-7cf36ea5af76",
+    "name": "Google新闻 · 财经",
+    "url": "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+    "site_url": "https://news.google.com",
+    "description": "财经 · 免费公开订阅",
+    "group": "财经",
+    "enabled": true
+  },
+  {
+    "id": "feed-e51349bc52c8",
+    "name": "Google新闻 · 体育",
+    "url": "https://news.google.com/rss/headlines/section/topic/SPORTS?hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+    "site_url": "https://news.google.com",
+    "description": "体育 · 免费公开订阅",
+    "group": "体育",
+    "enabled": true
+  },
+  {
+    "id": "feed-8ea863768a25",
+    "name": "Google新闻 · 娱乐",
+    "url": "https://news.google.com/rss/headlines/section/topic/ENTERTAINMENT?hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+    "site_url": "https://news.google.com",
+    "description": "娱乐 · 免费公开订阅",
+    "group": "娱乐",
+    "enabled": true
+  },
+  {
+    "id": "feed-8acc4aa53ac7",
+    "name": "Google新闻 · 科学",
+    "url": "https://news.google.com/rss/headlines/section/topic/SCIENCE?hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+    "site_url": "https://news.google.com",
+    "description": "科学 · 免费公开订阅",
+    "group": "科学",
+    "enabled": true
+  },
+  {
+    "id": "feed-46eb192f6a77",
+    "name": "Google新闻 · 健康",
+    "url": "https://news.google.com/rss/headlines/section/topic/HEALTH?hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+    "site_url": "https://news.google.com",
+    "description": "健康 · 免费公开订阅",
+    "group": "健康",
+    "enabled": true
+  },
+  {
+    "id": "feed-7868b1ce1e7e",
+    "name": "Google新闻 · 教育",
+    "url": "https://news.google.com/rss/search?q=%E6%95%99%E8%82%B2&hl=zh-CN&gl=CN&ceid=CN%3Azh-Hans",
+    "site_url": "https://news.google.com",
+    "description": "科教 · 免费公开订阅",
+    "group": "科教",
+    "enabled": true
+  }
+]

@@ -8,7 +8,8 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from newsroom.data import title_error
-from newsroom.feeds import fetch_feed
+from newsroom.feed_catalog import MAX_SOURCES
+from newsroom.feeds import fetch_feed, is_recent_article
 from newsroom.live_news import LiveNewsService
 from newsroom.news_store import NewsStore
 
@@ -51,6 +52,8 @@ def build_snapshot(classifier, fetcher=fetch_feed, previous=None, now=None):
                 continue
             if (published or first_seen) < now - timedelta(days=7) or (published or first_seen) > now + timedelta(minutes=15):
                 continue
+            if not is_recent_article(row, now):
+                continue
             valid.append({'source_id':row['source_id'], 'title':title, 'url':row['url'],
                           'summary':str(row.get('summary', ''))[:400],
                           'published_at':published.isoformat() if published else None,
@@ -59,7 +62,7 @@ def build_snapshot(classifier, fetcher=fetch_feed, previous=None, now=None):
         for row, result in zip(valid, predictions):
             store.ingest(row['source_id'], [row], [result], timestamp(row['first_seen_at']))
         prior_sources = previous.get('sources')
-        for source in (prior_sources if isinstance(prior_sources, list) else [])[:20]:
+        for source in (prior_sources if isinstance(prior_sources, list) else [])[:MAX_SOURCES]:
             if isinstance(source, dict) and source.get('id') in sources:
                 success = timestamp(source.get('last_success_at'))
                 latest = timestamp(source.get('latest_published_at'))
@@ -73,6 +76,20 @@ def build_snapshot(classifier, fetcher=fetch_feed, previous=None, now=None):
         live = LiveNewsService(store, classifier, fetcher=fetcher, clock=lambda: now)
         live.refresh()
         snapshot = live.snapshot(limit=1000, hours=168)
+        if snapshot['total'] > 1000:
+            # Reserve recent articles per source before filling by overall recency.
+            # Query each source so a quiet feed survives even beyond the global cap.
+            per_source = min(10, max(1, 1000 // len(sources)))
+            retained = {}
+            for source_id in sources:
+                for row in store.query(source=source_id, now=now, hours=168, limit=per_source)['rows']:
+                    retained[row['id']] = row
+            for row in snapshot['rows']:
+                if len(retained) >= 1000:
+                    break
+                retained.setdefault(row['id'], row)
+            snapshot['rows'] = sorted(retained.values(), key=lambda row:
+                                      (timestamp(row['published_at'] or row['first_seen_at']), row['id']), reverse=True)
         if not snapshot['rows']:
             raise ValueError('没有可发布的新闻，保留上一次部署')
         if not snapshot['update']['last_success_at']:
