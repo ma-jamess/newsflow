@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-01",
-  "delivery_status": "awaiting_github_workflow_authorization",
+  "date": "2026-11-02",
+  "delivery_status": "deploying",
   "repository": "https://github.com/ma-jamess/newsflow",
   "planned_site": "https://ma-jamess.github.io/newsflow/",
   "python_tests": {"passed": 91, "failed": 0, "warning": "existing pytz deprecation"},

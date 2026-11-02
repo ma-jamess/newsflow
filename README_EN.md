@@ -8,7 +8,7 @@ included in the same application.
 
 [中文说明](README.md) · [License](LICENSE) · [User guide](docs/newsflow-guide.md)
 
-> Deployment status: source is published; the owner must grant the GitHub CLI workflow scope before public deployment. The URL below is not live yet. The downloadable application is available.
+> Deployment status: authorization is complete and the first public deployment is being verified. The downloadable application is available.
 
 **Use online: [NewsFlow](https://ma-jamess.github.io/newsflow/).** GitHub Pages serves the public news reader independently of any local process. GitHub Actions attempts a feed refresh every five minutes; schedules may be delayed. Bookmarks, corrections and source display preferences belong to each browser. The downloadable Python application retains training, arbitrary-title/CSV classification and complete experiments. See [public deployment guide](docs/public-site-guide.md).
 

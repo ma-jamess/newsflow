@@ -1,6 +1,6 @@
 # NewsFlow 公网使用与部署
 
-当前部署状态：源码已保存到新仓库，Pages 的 HTTPS 与 Actions 发布模式已配置。GitHub 拒绝上传工作流（账号缺少 workflow 权限），因此公网尚未上线；授权后继续推送工作流并验证部署。
+当前部署状态：GitHub 授权已完成，正在进行首次公网部署和验证。Pages 使用 Actions 发布并强制 HTTPS。
 
 网址：**https://ma-jamess.github.io/newsflow/**。源码：**https://github.com/ma-jamess/newsflow**。
 
