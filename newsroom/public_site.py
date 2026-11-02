@@ -117,18 +117,34 @@ def write_json(path, value):
     temporary.replace(path)
 
 
-def write_site(output, snapshot, report, repository):
+def public_payload(snapshot, repository, *, deployment='pages', interval_seconds=300):
     if not re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', repository):
         raise ValueError('仓库名称无效')
+    if deployment not in {'pages', 'ecs'}:
+        raise ValueError('部署类型无效')
+    if not isinstance(interval_seconds, int) or not 60 <= interval_seconds <= 3600:
+        raise ValueError('新闻更新间隔应在60到3600秒之间')
+    repo_url = 'https://github.com/' + repository
+    return {**snapshot, 'repository': repository, 'source_url': repo_url,
+            'download_url': repo_url + '/archive/refs/heads/main.zip',
+            'deployment': deployment, 'interval_seconds': interval_seconds}
+
+
+def write_site(output, snapshot, report, repository, *, deployment='pages', interval_seconds=300):
+    payload = public_payload(snapshot, repository, deployment=deployment, interval_seconds=interval_seconds)
     output = Path(output)
     output.mkdir(parents=True, exist_ok=True)
     source = ROOT / 'web'
     page = re.search(r'<section id="page-news"(?=[ >]).*?</section>', (source / 'index.html').read_text(encoding='utf-8'), re.S)
     if not page:
         raise ValueError('新闻页模板缺失')
-    repo_url = 'https://github.com/' + repository
+    repo_url = payload['source_url']
     html = (source / 'public/index.html').read_text(encoding='utf-8').replace('{{NEWS_PAGE}}', page.group())
-    html = html.replace('{{REPO_URL}}', repo_url).replace('每 2 分钟', '约每 5 分钟')
+    interval = f'{interval_seconds // 60} 分钟' if interval_seconds % 60 == 0 else f'{interval_seconds} 秒'
+    schedule = (f'每轮采集完成后约 {interval} 再次检查' if deployment == 'ecs'
+                else f'约每 {interval} 自动更新，调度可能延迟')
+    html = html.replace('{{REPO_URL}}', repo_url).replace('{{UPDATE_SCHEDULE}}', schedule)
+    html = html.replace('每 2 分钟', f'约每 {interval}')
     (output / 'index.html').write_text(html, encoding='utf-8')
     for name in ['style.css','polish.css','newsflow.css','public.css','public-backend.js','public-app.js','live-news-ui.js','live-news.js']:
         shutil.copyfile(source / name, output / name)
@@ -139,8 +155,6 @@ def write_site(output, snapshot, report, repository):
     shutil.copyfile(ROOT / 'data/raw/LICENSE', output / 'DATA_LICENSE')
     shutil.copyfile(ROOT / 'third_party/lucide/LICENSE', output / 'icons/LICENSE')
     (output / '.nojekyll').write_text('', encoding='utf-8')
-    payload = {**snapshot, 'repository':repository, 'source_url':repo_url,
-               'download_url':repo_url + '/archive/refs/heads/main.zip'}
     write_json(output / 'data/news.json', payload)
     write_json(output / 'data/report.json', report)
     return output

@@ -1,0 +1,28 @@
+[Unit]
+Description=Refresh NewsFlow public news with the local classifier
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=newsflow
+Group=newsflow
+WorkingDirectory=/opt/newsflow
+ExecStart=/opt/newsflow/.venv/bin/python /opt/newsflow/scripts/update_ecs_site.py
+TimeoutStartSec=300
+StateDirectory=newsflow
+StateDirectoryMode=0755
+UMask=0022
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=OMP_NUM_THREADS=1
+Environment=MKL_NUM_THREADS=1
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/newsflow
+CPUQuota=100%
+MemoryMax=700M
+Nice=10

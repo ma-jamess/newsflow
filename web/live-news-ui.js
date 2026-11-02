@@ -34,6 +34,11 @@
     if (!value || !Number.isFinite(new Date(value).getTime())) return '时间未标注';
     return new Date(value).toLocaleString('zh-CN', {timeZone: 'Asia/Shanghai', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false});
   }
+  function updateSchedule(snapshot = {}) {
+    const value = Number.isInteger(snapshot.interval_seconds) && snapshot.interval_seconds >= 60 && snapshot.interval_seconds <= 3600 ? snapshot.interval_seconds : 300;
+    const interval = value % 60 === 0 ? `${value / 60} 分钟` : `${value} 秒`;
+    return snapshot.deployment === 'ecs' ? `每轮采集完成后约 ${interval} 再次检查` : `约每 ${interval} 自动更新，调度可能延迟`;
+  }
   function queryString(filters) {
     const params = new URLSearchParams();
     params.set('q', filters.query || '');
@@ -63,5 +68,5 @@
     ].join('');
   }
   const sourceLabels = {fresh: '有近期新闻', stale: '近期未更新', empty: '暂无条目', error: '连接失败', disabled: '已停用', pending: '等待更新', unknown: '发布时间未标注'};
-  return {escape, safeLink, relativeTime, fullTime, queryString, rowMarkup, COLORS, ICONS, sourceLabels};
+  return {escape, safeLink, relativeTime, fullTime, updateSchedule, queryString, rowMarkup, COLORS, ICONS, sourceLabels};
 });

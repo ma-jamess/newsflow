@@ -182,7 +182,7 @@
       if (bootstrap.public_site) {
         const delayed = update.last_success_at && new Date(data.server_time) - new Date(update.last_success_at) > 15 * 60000;
         status = data.reader_error ? '网络暂不可用 · 显示浏览器缓存' : update.status === 'error' ? '来源连接失败 · 显示已发布缓存' : update.status === 'partial' ? `${update.errors} 个来源暂不可用 · 其余已更新` : delayed ? '更新延迟 · 显示已发布新闻' : '最近采集 ' + UI.fullTime(update.last_finished_at);
-        status += ' · 约每 5 分钟自动更新，调度可能延迟';
+        status += ' · ' + UI.updateSchedule(data);
       }
       el('news-status').innerHTML = `<span class="live-dot ${update.status === 'error' || update.status === 'partial' ? 'warning' : ''}"></span>${escape(status)}`;
       const latest = sources.filter(source => source.enabled && source.latest_published_at).map(source => source.latest_published_at).sort().at(-1);
@@ -279,7 +279,7 @@
       el('news-refresh-label').textContent = '正在检查';
       try {
         const response = await api('news/refresh', {});
-        if (response.public_site) toast(response.cached ? '连接暂不可用，继续显示浏览器缓存' : '已检查最新发布数据；自动采集任务约每 5 分钟运行');
+        if (response.public_site) toast(response.cached ? '连接暂不可用，继续显示浏览器缓存' : '已检查最新发布数据；' + UI.updateSchedule(response));
         if (!response.started && response.cooldown_seconds) toast(`请在 ${response.cooldown_seconds} 秒后再次检查`);
         await controller.load();
         schedulePoll(1600);

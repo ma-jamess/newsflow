@@ -7,13 +7,15 @@
   function safeURL(value){try{const url=new URL(value);return typeof value==='string'&&!/[\x00-\x20\x7f]/.test(value)&&['http:','https:'].includes(url.protocol)&&!url.username&&!url.password;}catch{return false;}}
   function validate(data){
     if(!data||data.schema_version!==1||!validDate(data.generated_at)||!Array.isArray(data.rows)||data.rows.length>1000||!Array.isArray(data.sources)||data.sources.length>128||!data.update)throw new Error('新闻数据格式错误');
+    if(data.interval_seconds!==undefined&&(!Number.isInteger(data.interval_seconds)||data.interval_seconds<60||data.interval_seconds>3600))throw new Error('新闻更新间隔错误');
+    if(data.deployment!==undefined&&!['pages','ecs'].includes(data.deployment))throw new Error('新闻部署数据错误');
     const ids=new Set(data.sources.map(source=>source.id));
     for(const source of data.sources){if(!/^[a-zA-Z0-9-]{1,80}$/.test(source.id)||typeof source.name!=='string'||!safeURL(source.url)||!['fresh','stale','empty','error','disabled','pending','unknown'].includes(source.status))throw new Error('新闻来源数据错误');}
     for(const row of data.rows){
       if(!/^[a-f0-9]{32}$/.test(row.id)||typeof row.title!=='string'||!row.title||row.title.length>500||!safeURL(row.url)||!ids.has(row.source_id)||!row.result||!['',...CATEGORIES].includes(row.result.prediction))throw new Error('新闻数据格式错误');
       for(const value of Object.values(row.result.probabilities||{})){if(!Number.isFinite(value)||value<0||value>1)throw new Error('新闻分类数据错误');}
     }
-    return clone(data);
+    return clone({...data,interval_seconds:data.interval_seconds===undefined?300:data.interval_seconds,deployment:data.deployment===undefined?'pages':data.deployment});
   }
   class PublicBackend{
     constructor({fetch:fetcher,storage,clock=()=>new Date()}){
@@ -68,17 +70,17 @@
       const categories=Object.fromEntries(CATEGORIES.map(category=>[category,all.filter(row=>row.category===category).length]));
       const offset=Math.max(0,Number(filters.offset)||0),limit=Math.min(100,Math.max(1,Number(filters.limit)||50));
       return {rows:rows.slice(offset,offset+limit),total:rows.length,stats:{total:all.length,saved:saved.length,review:all.filter(row=>row.needs_review).length,categories},
-        update:{...this.data.update,refreshing:false},interval_seconds:300,server_time:this.clock().toISOString(),public_site:true,reader_error:this.readerError};
+        update:{...this.data.update,refreshing:false},interval_seconds:this.data.interval_seconds,deployment:this.data.deployment,server_time:this.clock().toISOString(),public_site:true,reader_error:this.readerError};
     }
     async request(path,payload){
       await this.load();
       const [route,query='']=path.split('?'),filters=Object.fromEntries(new URLSearchParams(query));
       if(payload===undefined){
         if(route==='news')return this.snapshot(filters);
-        if(route==='news/sources')return {sources:this.sources(),interval_seconds:300};
+        if(route==='news/sources')return {sources:this.sources(),interval_seconds:this.data.interval_seconds,deployment:this.data.deployment};
         if(route==='news/detail'){const row=this.allRows().find(item=>item.id===filters.id);if(!row)throw new Error('这条新闻已不在列表，请刷新');return row;}
       }
-      if(route==='news/refresh'){await this.load(true);return {started:false,public_site:true,cached:this.readerError};}
+      if(route==='news/refresh'){await this.load(true);return {started:false,public_site:true,cached:this.readerError,interval_seconds:this.data.interval_seconds,deployment:this.data.deployment};}
       if(route==='news/sources'){
         if(!payload.id||!this.data.sources.some(source=>source.id===payload.id)||typeof payload.enabled!=='boolean')throw new Error('自定义订阅请在下载版中添加');
         const preferences={...this.preferences,[payload.id]:payload.enabled};this.save('sources',preferences);this.preferences=preferences;return {sources:this.sources()};

@@ -96,3 +96,26 @@ test('public source data remains bounded with an oversized catalogue rejected',a
   for(let i=0;i<128;i++)expanded.sources.push({id:'extra-'+i,name:'source',url:'https://example.org/feed/'+i,status:'fresh',enabled:true});
   await assert.rejects(backend(expanded).request('news'),/数据/);
 });
+
+test('ECS publication interval reaches news source settings and refresh results',async()=>{
+  const data={...snapshot(),deployment:'ecs',interval_seconds:120},app=backend(data);
+  const news=await app.request('news');
+  assert.equal(news.interval_seconds,120);assert.equal(news.deployment,'ecs');
+  const sources=await app.request('news/sources');assert.equal(sources.interval_seconds,120);
+  const checked=await app.request('news/refresh',{});
+  assert.equal(checked.interval_seconds,120);assert.equal(checked.deployment,'ecs');
+});
+
+test('legacy snapshots without hosting metadata continue as five minute Pages publications',async()=>{
+  const data=snapshot();delete data.interval_seconds;
+  const result=await backend(data).request('news');
+  assert.equal(result.interval_seconds,300);assert.equal(result.deployment,'pages');
+});
+
+test('invalid published intervals do not replace a validated cached snapshot',async()=>{
+  const storage=new Storage();await backend(snapshot(),storage).request('news');
+  for(const interval of [0,-1,1e12,'120']){
+    const result=await backend({...snapshot(),interval_seconds:interval},storage).request('news');
+    assert.equal(result.reader_error,true);assert.equal(result.interval_seconds,300);
+  }
+});
