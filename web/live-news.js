@@ -161,7 +161,7 @@
         el('news-list').querySelectorAll('[data-news-save]').forEach(button => button.onclick = async () => {
           button.disabled = true;
           const wasSaved = controller.data?.rows.find(row => row.id === button.dataset.newsSave)?.saved;
-          if (await controller.toggleSaved(button.dataset.newsSave)) toast(wasSaved ? '已取消收藏' : '已收藏到本机');
+          if (await controller.toggleSaved(button.dataset.newsSave)) toast(wasSaved ? '已取消收藏' : '已收藏');
           button.disabled = false;
         });
         if (focusedId) [...el('news-list').querySelectorAll('button')].find(button => button.dataset[focusType] === focusedId)?.focus({preventScroll: true});
@@ -185,7 +185,7 @@
         status += ' · ' + UI.updateSchedule(data);
       }
       el('news-status').innerHTML = `<span class="live-dot ${update.status === 'error' || update.status === 'partial' ? 'warning' : ''}"></span>${escape(status)}`;
-      const latest = sources.filter(source => source.enabled && source.latest_published_at).map(source => source.latest_published_at).sort().at(-1);
+      const latest = sources.filter(source => source.enabled && Number.isFinite(Date.parse(source.latest_published_at)) && Date.parse(source.latest_published_at) <= Date.parse(data.server_time)).map(source => source.latest_published_at).sort().at(-1);
       el('news-latest').textContent = enabled + ' 个来源' + (latest ? ' · 最新发布 ' + UI.fullTime(latest) : '');
       const since = update.last_started_at ? (new Date(data.server_time) - new Date(update.last_started_at)) / 1000 : 31;
       const cooldown = bootstrap.public_site ? 0 : Math.max(0, Math.ceil(30 - since));
@@ -197,7 +197,7 @@
       markSelected();
       if (!selectedId) {
         delete document.body.dataset.newsDetail;
-        el('news-detail').innerHTML = '<div class="news-detail-empty"><span class="detail-decoration" aria-hidden="true">N↗</span><h2>挑一条新闻，<br>看看来龙去脉。</h2><p>查看订阅摘要、原始来源，<br>以及本地模型的分类依据。</p><div class="detail-empty-note"><span class="live-dot"></span>新闻持续更新，收藏留在本机</div></div>';
+        el('news-detail').innerHTML = '<div class="news-detail-empty"><h2>新闻详情</h2><p>点击左侧标题，查看摘要、原文和分类结果。</p><div class="detail-empty-note"><span class="live-dot"></span>收藏与人工类别会保留；公网版只在此浏览器保存。</div></div>';
         return;
       }
       document.body.dataset.newsDetail = 'open';
@@ -210,11 +210,11 @@
       const result = row.explanation || row.result, link = UI.safeLink(row.url), category = row.category || '待核对';
       const bars = CATEGORIES.map(label => `<div class="bar-row ${label === result.prediction ? 'winner' : ''}"><span>${label}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.max(0, Math.min(100, (result.probabilities?.[label] || 0) * 100))}%"></div></div><span>${Math.round((result.probabilities?.[label] || 0) * 100)}%</span></div>`).join('');
       const evidence = (result.evidence || []).slice(0, 8).map(item => `<span title="${escape('相对' + item.against + '的得分贡献 ' + item.contribution)}">${escape(item.feature)}</span>`).join('');
-      el('news-detail').innerHTML = `<div class="news-detail-top"><span>新闻详情</span>${close}</div><div class="news-detail-body"><div class="detail-tags"><span class="news-category ${UI.COLORS[category] || 'unknown'}">${escape(category)}</span>${row.human_labeled ? '<span class="news-human-tag">' + (row.correction === '待核对' ? '人工标记待核对' : '人工标注') + '</span>' : row.needs_review ? '<span class="news-review-tag">待核对</span>' : ''}</div><h2 class="detail-title">${escape(row.title)}</h2><p class="detail-source">${escape(row.source_name)} · ${escape(UI.fullTime(row.published_at))}</p><p class="detail-summary">${escape(row.summary || '这个来源没有提供摘要，可以打开原文查看内容。')}</p><p class="detail-summary-note">订阅摘要 · 内容与发布时间来自新闻源</p><div class="detail-actions">${link ? `<a href="${escape(link)}" target="_blank" rel="noopener noreferrer" class="primary">阅读原文 ${UI.ICONS.arrow}</a>` : ''}<button id="news-detail-save" class="secondary ${row.saved ? 'is-saved' : ''}" aria-pressed="${row.saved}">${UI.ICONS.star}${row.saved ? '已收藏' : '收藏'}</button></div><div class="detail-classification"><div class="detail-section-heading"><h3>为什么归到这一类</h3><span>本地模型</span></div><p class="detail-model-note">${escape(bootstrap.model_names[result.model] || result.model || '本地分类')} · 模型预测 ${escape(result.prediction || '未识别')}${result.score == null ? '' : ' / ' + Math.round(result.score * 100) + '%'}${row.human_labeled ? (row.correction === '待核对' ? '<br>已人工标记待核对，下方保留原始模型依据。' : '<br>当前分类以人工标注为准，下方保留原始模型依据。') : ''}</p><div class="distribution">${bars}</div><div class="evidence">${evidence || '<span>没有明显的文字线索</span>'}</div><p class="detail-explanation-note">特征反映模型的判断线索，概率不能保证分类正确。</p></div><form id="news-correct-form" class="detail-correction"><label for="news-correct-category">人工核对类别</label><div><select id="news-correct-category">${[...CATEGORIES, '待核对'].map(label => `<option ${label === (row.correction || category) ? 'selected' : ''}>${label}</option>`).join('')}</select><button id="news-correct-submit" class="secondary" type="submit">保存</button></div><p>标注保留在本机，刷新后仍有效。</p></form><button id="news-to-classify" class="text-button">带到快速分类 →</button><p class="detail-fetch-time">收录于 ${escape(UI.fullTime(row.first_seen_at))}</p></div>`;
+      el('news-detail').innerHTML = `<div class="news-detail-top"><span>新闻详情</span>${close}</div><div class="news-detail-body"><div class="detail-tags"><span class="news-category ${UI.COLORS[category] || 'unknown'}">${escape(category)}</span>${row.human_labeled ? '<span class="news-human-tag">' + (row.correction === '待核对' ? '人工标记待核对' : '人工标注') + '</span>' : row.needs_review ? '<span class="news-review-tag">待核对</span>' : ''}</div><h2 class="detail-title">${escape(row.title)}</h2><p class="detail-source">${escape(row.source_name)} · ${escape(UI.fullTime(row.published_at))}</p>${UI.summaryMarkup(row.summary)}<p class="detail-summary-note">订阅摘要 · 内容与发布时间来自新闻源</p><div class="detail-actions">${link ? `<a href="${escape(link)}" target="_blank" rel="noopener noreferrer" class="primary">阅读原文 ${UI.ICONS.arrow}</a>` : ''}<button id="news-detail-save" class="secondary ${row.saved ? 'is-saved' : ''}" aria-pressed="${row.saved}">${UI.ICONS.star}${row.saved ? '已收藏' : '收藏'}</button></div><div class="detail-classification"><div class="detail-section-heading"><h3>分类结果与线索</h3><span>本地模型</span></div><p class="detail-model-note">${escape(bootstrap.model_names[result.model] || result.model || '本地分类')} · 模型预测 ${escape(result.prediction || '未识别')}${result.score == null ? '' : ' / ' + Math.round(result.score * 100) + '%'}${row.human_labeled ? (row.correction === '待核对' ? '<br>已人工标记待核对，下方保留原始模型依据。' : '<br>当前分类以人工标注为准，下方保留原始模型依据。') : ''}</p><div class="distribution">${bars}</div><div class="evidence">${evidence || '<span>没有明显的文字线索</span>'}</div><p class="detail-explanation-note">特征反映模型的判断线索，概率不能保证分类正确。</p></div><form id="news-correct-form" class="detail-correction"><label for="news-correct-category">人工核对类别</label><div><select id="news-correct-category">${[...CATEGORIES, '待核对'].map(label => `<option ${label === (row.correction || category) ? 'selected' : ''}>${label}</option>`).join('')}</select><button id="news-correct-submit" class="secondary" type="submit">保存</button></div><p>标注会保留；公网版只在此浏览器保存，不会自动训练模型。</p></form><button id="news-to-classify" class="text-button">带到快速分类 →</button><p class="detail-fetch-time">收录于 ${escape(UI.fullTime(row.first_seen_at))}</p></div>`;
       el('news-detail-close').onclick = closeDetail;
       el('news-detail-save').onclick = async event => {
         event.currentTarget.disabled = true;
-        if (await controller.toggleSaved(row.id)) toast(row.saved ? '已取消收藏' : '已收藏到本机');
+        if (await controller.toggleSaved(row.id)) toast(row.saved ? '已取消收藏' : '已收藏');
         if (el('news-detail-save')) el('news-detail-save').disabled = false;
       };
       el('news-correct-form').onsubmit = async event => {
@@ -231,7 +231,7 @@
         navigate('classify');
         el('title-input').focus();
       };
-      if (bootstrap.public_site) el('news-to-classify').textContent = '下载完整分类项目 →';
+      if (bootstrap.public_site) el('news-to-classify').textContent = '下载完整项目 →';
     }
     function closeDetail() {
       const id = controller.selectedId;

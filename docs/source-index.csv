@@ -1,0 +1,65 @@
+﻿文件,职责或文件说明,Python 定义及行号
+run.py,入口：python run.py。独立环境、自检、本地服务、默认打开 Edge。,log:18; choose_environment:22; open_edge:45; existing_app:55; main:64
+newsroom/__init__.py,中文新闻标题分类系统，独立实现。,
+newsroom/csvio.py,严格 CSV 输入与安全导出；保留逐行状态。,parse_csv:9; export_csv:51
+newsroom/data.py,可审计的标题归一化、去重与公开数据校验。,normalize:15; title_error:22; digest_file:35; verify_raw:43; prepare_splits:55
+newsroom/deepseek.py,DeepSeek 官方 API 单条分类；密钥和思考过程不返回给浏览器。,DeepSeekError:34; NoRedirect:40; DeepSeekService:46; __init__:35; redirect_request:41; __init__:47; metadata:62; predict:66; _predict:82
+newsroom/ecs_site.py,"Initialize a public ECS site, then atomically publish only its news JSON.",read_public_snapshot:19; bootstrap_site:60; refresh_site:75
+newsroom/feed_catalog.py,Validated public feed catalogue; loading it does not require a network.,is_public_https_url:14; load_catalog:38
+newsroom/feeds.py,Public RSS/Atom inputs. Article HTML is converted to plain text.,_Text:23; plain_text:42; canonical_article_url:48; _public_addresses:69; _public_connection:76; _PublicHTTPSConnection:95; _PublicHTTPSHandler:101; validate_feed_url:107; _PublicRedirect:124; fetch_feed:132; _date:152; is_recent_article:167; _child:188; parse_feed:196; __init__:24; handle_starttag:29; handle_endtag:33; handle_data:37; __init__:96; https_open:102; redirect_request:128
+newsroom/live_news.py,One refresh coordinator owns the application's periodic public feed jobs.,LiveNewsService:12; __init__:13; start:23; _loop:30; _begin:35; _begin_locked:39; request_refresh:48; refresh:56; _fetch_source:62; _perform_refresh:68; snapshot:97; detail:107; stop:112
+newsroom/ml.py,训练、概率校准、评估与线性特征解释；不依赖外部推理 API。,tokenize:34; build_features:38; classifier_for:49; metrics:57; environment:83; code_signature:87; train_experiment:91; ModelService:177; __init__:178; predict:188; explain:230
+newsroom/model_reports.py,"Readable reports from the recorded experiment, with no fitting or inference.",_cell:6; model_report:10
+newsroom/news_store.py,Independent news cache; bookmarks and human labels survive feed refreshes.,utcnow:13; _iso:17; NewsStore:21; __init__:22; connect:46; sources:55; set_enabled:68; add_source:75; finish_source:89; ingest:99; _row:122; get:133; bookmark:143; feedback:150; prune:157; query:162; stats:191
+newsroom/public_site.py,"Publish a public, classified news snapshot without reading personal runtime.",article_link:19; timestamp:29; build_snapshot:37; write_json:113; public_payload:120; write_site:133
+newsroom/server.py,仅本机访问的 HTTP 服务，前端和 JSON 接口共享同源。,batch_source:35; news_filters:49; create_server:70; flag:50; Handler:75; setup:76; log_message:80; origin:84; valid_host:87; respond:90; do_GET:105; do_POST:135
+newsroom/store.py,本项目自己的 SQLite 历史；纠错不自动更改训练数据或模型。,Store:10; __init__:11; connect:26; add:35; feedback:43; history:53; counts:57
+scripts/build_docs.py,根据真实实验生成论文初稿、对比说明和答辩讲稿。需 python-docx。,percent:10; main:14
+scripts/build_public_site.py,Build GitHub Pages output using only public data and local models.,load_previous_snapshot:15; main:20
+scripts/check_news_sources.py,Audit free Chinese feeds on the current network without publishing a site.,audit_sources:17; main:56; check:21
+scripts/compare_versions.py,按标题和标签严格对齐两份已有测试预测，生成样本级对比。只读输入。,read_rows:12; compare:17; main:40
+scripts/make_figures.py,用已有真实报告生成可用于论文和答辩的配图。需 matplotlib。,main:13
+scripts/package.py,打包完整源码、公开数据和模型，排除环境、个人运行记录、QA中间文件。,included:12; main:20
+scripts/prepare_data.py,恢复随项目附带的公开数据，按固定上游提交和预期 SHA-256 校验。,main:19
+scripts/run_review_demo.py,Run the real local app with an archived news case in separate demo storage.,main:20
+scripts/train.py,直接运行可复现的完整训练：python scripts/train.py。,main:13
+scripts/update_ecs_site.py,One public-news update for the ECS systemd timer; no private runtime is read.,main:14
+scripts/verify_models.py,"Recheck the fixed 4,989-title test set using saved models, without training.",main:21
+web/app.js,页面模板、样式或交互，结合页面 ID 和调用查看,
+web/deepseek-ui.js,页面模板、样式或交互，结合页面 ID 和调用查看,
+web/improvements.js,页面模板、样式或交互，结合页面 ID 和调用查看,
+web/index.html,页面模板、样式或交互，结合页面 ID 和调用查看,
+web/live-news-ui.js,页面模板、样式或交互，结合页面 ID 和调用查看,
+web/live-news.js,页面模板、样式或交互，结合页面 ID 和调用查看,
+web/newsflow.css,页面模板、样式或交互，结合页面 ID 和调用查看,
+web/polish.css,页面模板、样式或交互，结合页面 ID 和调用查看,
+web/public/index.html,页面模板、样式或交互，结合页面 ID 和调用查看,
+web/public-app.js,页面模板、样式或交互，结合页面 ID 和调用查看,
+web/public-backend.js,页面模板、样式或交互，结合页面 ID 和调用查看,
+web/public.css,页面模板、样式或交互，结合页面 ID 和调用查看,
+web/style.css,页面模板、样式或交互，结合页面 ID 和调用查看,
+web/ui-data.js,页面模板、样式或交互，结合页面 ID 和调用查看,
+web/workspace.js,页面模板、样式或交互，结合页面 ID 和调用查看,
+tests/__init__.py,自动验证，与测试函数名对应,
+tests/deepseek-controls.test.cjs,自动验证，与测试函数名对应,
+tests/deepseek-ui.test.cjs,自动验证，与测试函数名对应,
+tests/frontend-improvements.test.cjs,自动验证，与测试函数名对应,
+tests/live-news.test.cjs,自动验证，与测试函数名对应,
+tests/news-controller.test.cjs,自动验证，与测试函数名对应,
+tests/news-sources-controls.test.cjs,自动验证，与测试函数名对应,
+tests/public-backend.test.cjs,自动验证，与测试函数名对应,
+tests/public-updates.test.cjs,自动验证，与测试函数名对应,
+tests/test_data.py,自动验证，与测试函数名对应,test_normalization_handles_html_and_full_width:9; test_cross_split_duplicates_and_conflicts_removed:15; test_upload_encoding_and_empty_title_preserved:30; test_invalid_csv_rejected:37; test_csv_row_limit_and_formula_protection:43; test_raw_manifest_detects_changes:51; test_physical_empty_csv_row_keeps_alignment:62
+tests/test_deepseek.py,自动验证，与测试函数名对应,completion:12; service:19; test_request_uses_exact_official_model_and_returns_reason_without_probability:24; test_outside_or_ambiguous_titles_are_not_forced_into_five_categories:48; test_invalid_title_never_calls_paid_api:55; test_invalid_provider_output_is_an_error_not_a_success:69; test_provider_errors_are_actionable_and_do_not_echo_secrets:76; test_timeout_is_reported_without_automatic_paid_retry:85; test_local_configuration_environment_override_and_public_metadata:96; test_existing_history_migrates_and_keeps_deepseek_explanations:113; test_server_routes_deepseek_and_exports_reason_without_adding_to_local_report:129; test_packaging_excludes_api_secrets_even_if_placed_at_root:167; test_abstention_category_survives_history_reload:177; open_request:27; forbidden:56; unavailable:78; slow:88; LocalModel:132; predict:134; post:145
+tests/test_ecs_site.py,自动验证，与测试函数名对应,classifier:20; snapshot:25; seeded_site:29; test_ecs_page_advertises_its_real_update_interval:38; test_scheduled_refresh_preserves_assets_and_publishes_current_data:48; test_classifier_failure_leaves_previous_page_and_json_intact:63; test_disk_replace_failure_preserves_complete_json:76; test_bad_previous_json_falls_back_to_public_seed:92; test_bootstrap_scrubs_personal_flags_without_changing_news_time:106; test_refreshed_json_is_readable_by_the_separate_nginx_user:120; test_malformed_cached_ids_recover_from_seed_and_still_check_sources:130; test_bootstrap_uses_clean_seed_when_cached_reader_fields_are_malformed:151; fail:67; fail:80; offline:96; offline:140
+tests/test_feed_catalog.py,自动验证，与测试函数名对应,source:6; test_catalog_rejects_duplicates_non_boolean_choices_and_private_or_keyed_urls:15; test_catalogue_reordering_keeps_stable_source_ids:23
+tests/test_improvements.py,自动验证，与测试函数名对应,local_app:12; test_preview_validates_without_prediction_or_history:34; test_same_title_comparison_is_three_models_without_saving_history:42; test_errors_export_reads_full_prediction_file_not_report_sample:56; post:24
+tests/test_live_news.py,"News updates exercise the parser, real SQLite state and local model boundary.",components:22; article:29; prediction:34; test_rss_dates_are_item_dates_and_unsafe_html_links_are_removed:40; test_atom_alternate_links_and_iso_dates_are_supported:50; test_missing_publication_time_does_not_copy_channel_or_fetch_time:62; test_invalid_and_entity_declaring_feeds_are_rejected:70; test_public_feed_validation_rejects_private_dns_and_credentials:76; test_public_feed_validation_accepts_https_and_rejects_mixed_dns:87; test_feed_socket_connects_to_the_validated_numeric_ip_without_second_dns:97; test_feed_socket_rejects_a_host_that_rebinds_after_url_validation:119; test_news_stats_include_all_current_rows_past_the_export_limit:129; test_stop_waits_for_a_manual_job_whose_thread_is_still_being_created:139; test_refresh_deduplicates_urls_and_preserves_human_category_and_bookmark:171; test_category_source_text_and_saved_filters_are_an_intersection:187; test_pending_news_keeps_the_model_prediction_until_human_correction:201; test_old_publication_is_not_new_and_retention_keeps_old_bookmarks:213; test_source_health_separates_successful_fetch_from_old_news:227; test_live_refresh_uses_real_local_classifier_and_caches_source_failures:237; test_repeated_refresh_requests_share_one_job_and_obey_cooldown:263; test_finished_manual_refresh_cannot_restart_within_thirty_seconds:289; test_unknown_news_or_invalid_manual_categories_do_not_create_records:302; resolve:100; Socket:104; thread_factory:149; fetch:243; fetch:270; settimeout:105; connect:107; close:109
+tests/test_ml.py,自动验证，与测试函数名对应,sample_parts:7; trained:13; test_feature_vocabulary_does_not_learn_validation_text:20; test_parameter_selection_and_calibration_are_disjoint:28; test_prediction_explanation_and_batch_agree:36; test_model_hash_is_checked_before_loading:51
+tests/test_news_api.py,Exercise new news routes through the actual local HTTP server.,DisabledProvider:16; running:25; test_news_api_filters_and_detail_return_real_local_model_results:61; test_news_mutations_require_the_existing_request_token:72; test_bounded_rejected_post_returns_json_error_without_connection_reset:86; test_saved_news_and_human_category_are_reflected_in_filtered_results:101; test_news_export_contains_source_publication_and_human_category:112; test_private_custom_feed_is_rejected_without_creating_a_source:125; test_refresh_is_async_and_reuses_an_active_job:134; test_invalid_news_query_is_a_client_error_and_keeps_service_usable:151; metadata:17; predict:20; request:41; fetch:137
+tests/test_package.py,自动验证，与测试函数名对应,test_package_inventory_matches_payload_and_does_not_hash_itself:8; test_newsflow_package_is_shareable_complete_source_without_personal_or_qa_files:27
+tests/test_public_site.py,自动验证，与测试函数名对应,classifier:15; test_public_snapshot_uses_real_local_model_and_no_personal_state:19; test_failed_public_refresh_preserves_previous_news_and_success_time:31; test_empty_total_failure_does_not_replace_a_working_deployment:42; test_corrupt_previous_structure_does_not_prevent_fresh_news:51; test_corrupt_prior_source_count_does_not_prevent_refresh:58; test_partial_source_failure_retains_failed_source_articles:66; test_long_feed_title_is_retained_when_the_next_fetch_fails:82; test_public_snapshot_fetch_has_separate_bounded_budget:93; test_prior_snapshot_cannot_import_personal_flags_or_unknown_sources:116; test_late_source_cache_keeps_its_success_time_after_a_failed_refresh:129; test_large_feeds_do_not_push_a_quiet_recent_source_out_of_public_snapshot:143; test_undated_archival_articles_cannot_create_a_current_publication:160; test_public_refresh_discards_cached_archive_and_excludes_historical_sina_subscription:168; test_static_artifact_is_relative_and_contains_only_public_files:178; fail:34; fail:44; fetch:72; fail:87; Response:102; Opener:105; fail:136; fetch:149; geturl:103; open:106
+tests/test_run.py,自动验证，与测试函数名对应,test_project_environment_created_instead_of_foreign_install:4
+tests/test_server.py,自动验证，与测试函数名对应,test_history_and_feedback_persist_with_real_sqlite:9; test_store_connection_is_closed_after_context:24; test_api_origin_validation_and_prediction:34
+tests/test_source_audit.py,自动验证，与测试函数名对应,feed:9; test_audit_selects_recent_chinese_feeds_and_isolates_old_english_and_network_failures:13; test_audit_marks_undated_feed_without_inventing_publication_time:32; test_audit_rejects_private_and_keyed_inputs_before_fetch_and_does_not_echo_credentials:41; test_audit_rejects_undated_archive_with_old_dates_in_article_urls:54; test_audit_only_uses_recent_dated_items_to_mark_mixed_feed_current:68; fetch:18; fail_if_called:46
+tests/workspace.test.cjs,自动验证，与测试函数名对应,

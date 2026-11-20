@@ -24,7 +24,7 @@ async function loadReport(){
     const response=await fetch('data/report.json',{cache:'no-cache'});
     if(!response.ok)throw new Error();
     const report=await response.json(),escape=LiveNewsUI.escape;
-    el('public-report').innerHTML='<div class="table-wrap"><table><thead><tr><th>模型</th><th>测试准确率</th><th>宏 F1</th><th>ECE</th></tr></thead><tbody>'+Object.values(report.models).map(model=>'<tr><td>'+escape(model.name)+'</td><td>'+escape((model.test.accuracy*100).toFixed(4))+'%</td><td>'+escape(model.test.macro_f1.toFixed(6))+'</td><td>'+escape(model.test.ece.toFixed(5))+'</td></tr>').join('')+'</tbody></table></div><p class="muted">推荐模型来自独立选参集；完整数据划分、校准、混淆矩阵和训练步骤随源码提供。</p>';
+    el('public-report').innerHTML='<p class="muted">历史标题测试集：'+escape(report.split_counts.test.toLocaleString('zh-CN'))+' 条。默认方案按独立选参集选择。</p><div class="table-wrap"><table><thead><tr><th>模型方案</th><th>测试准确率</th><th>宏 F1</th><th>ECE</th><th>验证报告</th></tr></thead><tbody>'+['nb','lr','svm'].map(kind=>{const model=report.models[kind];return '<tr><td>'+escape(model.name)+'</td><td>'+escape((model.test.accuracy*100).toFixed(2))+'%</td><td>'+escape(model.test.macro_f1.toFixed(4))+'</td><td>'+escape(model.test.ece.toFixed(5))+'</td><td><a href="data/model-'+kind+'-report.md" download>下载报告</a></td></tr>';}).join('')+'</tbody></table></div><p class="muted">每份报告包含参数选择、分类别指标、混淆矩阵和错误样本。它们来自历史数据测试，不是当前订阅新闻的准确率。</p>';
   }catch{el('public-report').textContent='报告暂时无法读取，请稍后重试；完整实验记录也在下载项目中。';}
 }
 async function init(){

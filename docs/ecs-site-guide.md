@@ -120,6 +120,8 @@ systemctl is-enabled newsflow-update.timer newsflow-cert-renew.timer
 
 ## 更新代码和恢复
 
+2026-11-20 的阅读界面与模型报告更新采用独立目录生成资源，再逐文件原子替换网页、脚本、样式和静态报告，最后替换HTML。原始模型和正在更新的新闻JSON未替换，新闻定时器继续有效。修改模型或更新器行为时仍按下面的停任务、保留快照和匹配依赖流程操作。
+
 更新源码或模型时，先停 NewsFlow timer，再等待或停止 NewsFlow 自己的更新服务；保留 `/var/lib/newsflow/site/data/news.json`，在独立虚拟环境安装匹配依赖，再运行 `--bootstrap` 安装新版资源。该命令优先使用现有公开快照，因此不会以较旧的发行种子覆盖当前新闻。随后重新启用 timer。
 
 每次修改 Nginx 前备份精确配置，语法检查失败就恢复备份，不 reload。恢复旧代码时需要对应的模型与前端资源；不要修改 ThinkFlow 的账号数据库和配置。公开新闻、模型与来源目录可以分发，登录凭据只保存在部署者自己的机器上。

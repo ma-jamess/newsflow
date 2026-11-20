@@ -50,17 +50,24 @@
     params.set('offset', String(Math.max(0, ((filters.page || 1) - 1) * 50)));
     return params.toString();
   }
+  function summaryMarkup(value) {
+    const text = String(value || '此来源未提供摘要，请打开原文阅读。');
+    if (text.length <= 320) return '<p class="detail-summary">' + escape(text) + '</p>';
+    return '<p class="detail-summary">' + escape(text.slice(0, 320)) + '…</p>'
+      + '<details class="detail-summary-more"><summary>展开完整订阅摘要</summary><p class="detail-summary">'
+      + escape(text) + '</p></details>';
+  }
   function rowMarkup(row, now) {
     const category = row.category || '待核对';
     const color = COLORS[category] || 'unknown';
-    const score = row.correction === '待核对' ? '人工标记待核对' : row.human_labeled ? '人工分类' : row.score == null ? '等待核对' : '模型倾向 ' + Math.round(row.score * 100) + '%';
+    const score = row.correction === '待核对' ? '人工标记待核对' : row.human_labeled ? '人工分类' : row.score == null ? '等待核对' : '';
     return [
       '<article class="news-item" data-news-id="' + escape(row.id) + '">',
       '<div class="news-item-top"><span class="news-category ' + color + '">' + escape(category) + '</span>',
       row.needs_review ? '<span class="news-review-tag">待核对</span>' : '',
-      '<span class="news-prediction-note">' + escape(score) + '</span></div>',
+      score ? '<span class="news-prediction-note">' + escape(score) + '</span></div>' : '</div>',
       '<button class="news-open" type="button" data-news-open="' + escape(row.id) + '"><h2>' + escape(row.title) + '</h2>',
-      '<p class="news-item-summary">' + escape(row.summary || '查看分类结果与原始新闻来源。') + '</p></button>',
+      row.summary ? '<p class="news-item-summary">' + escape(row.summary) + '</p></button>' : '</button>',
       '<div class="news-item-bottom"><span class="news-source-dot"></span><span>' + escape(row.source_name) + '</span>',
       '<span class="news-meta-separator">·</span><time title="' + escape(fullTime(row.published_at)) + '">' + escape(relativeTime(row.published_at, now)) + '</time>',
       '<button type="button" class="news-save icon-button' + (row.saved ? ' is-saved' : '') + '" data-news-save="' + escape(row.id) + '" aria-label="' + (row.saved ? '取消收藏：' : '收藏：') + escape(row.title) + '" aria-pressed="' + Boolean(row.saved) + '">' + ICONS.star + '</button>',
@@ -68,5 +75,5 @@
     ].join('');
   }
   const sourceLabels = {fresh: '有近期新闻', stale: '近期未更新', empty: '暂无条目', error: '连接失败', disabled: '已停用', pending: '等待更新', unknown: '发布时间未标注'};
-  return {escape, safeLink, relativeTime, fullTime, updateSchedule, queryString, rowMarkup, COLORS, ICONS, sourceLabels};
+  return {escape, safeLink, relativeTime, fullTime, updateSchedule, queryString, summaryMarkup, rowMarkup, COLORS, ICONS, sourceLabels};
 });

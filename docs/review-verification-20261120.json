@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-20",
+  "python_tests": {
+    "passed": 121,
+    "skipped": 1,
+    "skip_reason": "Windows POSIX file permission contract",
+    "warning": "upstream pytz deprecation"
+  },
+  "frontend_tests": {
+    "full_suite_passed": 46,
+    "news_ui_after_summary_changes_passed": 16
+  },
+  "saved_models_rechecked": {
+    "test_rows_per_model": 4989,
+    "correct": {
+      "nb": 4747,
+      "lr": 4824,
+      "svm": 4836
+    },
+    "recorded_predictions_and_metrics_match": true,
+    "production_model_weights_changed": false
+  },
+  "public_browser": {
+    "url": "https://47.115.130.110/newsflow/#evaluation",
+    "title": "荣盛石化：控股股东拟增持10亿至20亿元股份",
+    "publicBookmarkAndReviewSurvivedReload": true,
+    "reports": [
+      {
+        "url": "https://47.115.130.110/newsflow/data/model-nb-report.md",
+        "status": 200
+      },
+      {
+        "url": "https://47.115.130.110/newsflow/data/model-lr-report.md",
+        "status": 200
+      },
+      {
+        "url": "https://47.115.130.110/newsflow/data/model-svm-report.md",
+        "status": 200
+      }
+    ],
+    "pageErrors": []
+  },
+  "archived_demo": "scripts/run_review_demo.py; real models and separate SQLite; no automatic feed fetching",
+  "word_render_backend": "Microsoft Word native PDF export and PDFium page inspection",
+  "school_template": "not yet issued; technical draft only"
+}

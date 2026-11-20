@@ -1,0 +1,480 @@
+{
+  "verified_at": "2026-11-20T08:21:54.125120+00:00",
+  "training_performed": false,
+  "original_training_at": "2026-10-21T04:21:48.575530+00:00",
+  "test_count": 4989,
+  "test_data_sha256": "c0df9ffdf6c6bb1de10062eb8d67f76a5e733514fcd3a0b333b4780b2aa4e4f2",
+  "model_sha256": "8cc042251a6693a04f8dcafa93ac0f1998c36f39d9c33bc0ba4c12aa3d0f343e",
+  "core_source_signature_matches": true,
+  "data_audit": {
+    "raw_rows": {
+      "train": 180000,
+      "dev": 10000,
+      "test": 10000
+    },
+    "selected_rows": 100000,
+    "invalid_titles_removed": 0,
+    "conflicting_titles": 0,
+    "conflicting_rows_removed": 0,
+    "duplicate_rows_removed": 138,
+    "split_counts": {
+      "train": 89887,
+      "dev": 4986,
+      "test": 4989
+    },
+    "class_counts": {
+      "train": {
+        "体育": 18000,
+        "科技": 17979,
+        "教育": 17980,
+        "财经": 17931,
+        "娱乐": 17997
+      },
+      "dev": {
+        "体育": 1000,
+        "科技": 998,
+        "教育": 1000,
+        "财经": 989,
+        "娱乐": 999
+      },
+      "test": {
+        "体育": 1000,
+        "科技": 1000,
+        "教育": 997,
+        "财经": 992,
+        "娱乐": 1000
+      }
+    },
+    "cross_split_overlap": 0
+  },
+  "recommended_model": "svm",
+  "selection_basis": "dev_selection_only",
+  "models": {
+    "nb": {
+      "test": {
+        "accuracy": 0.9514932852275005,
+        "macro_f1": 0.9515169665243647,
+        "confusion_matrix": [
+          [
+            968,
+            7,
+            2,
+            0,
+            23
+          ],
+          [
+            11,
+            915,
+            16,
+            23,
+            35
+          ],
+          [
+            8,
+            11,
+            956,
+            3,
+            19
+          ],
+          [
+            11,
+            20,
+            8,
+            944,
+            9
+          ],
+          [
+            18,
+            11,
+            3,
+            4,
+            964
+          ]
+        ],
+        "per_class": {
+          "体育": {
+            "precision": 0.952755905511811,
+            "recall": 0.968,
+            "f1-score": 0.9603174603174603,
+            "support": 1000.0
+          },
+          "科技": {
+            "precision": 0.9491701244813278,
+            "recall": 0.915,
+            "f1-score": 0.9317718940936863,
+            "support": 1000.0
+          },
+          "教育": {
+            "precision": 0.9705583756345177,
+            "recall": 0.958876629889669,
+            "f1-score": 0.9646821392532795,
+            "support": 997.0
+          },
+          "财经": {
+            "precision": 0.9691991786447639,
+            "recall": 0.9516129032258065,
+            "f1-score": 0.960325534079349,
+            "support": 992.0
+          },
+          "娱乐": {
+            "precision": 0.9180952380952381,
+            "recall": 0.964,
+            "f1-score": 0.9404878048780487,
+            "support": 1000.0
+          },
+          "accuracy": 0.9514932852275005,
+          "macro avg": {
+            "precision": 0.9519557644735317,
+            "recall": 0.951497906623095,
+            "f1-score": 0.9515169665243647,
+            "support": 4989.0
+          },
+          "weighted avg": {
+            "precision": 0.951916928003928,
+            "recall": 0.9514932852275005,
+            "f1-score": 0.9514949252217737,
+            "support": 4989.0
+          }
+        },
+        "brier": 0.07563162978307572,
+        "ece": 0.026543394909663065,
+        "calibration_bins": [
+          {
+            "lower": 0.3,
+            "count": 7,
+            "confidence": 0.37180227836270313,
+            "accuracy": 0.5714285714285714
+          },
+          {
+            "lower": 0.4,
+            "count": 38,
+            "confidence": 0.4604964596888502,
+            "accuracy": 0.5
+          },
+          {
+            "lower": 0.5,
+            "count": 60,
+            "confidence": 0.5514856378526866,
+            "accuracy": 0.4166666666666667
+          },
+          {
+            "lower": 0.6,
+            "count": 64,
+            "confidence": 0.6543318587497158,
+            "accuracy": 0.515625
+          },
+          {
+            "lower": 0.7,
+            "count": 72,
+            "confidence": 0.75906034725259,
+            "accuracy": 0.5972222222222222
+          },
+          {
+            "lower": 0.8,
+            "count": 126,
+            "confidence": 0.8540368914611836,
+            "accuracy": 0.626984126984127
+          },
+          {
+            "lower": 0.9,
+            "count": 4622,
+            "confidence": 0.9674818026690641,
+            "accuracy": 0.9831241886629165
+          }
+        ],
+        "coverage_at_065": 0.973541791942273,
+        "accuracy_at_065": 0.964793082149475
+      },
+      "correct": 4747,
+      "errors": 242,
+      "recorded_metrics_match": true,
+      "saved_predictions_match": true,
+      "verification_seconds": 1.276,
+      "prediction_file_sha256": "7e8388e987ebb58e0565c5cf050eda285100398c9e37fba088d5edbf79e0fb66"
+    },
+    "lr": {
+      "test": {
+        "accuracy": 0.9669272399278412,
+        "macro_f1": 0.9669712901033828,
+        "confusion_matrix": [
+          [
+            974,
+            4,
+            3,
+            3,
+            16
+          ],
+          [
+            3,
+            959,
+            9,
+            8,
+            21
+          ],
+          [
+            4,
+            6,
+            971,
+            4,
+            12
+          ],
+          [
+            10,
+            12,
+            6,
+            959,
+            5
+          ],
+          [
+            19,
+            12,
+            5,
+            3,
+            961
+          ]
+        ],
+        "per_class": {
+          "体育": {
+            "precision": 0.9643564356435643,
+            "recall": 0.974,
+            "f1-score": 0.9691542288557214,
+            "support": 1000.0
+          },
+          "科技": {
+            "precision": 0.9657603222557906,
+            "recall": 0.959,
+            "f1-score": 0.9623682890115404,
+            "support": 1000.0
+          },
+          "教育": {
+            "precision": 0.9768611670020121,
+            "recall": 0.9739217652958877,
+            "f1-score": 0.9753892516323456,
+            "support": 997.0
+          },
+          "财经": {
+            "precision": 0.9815762538382804,
+            "recall": 0.9667338709677419,
+            "f1-score": 0.9740985271711529,
+            "support": 992.0
+          },
+          "娱乐": {
+            "precision": 0.9467980295566503,
+            "recall": 0.961,
+            "f1-score": 0.9538461538461539,
+            "support": 1000.0
+          },
+          "accuracy": 0.9669272399278412,
+          "macro avg": {
+            "precision": 0.9670704416592596,
+            "recall": 0.966931127252726,
+            "f1-score": 0.9669712901033828,
+            "support": 4989.0
+          },
+          "weighted avg": {
+            "precision": 0.9670412937992755,
+            "recall": 0.9669272399278412,
+            "f1-score": 0.9669547994677586,
+            "support": 4989.0
+          }
+        },
+        "brier": 0.05445591614199287,
+        "ece": 0.020681525534043222,
+        "calibration_bins": [
+          {
+            "lower": 0.3,
+            "count": 9,
+            "confidence": 0.36671953601296836,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "lower": 0.4,
+            "count": 29,
+            "confidence": 0.462648585241071,
+            "accuracy": 0.4827586206896552
+          },
+          {
+            "lower": 0.5,
+            "count": 91,
+            "confidence": 0.5487973527112995,
+            "accuracy": 0.6263736263736264
+          },
+          {
+            "lower": 0.6,
+            "count": 110,
+            "confidence": 0.6520877638171539,
+            "accuracy": 0.7181818181818181
+          },
+          {
+            "lower": 0.7,
+            "count": 161,
+            "confidence": 0.75368161490704,
+            "accuracy": 0.7763975155279503
+          },
+          {
+            "lower": 0.8,
+            "count": 287,
+            "confidence": 0.8590076334901379,
+            "accuracy": 0.926829268292683
+          },
+          {
+            "lower": 0.9,
+            "count": 4302,
+            "confidence": 0.9798129688597085,
+            "accuracy": 0.99488609948861
+          }
+        ],
+        "coverage_at_065": 0.9645219482862297,
+        "accuracy_at_065": 0.9798420615128844
+      },
+      "correct": 4824,
+      "errors": 165,
+      "recorded_metrics_match": true,
+      "saved_predictions_match": true,
+      "verification_seconds": 0.437,
+      "prediction_file_sha256": "2d2d2e9e11296307d590dd206e22c18d7fadb2fcb217e87ca4734d8575778332"
+    },
+    "svm": {
+      "test": {
+        "accuracy": 0.9693325315694528,
+        "macro_f1": 0.9693505737106737,
+        "confusion_matrix": [
+          [
+            977,
+            5,
+            3,
+            2,
+            13
+          ],
+          [
+            2,
+            962,
+            8,
+            12,
+            16
+          ],
+          [
+            3,
+            5,
+            975,
+            4,
+            10
+          ],
+          [
+            6,
+            12,
+            9,
+            960,
+            5
+          ],
+          [
+            18,
+            14,
+            5,
+            1,
+            962
+          ]
+        ],
+        "per_class": {
+          "体育": {
+            "precision": 0.9711729622266402,
+            "recall": 0.977,
+            "f1-score": 0.9740777666999003,
+            "support": 1000.0
+          },
+          "科技": {
+            "precision": 0.9639278557114228,
+            "recall": 0.962,
+            "f1-score": 0.9629629629629629,
+            "support": 1000.0
+          },
+          "教育": {
+            "precision": 0.975,
+            "recall": 0.9779338014042126,
+            "f1-score": 0.9764646970455684,
+            "support": 997.0
+          },
+          "财经": {
+            "precision": 0.9805924412665986,
+            "recall": 0.967741935483871,
+            "f1-score": 0.974124809741248,
+            "support": 992.0
+          },
+          "娱乐": {
+            "precision": 0.9562624254473161,
+            "recall": 0.962,
+            "f1-score": 0.959122632103689,
+            "support": 1000.0
+          },
+          "accuracy": 0.9693325315694528,
+          "macro avg": {
+            "precision": 0.9693911369303955,
+            "recall": 0.9693351473776166,
+            "f1-score": 0.9693505737106737,
+            "support": 4989.0
+          },
+          "weighted avg": {
+            "precision": 0.969369802590067,
+            "recall": 0.9693325315694528,
+            "f1-score": 0.9693386402053121,
+            "support": 4989.0
+          }
+        },
+        "brier": 0.0479338586320888,
+        "ece": 0.011668890437842307,
+        "calibration_bins": [
+          {
+            "lower": 0.3,
+            "count": 5,
+            "confidence": 0.37016520100866057,
+            "accuracy": 0.0
+          },
+          {
+            "lower": 0.4,
+            "count": 26,
+            "confidence": 0.4559189893834904,
+            "accuracy": 0.38461538461538464
+          },
+          {
+            "lower": 0.5,
+            "count": 73,
+            "confidence": 0.5495963743692794,
+            "accuracy": 0.547945205479452
+          },
+          {
+            "lower": 0.6,
+            "count": 90,
+            "confidence": 0.6499290153510942,
+            "accuracy": 0.6777777777777778
+          },
+          {
+            "lower": 0.7,
+            "count": 100,
+            "confidence": 0.753652686727913,
+            "accuracy": 0.79
+          },
+          {
+            "lower": 0.8,
+            "count": 226,
+            "confidence": 0.8571578692067003,
+            "accuracy": 0.9203539823008849
+          },
+          {
+            "lower": 0.9,
+            "count": 4469,
+            "confidence": 0.9854626543227729,
+            "accuracy": 0.9930633251286641
+          }
+        ],
+        "coverage_at_065": 0.9699338544798557,
+        "accuracy_at_065": 0.983054350072329
+      },
+      "correct": 4836,
+      "errors": 153,
+      "recorded_metrics_match": true,
+      "saved_predictions_match": true,
+      "verification_seconds": 0.477,
+      "prediction_file_sha256": "f692d268eebbc7b9efb5559990f18979a73cdc2f5199c797308b251f638a2bfd"
+    }
+  }
+}

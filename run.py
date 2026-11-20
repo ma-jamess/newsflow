@@ -16,7 +16,7 @@ DEFAULT_PORT = 8510
 
 
 def log(message):
-    print('[Codex 毕设] ' + message, flush=True)
+    print('[NewsFlow] ' + message, flush=True)
 
 
 def choose_environment(no_install):

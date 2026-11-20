@@ -131,6 +131,8 @@ def public_payload(snapshot, repository, *, deployment='pages', interval_seconds
 
 
 def write_site(output, snapshot, report, repository, *, deployment='pages', interval_seconds=300):
+    from newsroom.model_reports import MODELS, model_report
+
     payload = public_payload(snapshot, repository, deployment=deployment, interval_seconds=interval_seconds)
     output = Path(output)
     output.mkdir(parents=True, exist_ok=True)
@@ -157,4 +159,6 @@ def write_site(output, snapshot, report, repository, *, deployment='pages', inte
     (output / '.nojekyll').write_text('', encoding='utf-8')
     write_json(output / 'data/news.json', payload)
     write_json(output / 'data/report.json', report)
+    for kind in MODELS:
+        (output / f'data/model-{kind}-report.md').write_text(model_report(report, kind), encoding='utf-8')
     return output
